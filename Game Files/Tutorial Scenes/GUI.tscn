@@ -34,7 +34,7 @@ margin_bottom = 97.0
 
 [node name="Counters" type="HBoxContainer" parent="HBoxContainer"]
 margin_left = 1102.0
-margin_top = 20.0
+margin_top = 28.0
 margin_right = 1306.0
 margin_bottom = 68.0
 size_flags_vertical = 4
@@ -42,9 +42,9 @@ alignment = 2
 
 [node name="BombCounter" parent="HBoxContainer/Counters" instance=ExtResource( 1 )]
 margin_right = 100.0
-margin_bottom = 48.0
+margin_bottom = 40.0
 
 [node name="EmeraldCounter" parent="HBoxContainer/Counters" instance=ExtResource( 2 )]
 margin_left = 104.0
 margin_right = 204.0
-margin_bottom = 48.0
+margin_bottom = 40.0
