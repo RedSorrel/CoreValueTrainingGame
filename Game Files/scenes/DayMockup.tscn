@@ -1,0 +1,278 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/font/Comfortaa-Bold.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 1 )
+
+[node name="DayMockup" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="ColorRect" parent="."]
+margin_right = 1366.0
+margin_bottom = 768.0
+color = Color( 0.478431, 0.745098, 0.956863, 1 )
+
+[node name="Background" type="ColorRect" parent="Container"]
+margin_right = 1366.0
+margin_bottom = 728.0
+size_flags_horizontal = 2
+color = Color( 0.556863, 0.701961, 1, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="grass" type="ColorRect" parent="Container/Background"]
+margin_top = 326.0
+margin_right = 1366.0
+margin_bottom = 728.0
+size_flags_horizontal = 2
+color = Color( 0.552941, 0.815686, 0.6, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GUI" type="ColorRect" parent="Container"]
+margin_right = 1366.0
+margin_bottom = 728.0
+color = Color( 0.537255, 0.0980392, 0.356863, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Money Bar" type="ColorRect" parent="Container/GUI"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -882.0
+margin_bottom = 67.0
+color = Color( 0.537255, 0.0980392, 0.356863, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Container/GUI/Money Bar"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -360.907
+margin_top = 1.06586
+margin_right = -220.907
+margin_bottom = 73.0659
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "$100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Queue Bar" type="ColorRect" parent="Container/GUI"]
+anchor_bottom = 1.0
+color = Color( 0.32549, 0.321569, 0.321569, 0.572549 )
+
+[node name="Queue Slot BG" type="ColorRect" parent="Container/GUI/Queue Bar"]
+margin_left = 4.0
+margin_top = 142.449
+margin_right = 108.0
+margin_bottom = 229.449
+color = Color( 0.313726, 0.313726, 0.313726, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Queue Num" type="Label" parent="Container/GUI/Queue Bar/Queue Slot BG"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -12.5
+margin_top = -36.0
+margin_right = 12.5
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Order" type="ColorRect" parent="Container/GUI/Queue Bar/Queue Slot BG"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -35.5
+margin_right = 179.0
+margin_bottom = 36.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Queue Slot BG2" type="ColorRect" parent="Container/GUI/Queue Bar"]
+margin_left = 4.0
+margin_top = 231.98
+margin_right = 108.0
+margin_bottom = 318.98
+color = Color( 0.313726, 0.313726, 0.313726, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Queue Num" type="Label" parent="Container/GUI/Queue Bar/Queue Slot BG2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -12.0
+margin_top = -35.5
+margin_right = 26.0
+margin_bottom = 36.5
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Order" type="ColorRect" parent="Container/GUI/Queue Bar/Queue Slot BG2"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -35.5
+margin_right = 179.0
+margin_bottom = 36.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Queue Slot BG3" type="ColorRect" parent="Container/GUI/Queue Bar"]
+margin_left = 4.0
+margin_top = 327.907
+margin_right = 108.0
+margin_bottom = 414.907
+color = Color( 0.313726, 0.313726, 0.313726, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Queue Num" type="Label" parent="Container/GUI/Queue Bar/Queue Slot BG3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -12.0
+margin_top = -35.5
+margin_right = 26.0
+margin_bottom = 36.5
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Customer" type="ColorRect" parent="Container"]
+margin_left = 413.011
+margin_top = 357.747
+margin_right = 563.011
+margin_bottom = 599.747
+color = Color( 0.721569, 0.192157, 0.65098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Customer2" type="ColorRect" parent="Container"]
+margin_left = 705.435
+margin_top = 357.747
+margin_right = 855.435
+margin_bottom = 599.747
+color = Color( 0.537255, 0.0980392, 0.356863, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Table" type="ColorRect" parent="Container"]
+margin_top = 518.0
+margin_right = 1366.0
+margin_bottom = 768.0
+color = Color( 0.647059, 0.647059, 0.647059, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Table_ColorTop" type="ColorRect" parent="Container/Table"]
+margin_right = 1366.0
+margin_bottom = 110.0
+size_flags_horizontal = 2
+color = Color( 0.87451, 0.87451, 0.87451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lemonade Pitcher" type="ColorRect" parent="Container/Table"]
+margin_left = 1145.6
+margin_top = -138.721
+margin_right = 1295.6
+margin_bottom = 111.279
+size_flags_horizontal = 2
+color = Color( 0.654902, 0.658824, 0.662745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lemonade" type="ColorRect" parent="Container/Table/Lemonade Pitcher"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -75.0
+margin_top = -150.0
+margin_right = 75.0
+size_flags_horizontal = 2
+color = Color( 0.968627, 0.921569, 0.537255, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lemonade Nozzel" type="ColorRect" parent="Container/Table/Lemonade Pitcher"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -25.0
+margin_top = -70.9561
+margin_right = 25.0
+margin_bottom = 9.04395
+size_flags_horizontal = 2
+color = Color( 0.458824, 0.458824, 0.458824, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lemon Bowl" type="ColorRect" parent="Container/Table"]
+margin_left = 874.103
+margin_top = -36.0147
+margin_right = 1090.1
+margin_bottom = 77.9853
+size_flags_horizontal = 2
+color = Color( 0.196078, 0.376471, 0.752941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sugar Bowl" type="ColorRect" parent="Container/Table"]
+margin_left = 687.193
+margin_top = 24.2789
+margin_right = 777.193
+margin_bottom = 74.2789
+size_flags_horizontal = 2
+color = Color( 0.196078, 0.376471, 0.752941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
