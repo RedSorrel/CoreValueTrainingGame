@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/key_and_command_mockup.tscn" type="PackedScene" id=1]
+
+[node name="Upgrade_Item" instance=ExtResource( 1 )]
+margin_right = 178.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" parent="." index="0"]
+margin_right = 87.0
+
+[node name="HBoxContainer" parent="HBoxContainer2" index="0"]
+margin_right = 87.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+
+[node name="Key" parent="HBoxContainer2/HBoxContainer" index="0"]
+margin_left = -28.5
+margin_right = 28.5
+text = "Img"
+
+[node name="Key Action Label" parent="." index="1"]
+margin_left = 91.0
+margin_right = 178.0
+size_flags_horizontal = 3
+text = "Item"

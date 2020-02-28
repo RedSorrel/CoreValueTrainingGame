@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/font/Comfortaa-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scenes/key_and_command_mockup.tscn" type="PackedScene" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -404,7 +405,7 @@ __meta__ = {
 }
 
 [node name="Key Color" type="ColorRect" parent="Lemonade Minigame Container/Popup/Command List/GridContainer"]
-margin_right = 50.0
+margin_right = 213.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 color = Color( 0.984314, 0.968627, 0.968627, 1 )
@@ -442,8 +443,8 @@ __meta__ = {
 }
 
 [node name="Key Color2" type="ColorRect" parent="Lemonade Minigame Container/Popup/Command List/GridContainer"]
-margin_left = 210.0
-margin_right = 260.0
+margin_left = 373.0
+margin_right = 423.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 color = Color( 0.984314, 0.968627, 0.968627, 1 )
@@ -480,44 +481,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Key Color3" type="ColorRect" parent="Lemonade Minigame Container/Popup/Command List/GridContainer"]
+[node name="Key Color3" parent="Lemonade Minigame Container/Popup/Command List/GridContainer" instance=ExtResource( 2 )]
 margin_top = 107.0
-margin_right = 50.0
+margin_right = 213.0
 margin_bottom = 157.0
-rect_min_size = Vector2( 50, 50 )
-color = Color( 0.984314, 0.968627, 0.968627, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Key Label" type="Label" parent="Lemonade Minigame Container/Popup/Command List/GridContainer/Key Color3"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -10.5
-margin_top = -17.5
-margin_right = 10.5
-margin_bottom = 17.5
-custom_fonts/font = SubResource( 2 )
-text = "C"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Key Action Label" type="Label" parent="Lemonade Minigame Container/Popup/Command List/GridContainer/Key Color3"]
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 13.0
-margin_top = 7.5
-margin_right = 66.0
-margin_bottom = -7.5
-custom_fonts/font = SubResource( 2 )
-text = "SEND ORDER"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Order Recipe Background" type="ColorRect" parent="Lemonade Minigame Container/Popup"]
 margin_left = -19.7756
@@ -535,3 +502,143 @@ margin_left = 10.0
 margin_bottom = 32.0
 custom_fonts/font = SubResource( 3 )
 text = "Lemonade with ice and two sugars, please!"
+
+[node name="Lemon Squeeze minigame" type="Control" parent="."]
+visible = false
+margin_right = 1366.0
+margin_bottom = 768.0
+
+[node name="lemsqueez popup" type="Popup" parent="Lemon Squeeze minigame"]
+visible = true
+margin_left = 335.0
+margin_top = 26.0
+margin_right = 1316.0
+margin_bottom = 709.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="textbox" type="ColorRect" parent="Lemon Squeeze minigame/lemsqueez popup"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -11.0
+margin_top = -109.0
+margin_right = -470.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Key Action Label2" type="Label" parent="Lemon Squeeze minigame/lemsqueez popup/textbox"]
+margin_left = 15.0
+margin_right = 228.0
+margin_bottom = 94.0
+custom_fonts/font = SubResource( 2 )
+text = "Low on lemonade, time to
+mix some up!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="platform" type="ColorRect" parent="Lemon Squeeze minigame/lemsqueez popup"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -4.0
+margin_top = 134.5
+margin_right = 596.0
+margin_bottom = 232.5
+color = Color( 0.152941, 0.129412, 0.129412, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Juicer" type="ColorRect" parent="Lemon Squeeze minigame/lemsqueez popup"]
+margin_left = 54.4913
+margin_top = 335.893
+margin_right = 490.491
+margin_bottom = 439.893
+color = Color( 0.25098, 0.34902, 0.878431, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Juicer" type="ColorRect" parent="Lemon Squeeze minigame/lemsqueez popup/Juicer"]
+margin_left = 167.182
+margin_top = -56.8042
+margin_right = 275.182
+margin_bottom = 47.1958
+color = Color( 0.25098, 0.34902, 0.878431, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lemon" type="ColorRect" parent="Lemon Squeeze minigame/lemsqueez popup"]
+margin_left = 56.721
+margin_top = 115.689
+margin_right = 492.721
+margin_bottom = 262.689
+color = Color( 0.968627, 0.929412, 0.352941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Command List" type="ColorRect" parent="Lemon Squeeze minigame/lemsqueez popup"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -470.0
+margin_top = -2.0
+margin_right = 51.0
+margin_bottom = -2.0
+color = Color( 0.227451, 0.227451, 0.227451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="Lemon Squeeze minigame/lemsqueez popup/Command List"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/vseparation = 57
+custom_constants/hseparation = 160
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Key Color" type="ColorRect" parent="Lemon Squeeze minigame/lemsqueez popup/Command List/GridContainer"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+color = Color( 0.984314, 0.968627, 0.968627, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Key Label" type="Label" parent="Lemon Squeeze minigame/lemsqueez popup/Command List/GridContainer/Key Color"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -7.0
+margin_top = -17.5
+margin_right = 7.0
+margin_bottom = 17.5
+custom_fonts/font = SubResource( 2 )
+text = "↓"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Key Action Label" type="Label" parent="Lemon Squeeze minigame/lemsqueez popup/Command List/GridContainer/Key Color"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 13.0
+margin_top = 7.5
+margin_right = 66.0
+margin_bottom = -7.5
+custom_fonts/font = SubResource( 2 )
+text = "JUICE LEMON"
+__meta__ = {
+"_edit_use_anchors_": false
+}
