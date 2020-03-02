@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/font/Comfortaa-Bold.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://scenes/key_and_command_mockup.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/KeyAndCommandTipMockup.tscn" type="PackedScene" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -293,7 +293,6 @@ margin_right = 1366.0
 margin_bottom = 768.0
 
 [node name="Popup" type="Popup" parent="Lemonade Minigame Container"]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

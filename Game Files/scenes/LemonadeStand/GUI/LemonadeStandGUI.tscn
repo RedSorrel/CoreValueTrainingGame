@@ -1,0 +1,186 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/font/Montserrat-Bold.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 1 )
+
+[node name="LemonadeStandGUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="QueueContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 681.0
+margin_bottom = 768.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 19
+alignment = 1
+
+[node name="Order" type="HBoxContainer" parent="HBoxContainer/QueueContainer"]
+margin_top = 235.0
+margin_right = 681.0
+margin_bottom = 315.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NumberBox" type="ColorRect" parent="HBoxContainer/QueueContainer/Order"]
+margin_right = 180.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 180, 80 )
+color = Color( 0.196078, 0.196078, 0.196078, 1 )
+
+[node name="Label" type="Label" parent="HBoxContainer/QueueContainer/Order/NumberBox"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -9.5
+margin_top = -30.0
+margin_right = 9.5
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 1 )
+text = "1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/QueueContainer/Order"]
+margin_left = 184.0
+margin_top = 10.0
+margin_right = 344.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 160, 60 )
+size_flags_vertical = 4
+
+[node name="Order2" type="HBoxContainer" parent="HBoxContainer/QueueContainer"]
+margin_top = 334.0
+margin_right = 681.0
+margin_bottom = 414.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NumberBox" type="ColorRect" parent="HBoxContainer/QueueContainer/Order2"]
+margin_right = 180.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 180, 80 )
+color = Color( 0.196078, 0.196078, 0.196078, 1 )
+
+[node name="Label" type="Label" parent="HBoxContainer/QueueContainer/Order2/NumberBox"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -9.5
+margin_top = -30.0
+margin_right = 9.5
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 1 )
+text = "2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/QueueContainer/Order2"]
+margin_left = 184.0
+margin_top = 10.0
+margin_right = 344.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 160, 60 )
+size_flags_vertical = 4
+
+[node name="Order3" type="HBoxContainer" parent="HBoxContainer/QueueContainer"]
+margin_top = 433.0
+margin_right = 681.0
+margin_bottom = 513.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NumberBox" type="ColorRect" parent="HBoxContainer/QueueContainer/Order3"]
+margin_right = 180.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 180, 80 )
+color = Color( 0.196078, 0.196078, 0.196078, 1 )
+
+[node name="Label" type="Label" parent="HBoxContainer/QueueContainer/Order3/NumberBox"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -9.00001
+margin_top = -30.0
+margin_right = 19.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 1 )
+text = "3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/QueueContainer/Order3"]
+margin_left = 184.0
+margin_top = 10.0
+margin_right = 344.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 160, 60 )
+size_flags_vertical = 4
+
+[node name="TempOrderSelector" type="Control" parent="HBoxContainer/QueueContainer"]
+margin_top = 532.0
+margin_right = 681.0
+margin_bottom = 532.0
+
+[node name="StatsContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 685.0
+margin_right = 1366.0
+margin_bottom = 768.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/StatsContainer"]
+margin_right = 681.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+color = Color( 0.196078, 0.196078, 0.196078, 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/StatsContainer/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -20.0
+custom_constants/separation = 87
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoneyLabel" type="Label" parent="HBoxContainer/StatsContainer/ColorRect/HBoxContainer"]
+margin_left = 264.0
+margin_top = 14.0
+margin_right = 418.0
+margin_bottom = 45.0
+custom_fonts/font = SubResource( 2 )
+text = "Money: $100"
+
+[node name="TimeLabel" type="Label" parent="HBoxContainer/StatsContainer/ColorRect/HBoxContainer"]
+margin_left = 505.0
+margin_top = 14.0
+margin_right = 661.0
+margin_bottom = 45.0
+custom_fonts/font = SubResource( 2 )
+text = "Time: 10 min"

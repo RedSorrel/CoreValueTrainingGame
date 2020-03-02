@@ -1,0 +1,94 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/font/Montserrat-Bold.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 1 )
+
+[node name="MiniGame" type="Popup"]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = 50.0
+margin_right = -100.0
+margin_bottom = -50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ImageContainer" type="CenterContainer" parent="HBoxContainer"]
+margin_right = 581.0
+margin_bottom = 668.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/ImageContainer"]
+margin_left = 40.0
+margin_top = 34.0
+margin_right = 540.0
+margin_bottom = 634.0
+rect_min_size = Vector2( 500, 600 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="HBoxContainer/ImageContainer/ColorRect"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -37.5
+margin_bottom = 37.5
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Lemonade Img"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CommandContainer" type="Control" parent="HBoxContainer"]
+margin_left = 585.0
+margin_right = 1166.0
+margin_bottom = 668.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Background" type="ColorRect" parent="HBoxContainer/CommandContainer"]
+margin_right = 581.0
+margin_bottom = 668.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.235294, 0.235294, 0.235294, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/CommandContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBoxContainer/CommandContainer/VBoxContainer"]
+margin_right = 581.0
+margin_bottom = 75.0
+custom_fonts/font = SubResource( 1 )
+text = "Commands"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/CommandContainer/VBoxContainer"]
+margin_top = 79.0
+margin_right = 581.0
+margin_bottom = 79.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
