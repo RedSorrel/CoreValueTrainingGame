@@ -1,0 +1,747 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/chararacters/buddy_green.png" type="Texture" id=1]
+
+[node name="DayStartOnePage" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="."]
+margin_right = 1366.0
+margin_bottom = 768.0
+tab_align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Overview" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Overview"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="TabContainer/Overview/HBoxContainer"]
+margin_right = 1358.0
+margin_bottom = 732.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.0156863, 0.0156863, 0.0156863, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lemonade" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Supplies" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Stand" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Upgrades" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Metrics" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+margin_right = 1366.0
+margin_bottom = 768.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 1366.0
+margin_bottom = 285.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Mid" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 289.0
+margin_right = 1366.0
+margin_bottom = 479.0
+
+[node name="Lemonade" type="HBoxContainer" parent="VBoxContainer/Mid"]
+margin_right = 1366.0
+margin_bottom = 106.0
+size_flags_horizontal = 3
+
+[node name="LemonadePitcher" type="TextureRect" parent="VBoxContainer/Mid/Lemonade"]
+margin_right = 681.0
+margin_bottom = 106.0
+size_flags_horizontal = 3
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 7
+
+[node name="LemonadeIngredients" type="VBoxContainer" parent="VBoxContainer/Mid/Lemonade"]
+margin_left = 685.0
+margin_right = 1366.0
+margin_bottom = 106.0
+size_flags_horizontal = 3
+
+[node name="IngredientRatio" type="HBoxContainer" parent="VBoxContainer/Mid/Lemonade/LemonadeIngredients"]
+margin_right = 681.0
+margin_bottom = 34.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Mid/Lemonade/LemonadeIngredients/IngredientRatio"]
+margin_right = 224.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/Mid/Lemonade/LemonadeIngredients/IngredientRatio/VBoxContainer"]
+margin_right = 224.0
+margin_bottom = 14.0
+text = "Water"
+align = 1
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Mid/Lemonade/LemonadeIngredients/IngredientRatio/VBoxContainer"]
+margin_top = 18.0
+margin_right = 224.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/Mid/Lemonade/LemonadeIngredients/IngredientRatio"]
+margin_left = 228.0
+margin_right = 452.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/Mid/Lemonade/LemonadeIngredients/IngredientRatio/VBoxContainer2"]
+margin_right = 224.0
+margin_bottom = 14.0
+text = "Sugar"
+align = 1
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Mid/Lemonade/LemonadeIngredients/IngredientRatio/VBoxContainer2"]
+margin_top = 18.0
+margin_right = 224.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/Mid/Lemonade/LemonadeIngredients/IngredientRatio"]
+margin_left = 456.0
+margin_right = 681.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/Mid/Lemonade/LemonadeIngredients/IngredientRatio/VBoxContainer3"]
+margin_right = 225.0
+margin_bottom = 14.0
+text = "Lemon"
+align = 1
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Mid/Lemonade/LemonadeIngredients/IngredientRatio/VBoxContainer3"]
+margin_top = 18.0
+margin_right = 225.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+
+[node name="IngredientSource" type="GridContainer" parent="VBoxContainer/Mid/Lemonade/LemonadeIngredients"]
+margin_top = 38.0
+margin_right = 681.0
+margin_bottom = 106.0
+size_flags_horizontal = 3
+custom_constants/hseparation = 13
+
+[node name="Water" type="HBoxContainer" parent="VBoxContainer/Mid/Lemonade/LemonadeIngredients/IngredientSource"]
+margin_right = 681.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/Mid/Lemonade/LemonadeIngredients/IngredientSource/Water"]
+margin_right = 224.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Water Source"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/Mid/Lemonade/LemonadeIngredients/IngredientSource/Water"]
+margin_left = 228.0
+margin_right = 452.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Buffs" type="Label" parent="VBoxContainer/Mid/Lemonade/LemonadeIngredients/IngredientSource/Water"]
+margin_left = 456.0
+margin_right = 681.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "+1 / -1"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Water2" type="HBoxContainer" parent="VBoxContainer/Mid/Lemonade/LemonadeIngredients/IngredientSource"]
+margin_top = 24.0
+margin_right = 681.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/Mid/Lemonade/LemonadeIngredients/IngredientSource/Water2"]
+margin_right = 224.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Water Source"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/Mid/Lemonade/LemonadeIngredients/IngredientSource/Water2"]
+margin_left = 228.0
+margin_right = 452.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Buffs" type="Label" parent="VBoxContainer/Mid/Lemonade/LemonadeIngredients/IngredientSource/Water2"]
+margin_left = 456.0
+margin_right = 681.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "+1 / -1"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Water3" type="HBoxContainer" parent="VBoxContainer/Mid/Lemonade/LemonadeIngredients/IngredientSource"]
+margin_top = 48.0
+margin_right = 681.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/Mid/Lemonade/LemonadeIngredients/IngredientSource/Water3"]
+margin_right = 224.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Water Source"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/Mid/Lemonade/LemonadeIngredients/IngredientSource/Water3"]
+margin_left = 228.0
+margin_right = 452.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Buffs" type="Label" parent="VBoxContainer/Mid/Lemonade/LemonadeIngredients/IngredientSource/Water3"]
+margin_left = 456.0
+margin_right = 681.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "+1 / -1"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Supplies" type="VBoxContainer" parent="VBoxContainer/Mid"]
+margin_top = 110.0
+margin_right = 1366.0
+margin_bottom = 190.0
+
+[node name="Item" type="HBoxContainer" parent="VBoxContainer/Mid/Supplies"]
+margin_right = 1366.0
+margin_bottom = 24.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Mid/Supplies/Item"]
+margin_top = 5.0
+margin_right = 31.0
+margin_bottom = 19.0
+text = "Cups"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/Mid/Supplies/Item"]
+margin_left = 35.0
+margin_right = 109.0
+margin_bottom = 24.0
+
+[node name="Item2" type="HBoxContainer" parent="VBoxContainer/Mid/Supplies"]
+margin_top = 28.0
+margin_right = 1366.0
+margin_bottom = 52.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Mid/Supplies/Item2"]
+margin_top = 5.0
+margin_right = 31.0
+margin_bottom = 19.0
+text = "Cups"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/Mid/Supplies/Item2"]
+margin_left = 35.0
+margin_right = 109.0
+margin_bottom = 24.0
+
+[node name="Item3" type="HBoxContainer" parent="VBoxContainer/Mid/Supplies"]
+margin_top = 56.0
+margin_right = 1366.0
+margin_bottom = 80.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Mid/Supplies/Item3"]
+margin_top = 5.0
+margin_right = 31.0
+margin_bottom = 19.0
+text = "Cups"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/Mid/Supplies/Item3"]
+margin_left = 35.0
+margin_right = 109.0
+margin_bottom = 24.0
+
+[node name="Footer" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 483.0
+margin_right = 1366.0
+margin_bottom = 768.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Footer"]
+margin_right = 1366.0
+margin_bottom = 92.0
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Footer"]
+margin_top = 96.0
+margin_right = 1366.0
+margin_bottom = 188.0
+size_flags_vertical = 3
+
+[node name="Button Container" type="HBoxContainer" parent="VBoxContainer/Footer"]
+margin_top = 192.0
+margin_right = 1366.0
+margin_bottom = 285.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="VBoxContainer/Footer/Button Container"]
+margin_right = 1366.0
+margin_bottom = 93.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="VBoxContainer/Footer/Button Container/Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -64.0
+margin_top = -79.0
+margin_right = 64.0
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoneyBuffBarGUI" type="Control" parent="."]
+visible = false
+margin_right = 1366.0
+margin_bottom = 768.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MoneyBuffBarGUI"]
+anchor_right = 1.0
+margin_bottom = 80.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="MoneyBuffBarGUI/VBoxContainer"]
+margin_right = 1358.0
+margin_bottom = 80.0
+size_flags_vertical = 3
+
+[node name="TabsOnSide" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_right = -40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Main" type="VBoxContainer" parent="TabsOnSide"]
+margin_right = 1286.0
+margin_bottom = 768.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="HBoxContainer" parent="TabsOnSide/Main"]
+margin_right = 1286.0
+margin_bottom = 100.0
+
+[node name="ColorRect" type="ColorRect" parent="TabsOnSide/Main/Header"]
+margin_right = 1286.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.176471, 0.176471, 0.176471, 1 )
+
+[node name="Mid" type="HBoxContainer" parent="TabsOnSide/Main"]
+margin_top = 104.0
+margin_right = 1286.0
+margin_bottom = 768.0
+size_flags_vertical = 3
+
+[node name="Content" type="Control" parent="TabsOnSide/Main/Mid"]
+margin_right = 1203.0
+margin_bottom = 664.0
+size_flags_horizontal = 3
+
+[node name="Background" type="ColorRect" parent="TabsOnSide/Main/Mid/Content"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+color = Color( 0.572549, 0.54902, 0.635294, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LemonadeContainer" type="HBoxContainer" parent="TabsOnSide/Main/Mid/Content"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PitcherImg" type="ColorRect" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer"]
+margin_right = 599.0
+margin_bottom = 664.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/PitcherImg"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -207.5
+margin_top = -208.5
+margin_right = 207.5
+margin_bottom = 208.5
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "IMG"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SettingsContainer" type="VBoxContainer" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer"]
+margin_left = 603.0
+margin_right = 1203.0
+margin_bottom = 664.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer"]
+margin_right = 600.0
+margin_bottom = 14.0
+text = "Lemonade Mix Ratio"
+align = 1
+
+[node name="LemonadeIngredients2" type="VBoxContainer" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer"]
+margin_top = 18.0
+margin_right = 600.0
+margin_bottom = 124.0
+size_flags_horizontal = 3
+
+[node name="IngredientRatio" type="HBoxContainer" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2"]
+margin_right = 600.0
+margin_bottom = 34.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientRatio"]
+margin_right = 197.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientRatio/VBoxContainer"]
+margin_right = 197.0
+margin_bottom = 14.0
+text = "Water"
+align = 1
+
+[node name="HSlider" type="HSlider" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientRatio/VBoxContainer"]
+margin_top = 18.0
+margin_right = 197.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientRatio"]
+margin_left = 201.0
+margin_right = 398.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientRatio/VBoxContainer2"]
+margin_right = 197.0
+margin_bottom = 14.0
+text = "Sugar"
+align = 1
+
+[node name="HSlider" type="HSlider" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientRatio/VBoxContainer2"]
+margin_top = 18.0
+margin_right = 197.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientRatio"]
+margin_left = 402.0
+margin_right = 600.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientRatio/VBoxContainer3"]
+margin_right = 198.0
+margin_bottom = 14.0
+text = "Lemon"
+align = 1
+
+[node name="HSlider" type="HSlider" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientRatio/VBoxContainer3"]
+margin_top = 18.0
+margin_right = 198.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+
+[node name="IngredientSource" type="GridContainer" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2"]
+margin_top = 38.0
+margin_right = 600.0
+margin_bottom = 106.0
+size_flags_horizontal = 3
+custom_constants/hseparation = 13
+
+[node name="Water" type="HBoxContainer" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientSource"]
+margin_right = 600.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientSource/Water"]
+margin_right = 197.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Water Source"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientSource/Water"]
+margin_left = 201.0
+margin_right = 398.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Buffs" type="Label" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientSource/Water"]
+margin_left = 402.0
+margin_right = 600.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "+1 / -1"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Water2" type="HBoxContainer" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientSource"]
+margin_top = 24.0
+margin_right = 600.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientSource/Water2"]
+margin_right = 197.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Water Source"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientSource/Water2"]
+margin_left = 201.0
+margin_right = 398.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Buffs" type="Label" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientSource/Water2"]
+margin_left = 402.0
+margin_right = 600.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "+1 / -1"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Water3" type="HBoxContainer" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientSource"]
+margin_top = 48.0
+margin_right = 600.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientSource/Water3"]
+margin_right = 197.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Water Source"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientSource/Water3"]
+margin_left = 201.0
+margin_right = 398.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Buffs" type="Label" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientSource/Water3"]
+margin_left = 402.0
+margin_right = 600.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "+1 / -1"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabButtonContainer" type="VBoxContainer" parent="TabsOnSide/Main/Mid"]
+margin_left = 1207.0
+margin_right = 1286.0
+margin_bottom = 664.0
+size_flags_horizontal = 9
+size_flags_vertical = 3
+
+[node name="Overview" type="Button" parent="TabsOnSide/Main/Mid/TabButtonContainer"]
+margin_right = 79.0
+margin_bottom = 107.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+text = "Overview"
+
+[node name="Lemonade" type="Button" parent="TabsOnSide/Main/Mid/TabButtonContainer"]
+margin_top = 111.0
+margin_right = 79.0
+margin_bottom = 218.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+pressed = true
+text = "Lemonade"
+
+[node name="Button3" type="Button" parent="TabsOnSide/Main/Mid/TabButtonContainer"]
+margin_top = 222.0
+margin_right = 79.0
+margin_bottom = 329.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Button"
+
+[node name="Button4" type="Button" parent="TabsOnSide/Main/Mid/TabButtonContainer"]
+margin_top = 333.0
+margin_right = 79.0
+margin_bottom = 440.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Button"
+
+[node name="Button5" type="Button" parent="TabsOnSide/Main/Mid/TabButtonContainer"]
+margin_top = 444.0
+margin_right = 79.0
+margin_bottom = 551.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Button"
+
+[node name="Button6" type="Button" parent="TabsOnSide/Main/Mid/TabButtonContainer"]
+margin_top = 555.0
+margin_right = 79.0
+margin_bottom = 664.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Button"
