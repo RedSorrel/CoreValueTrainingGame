@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/First Day/RatioContainerWater.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/First Day/RatioContainerSugar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/First Day/RatioIngredientLemon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/First Day/SourceWater.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/First Day/SourceSugar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/First Day/SourceLemon.tscn" type="PackedScene" id=6]
+
+[node name="LemonadeContainer" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PitcherImg" type="ColorRect" parent="."]
+margin_right = 681.0
+margin_bottom = 768.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="PitcherImg"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -207.5
+margin_top = -208.5
+margin_right = 207.5
+margin_bottom = 208.5
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "IMG"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SettingsContainer" type="VBoxContainer" parent="."]
+margin_left = 685.0
+margin_right = 1366.0
+margin_bottom = 768.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="SettingsContainer"]
+margin_right = 681.0
+margin_bottom = 14.0
+text = "Lemonade Mix Ratio"
+align = 1
+
+[node name="LemonadeIngredients" type="VBoxContainer" parent="SettingsContainer"]
+margin_top = 18.0
+margin_right = 681.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+
+[node name="IngredientRatio" type="HBoxContainer" parent="SettingsContainer/LemonadeIngredients"]
+margin_right = 681.0
+margin_bottom = 38.0
+
+[node name="WaterRatioContainer" parent="SettingsContainer/LemonadeIngredients/IngredientRatio" instance=ExtResource( 1 )]
+
+[node name="RatioContainerSugar" parent="SettingsContainer/LemonadeIngredients/IngredientRatio" instance=ExtResource( 2 )]
+margin_left = 228.0
+margin_right = 452.0
+
+[node name="RatioIngredientLemon" parent="SettingsContainer/LemonadeIngredients/IngredientRatio" instance=ExtResource( 3 )]
+margin_left = 456.0
+margin_right = 681.0
+
+[node name="IngredientSource" type="GridContainer" parent="SettingsContainer/LemonadeIngredients"]
+margin_top = 42.0
+margin_right = 681.0
+margin_bottom = 110.0
+size_flags_horizontal = 3
+custom_constants/hseparation = 13
+
+[node name="SourceWater" parent="SettingsContainer/LemonadeIngredients/IngredientSource" instance=ExtResource( 4 )]
+
+[node name="SourceSugar" parent="SettingsContainer/LemonadeIngredients/IngredientSource" instance=ExtResource( 5 )]
+margin_top = 24.0
+margin_bottom = 44.0
+
+[node name="SourceLemon" parent="SettingsContainer/LemonadeIngredients/IngredientSource" instance=ExtResource( 6 )]
+margin_top = 48.0
+margin_bottom = 68.0

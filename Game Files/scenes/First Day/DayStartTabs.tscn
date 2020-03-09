@@ -1,15 +1,20 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/chararacters/buddy_green.png" type="Texture" id=1]
+[ext_resource path="res://scenes/First Day/DayOverviewTabs.gd" type="Script" id=2]
+[ext_resource path="res://scenes/First Day/SuppliesInfoContainer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/First Day/LemonadeInformationContainer.tscn" type="PackedScene" id=4]
 
 [node name="DayStartOnePage" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TabContainer" type="TabContainer" parent="."]
+visible = false
 margin_right = 1366.0
 margin_bottom = 768.0
 tab_align = 2
@@ -418,39 +423,64 @@ size_flags_vertical = 3
 [node name="TabsOnSide" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 40.0
-margin_right = -40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Main" type="VBoxContainer" parent="TabsOnSide"]
-margin_right = 1286.0
+margin_right = 1366.0
 margin_bottom = 768.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Header" type="HBoxContainer" parent="TabsOnSide/Main"]
-margin_right = 1286.0
+margin_right = 1366.0
 margin_bottom = 100.0
 
 [node name="ColorRect" type="ColorRect" parent="TabsOnSide/Main/Header"]
-margin_right = 1286.0
+margin_right = 1366.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 0, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0.176471, 0.176471, 0.176471, 1 )
 
+[node name="HBoxContainer" type="HBoxContainer" parent="TabsOnSide/Main/Header/ColorRect"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -243.0
+margin_top = -7.0
+margin_bottom = 7.0
+custom_constants/separation = 86
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TabsOnSide/Main/Header/ColorRect/HBoxContainer"]
+margin_right = 83.0
+margin_bottom = 14.0
+text = "Money: $500"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="TabsOnSide/Main/Header/ColorRect/HBoxContainer"]
+margin_left = 169.0
+margin_right = 234.0
+margin_bottom = 14.0
+text = "5/5/-2/5/0"
+
 [node name="Mid" type="HBoxContainer" parent="TabsOnSide/Main"]
 margin_top = 104.0
-margin_right = 1286.0
+margin_right = 1366.0
 margin_bottom = 768.0
 size_flags_vertical = 3
 
 [node name="Content" type="Control" parent="TabsOnSide/Main/Mid"]
-margin_right = 1203.0
+margin_right = 1283.0
 margin_bottom = 664.0
 size_flags_horizontal = 3
 
@@ -463,229 +493,44 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LemonadeContainer" type="HBoxContainer" parent="TabsOnSide/Main/Mid/Content"]
+[node name="OverviewContainer" type="HBoxContainer" parent="TabsOnSide/Main/Mid/Content"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PitcherImg" type="ColorRect" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer"]
-margin_right = 599.0
-margin_bottom = 664.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="ColorRect" type="ColorRect" parent="TabsOnSide/Main/Mid/Content/OverviewContainer"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
-[node name="Label" type="Label" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/PitcherImg"]
+[node name="Label" type="Label" parent="TabsOnSide/Main/Mid/Content/OverviewContainer/ColorRect"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -207.5
-margin_top = -208.5
-margin_right = 207.5
-margin_bottom = 208.5
+margin_left = -52.0
+margin_top = -15.5
+margin_right = 52.0
+margin_bottom = 15.5
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "IMG"
-align = 1
-valign = 1
+text = "This is the
+overview screen"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SettingsContainer" type="VBoxContainer" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer"]
-margin_left = 603.0
-margin_right = 1203.0
-margin_bottom = 664.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="LemonadeInformationContainer" parent="TabsOnSide/Main/Mid/Content" instance=ExtResource( 4 )]
 
-[node name="Label" type="Label" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer"]
-margin_right = 600.0
-margin_bottom = 14.0
-text = "Lemonade Mix Ratio"
-align = 1
-
-[node name="LemonadeIngredients2" type="VBoxContainer" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer"]
-margin_top = 18.0
-margin_right = 600.0
-margin_bottom = 124.0
-size_flags_horizontal = 3
-
-[node name="IngredientRatio" type="HBoxContainer" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2"]
-margin_right = 600.0
-margin_bottom = 34.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientRatio"]
-margin_right = 197.0
-margin_bottom = 34.0
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientRatio/VBoxContainer"]
-margin_right = 197.0
-margin_bottom = 14.0
-text = "Water"
-align = 1
-
-[node name="HSlider" type="HSlider" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientRatio/VBoxContainer"]
-margin_top = 18.0
-margin_right = 197.0
-margin_bottom = 34.0
-size_flags_horizontal = 3
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientRatio"]
-margin_left = 201.0
-margin_right = 398.0
-margin_bottom = 34.0
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientRatio/VBoxContainer2"]
-margin_right = 197.0
-margin_bottom = 14.0
-text = "Sugar"
-align = 1
-
-[node name="HSlider" type="HSlider" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientRatio/VBoxContainer2"]
-margin_top = 18.0
-margin_right = 197.0
-margin_bottom = 34.0
-size_flags_horizontal = 3
-
-[node name="VBoxContainer3" type="VBoxContainer" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientRatio"]
-margin_left = 402.0
-margin_right = 600.0
-margin_bottom = 34.0
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientRatio/VBoxContainer3"]
-margin_right = 198.0
-margin_bottom = 14.0
-text = "Lemon"
-align = 1
-
-[node name="HSlider" type="HSlider" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientRatio/VBoxContainer3"]
-margin_top = 18.0
-margin_right = 198.0
-margin_bottom = 34.0
-size_flags_horizontal = 3
-
-[node name="IngredientSource" type="GridContainer" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2"]
-margin_top = 38.0
-margin_right = 600.0
-margin_bottom = 106.0
-size_flags_horizontal = 3
-custom_constants/hseparation = 13
-
-[node name="Water" type="HBoxContainer" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientSource"]
-margin_right = 600.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientSource/Water"]
-margin_right = 197.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "Water Source"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="OptionButton" type="OptionButton" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientSource/Water"]
-margin_left = 201.0
-margin_right = 398.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Buffs" type="Label" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientSource/Water"]
-margin_left = 402.0
-margin_right = 600.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "+1 / -1"
-align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Water2" type="HBoxContainer" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientSource"]
-margin_top = 24.0
-margin_right = 600.0
-margin_bottom = 44.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientSource/Water2"]
-margin_right = 197.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "Water Source"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="OptionButton" type="OptionButton" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientSource/Water2"]
-margin_left = 201.0
-margin_right = 398.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Buffs" type="Label" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientSource/Water2"]
-margin_left = 402.0
-margin_right = 600.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "+1 / -1"
-align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Water3" type="HBoxContainer" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientSource"]
-margin_top = 48.0
-margin_right = 600.0
-margin_bottom = 68.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientSource/Water3"]
-margin_right = 197.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "Water Source"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="OptionButton" type="OptionButton" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientSource/Water3"]
-margin_left = 201.0
-margin_right = 398.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Buffs" type="Label" parent="TabsOnSide/Main/Mid/Content/LemonadeContainer/SettingsContainer/LemonadeIngredients2/IngredientSource/Water3"]
-margin_left = 402.0
-margin_right = 600.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "+1 / -1"
-align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="SuppliesContainer" parent="TabsOnSide/Main/Mid/Content" instance=ExtResource( 3 )]
+visible = false
 
 [node name="TabButtonContainer" type="VBoxContainer" parent="TabsOnSide/Main/Mid"]
-margin_left = 1207.0
-margin_right = 1286.0
+margin_left = 1287.0
+margin_right = 1366.0
 margin_bottom = 664.0
 size_flags_horizontal = 9
 size_flags_vertical = 3
@@ -697,6 +542,7 @@ rect_min_size = Vector2( 50, 50 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
+pressed = true
 text = "Overview"
 
 [node name="Lemonade" type="Button" parent="TabsOnSide/Main/Mid/TabButtonContainer"]
@@ -707,7 +553,6 @@ rect_min_size = Vector2( 50, 50 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
-pressed = true
 text = "Lemonade"
 
 [node name="Button3" type="Button" parent="TabsOnSide/Main/Mid/TabButtonContainer"]
@@ -745,3 +590,4 @@ rect_min_size = Vector2( 50, 50 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Button"
+[connection signal="pressed" from="TabsOnSide/Main/Mid/TabButtonContainer/Lemonade" to="." method="_on_Lemonade_pressed"]

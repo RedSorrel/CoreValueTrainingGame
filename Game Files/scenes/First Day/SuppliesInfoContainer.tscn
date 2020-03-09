@@ -1,0 +1,134 @@
+[gd_scene format=2]
+
+[node name="SuppliesContainer" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SuppliesHeader" type="Label" parent="."]
+margin_right = 1283.0
+margin_bottom = 14.0
+text = "Supplies"
+align = 1
+
+[node name="GridContainer" type="GridContainer" parent="."]
+margin_top = 18.0
+margin_right = 1283.0
+margin_bottom = 86.0
+custom_constants/vseparation = 20
+custom_constants/hseparation = 60
+columns = 2
+
+[node name="ItemContainer" type="HBoxContainer" parent="GridContainer"]
+margin_right = 290.0
+margin_bottom = 24.0
+
+[node name="ItemName" type="Label" parent="GridContainer/ItemContainer"]
+margin_top = 5.0
+margin_right = 69.0
+margin_bottom = 19.0
+text = "ItemName"
+
+[node name="ItemSubtype" type="OptionButton" parent="GridContainer/ItemContainer"]
+margin_left = 73.0
+margin_right = 102.0
+margin_bottom = 24.0
+
+[node name="Quantity" type="SpinBox" parent="GridContainer/ItemContainer"]
+margin_left = 106.0
+margin_right = 180.0
+margin_bottom = 24.0
+
+[node name="Price" type="Label" parent="GridContainer/ItemContainer"]
+margin_left = 184.0
+margin_top = 5.0
+margin_right = 290.0
+margin_bottom = 19.0
+text = "Cost: $500 / unit"
+
+[node name="ItemContainer2" type="HBoxContainer" parent="GridContainer"]
+margin_left = 350.0
+margin_right = 640.0
+margin_bottom = 24.0
+
+[node name="ItemName" type="Label" parent="GridContainer/ItemContainer2"]
+margin_top = 5.0
+margin_right = 69.0
+margin_bottom = 19.0
+text = "ItemName"
+
+[node name="ItemSubtype" type="OptionButton" parent="GridContainer/ItemContainer2"]
+margin_left = 73.0
+margin_right = 102.0
+margin_bottom = 24.0
+
+[node name="Quantity" type="SpinBox" parent="GridContainer/ItemContainer2"]
+margin_left = 106.0
+margin_right = 180.0
+margin_bottom = 24.0
+
+[node name="Price" type="Label" parent="GridContainer/ItemContainer2"]
+margin_left = 184.0
+margin_top = 5.0
+margin_right = 290.0
+margin_bottom = 19.0
+text = "Cost: $500 / unit"
+
+[node name="ItemContainer3" type="HBoxContainer" parent="GridContainer"]
+margin_top = 44.0
+margin_right = 290.0
+margin_bottom = 68.0
+
+[node name="ItemName" type="Label" parent="GridContainer/ItemContainer3"]
+margin_top = 5.0
+margin_right = 69.0
+margin_bottom = 19.0
+text = "ItemName"
+
+[node name="ItemSubtype" type="OptionButton" parent="GridContainer/ItemContainer3"]
+margin_left = 73.0
+margin_right = 102.0
+margin_bottom = 24.0
+
+[node name="Quantity" type="SpinBox" parent="GridContainer/ItemContainer3"]
+margin_left = 106.0
+margin_right = 180.0
+margin_bottom = 24.0
+
+[node name="Price" type="Label" parent="GridContainer/ItemContainer3"]
+margin_left = 184.0
+margin_top = 5.0
+margin_right = 290.0
+margin_bottom = 19.0
+text = "Cost: $500 / unit"
+
+[node name="ItemContainer4" type="HBoxContainer" parent="GridContainer"]
+margin_left = 350.0
+margin_top = 44.0
+margin_right = 640.0
+margin_bottom = 68.0
+
+[node name="ItemName" type="Label" parent="GridContainer/ItemContainer4"]
+margin_top = 5.0
+margin_right = 69.0
+margin_bottom = 19.0
+text = "ItemName"
+
+[node name="ItemSubtype" type="OptionButton" parent="GridContainer/ItemContainer4"]
+margin_left = 73.0
+margin_right = 102.0
+margin_bottom = 24.0
+
+[node name="Quantity" type="SpinBox" parent="GridContainer/ItemContainer4"]
+margin_left = 106.0
+margin_right = 180.0
+margin_bottom = 24.0
+
+[node name="Price" type="Label" parent="GridContainer/ItemContainer4"]
+margin_left = 184.0
+margin_top = 5.0
+margin_right = 290.0
+margin_bottom = 19.0
+text = "Cost: $500 / unit"
