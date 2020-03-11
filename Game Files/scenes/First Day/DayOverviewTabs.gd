@@ -7,7 +7,7 @@ extends Control
 onready var lemonade_tab_button := get_node("TabsOnSide/Main/Mid/TabButtonContainer/Lemonade")
 onready var overview_tab_button := get_node("TabContainer/Overview")
 
-onready var lemonade_info := get_node("TabsOnSide/Main/Mid/Content/LemonadeInformationContainer")
+onready var lemonade_info := get_node("TabsOnSide/Main/Mid/Content/LemonadeAndStandContainer")
 onready var overview_container := get_node("TabsOnSide/Main/Mid/Content/OverviewContainer")
 
 # Called when the node enters the scene tree for the first time.
