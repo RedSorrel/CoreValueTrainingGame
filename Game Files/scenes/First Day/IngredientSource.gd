@@ -9,6 +9,14 @@ onready var option_box = get_node("SourceOptions")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	populate_option_box()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta: float) -> void:
+#	pass
+
+func populate_option_box() -> void:
 	if label == "Water Source":
 		option_box.add_item("Tap Water")
 		option_box.add_item("Bottled Water")
@@ -21,8 +29,3 @@ func _ready() -> void:
 		option_box.add_item("Lemonade Mix")
 		option_box.add_item("Lemon Juice Concentrate")
 		option_box.add_item("Fresh Squeezed Lemons")
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
