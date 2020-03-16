@@ -33,3 +33,11 @@ margin_top = 5.0
 margin_right = 360.0
 margin_bottom = 19.0
 text = "Cost: $500 / unit"
+
+[node name="CurrentQuantity" type="Label" parent="."]
+margin_left = 364.0
+margin_right = 471.0
+margin_bottom = 24.0
+size_flags_vertical = 1
+text = "Currently Own: 0"
+valign = 1

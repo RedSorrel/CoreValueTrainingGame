@@ -30,24 +30,24 @@ custom_constants/hseparation = 60
 columns = 2
 
 [node name="WaterProductContainer" parent="GridContainer" instance=ExtResource( 2 )]
-margin_right = 376.0
+margin_right = 487.0
 
 [node name="LemonProductContainer" parent="GridContainer" instance=ExtResource( 1 )]
-margin_left = 436.0
-margin_right = 818.0
+margin_left = 547.0
+margin_right = 1040.0
 
 [node name="SugarProductContainer" parent="GridContainer" instance=ExtResource( 3 )]
 margin_top = 44.0
-margin_right = 376.0
+margin_right = 487.0
 margin_bottom = 68.0
 
 [node name="CupProdcutContainer" parent="GridContainer" instance=ExtResource( 4 )]
-margin_left = 436.0
+margin_left = 547.0
 margin_top = 44.0
-margin_right = 818.0
+margin_right = 1040.0
 margin_bottom = 68.0
 
-[node name="Label" type="Label" parent="."]
+[node name="TotalCost" type="Label" parent="."]
 margin_top = 128.0
 margin_right = 1366.0
 margin_bottom = 142.0
