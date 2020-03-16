@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://scenes/First Day/SuppliesInfoContainer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/First Day/IngredientItem.gd" type="Script" id=1]
+[ext_resource path="res://scenes/First Day/InventoryHandler.gd" type="Script" id=2]
+[ext_resource path="res://scenes/First Day/SuppliesScenes/SuppliesInfoContainer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/First Day/Stats.gd" type="Script" id=4]
 [ext_resource path="res://scenes/First Day/RandomEventContainer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/First Day/LemonadeAndStandContainer.tscn" type="PackedScene" id=6]
@@ -89,12 +91,12 @@ __meta__ = {
 }
 
 [node name="OverviewContainer" parent="TabsOnSide/Main/Mid/Content" instance=ExtResource( 7 )]
+visible = false
 
 [node name="LemonadeAndStandContainer" parent="TabsOnSide/Main/Mid/Content" instance=ExtResource( 6 )]
 visible = false
 
 [node name="SuppliesContainer" parent="TabsOnSide/Main/Mid/Content" instance=ExtResource( 3 )]
-visible = false
 
 [node name="RandomEventContainer" parent="TabsOnSide/Main/Mid/Content" instance=ExtResource( 5 )]
 
@@ -137,6 +139,12 @@ text = "Supplies"
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource( 4 )
+
+[node name="Inventory" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="IngredientItem" type="Node" parent="."]
+script = ExtResource( 1 )
 [connection signal="pressed" from="TabsOnSide/Main/Mid/TabButtonContainer/Overview" to="TabsOnSide/Main/Mid" method="_on_Overview_pressed"]
 [connection signal="pressed" from="TabsOnSide/Main/Mid/TabButtonContainer/Lemonade" to="TabsOnSide/Main/Mid" method="_on_Lemonade_pressed"]
 [connection signal="pressed" from="TabsOnSide/Main/Mid/TabButtonContainer/Supplies" to="TabsOnSide/Main/Mid" method="_on_Supplies_pressed"]

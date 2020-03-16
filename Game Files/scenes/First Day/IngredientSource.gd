@@ -25,7 +25,11 @@ func populate_option_box() -> void:
 		option_box.add_item("Processed Sugar")
 		option_box.add_item("Sugar Cane")
 		option_box.add_item("Stevia")
-	else:
+	elif label == "Lemon Source":
 		option_box.add_item("Lemonade Mix")
 		option_box.add_item("Lemon Juice Concentrate")
 		option_box.add_item("Fresh Squeezed Lemons")
+	else:
+		option_box.add_item("Paper Cups")
+		option_box.add_item("Plastic Cups")
+		option_box.add_item("Branded Cups")
