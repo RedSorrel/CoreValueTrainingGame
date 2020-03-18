@@ -128,4 +128,5 @@ text = "# of sugars ="
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="focus_exited" from="GridContainer/CupProdcutContainer" to="." method="_on_CupProdcutContainer_focus_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

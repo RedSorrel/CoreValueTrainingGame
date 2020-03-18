@@ -1,9 +1,6 @@
 extends VBoxContainer
 
 
-# Declare member variables here. Examples:
-# var a: int = 2
-# var b: String = "text"
 onready var tap_water_debug = get_node("Debug/ColorRect/GridContainer/Waters")
 onready var lemon_debug = get_node("Debug/ColorRect/GridContainer/Lemons")
 onready var sugar_debug = get_node("Debug/ColorRect/GridContainer/Sugars")
@@ -11,45 +8,40 @@ onready var cup_debug = get_node("Debug/ColorRect/GridContainer/Cups")
 
 onready var IngredientItem = preload("res://scenes/First Day/IngredientItem.gd")
 
-onready var tap_water = IngredientItem.IngredientItem.new("water","tap water", 1, 10)
-onready var spring_water = IngredientItem.IngredientItem.new("water", "spring water", 2, 0)
-onready var bottled_water = IngredientItem.IngredientItem.new("water", "bottled water", 4, 0)
-onready var water_list = [tap_water, spring_water, bottled_water]
-onready var water_source = get_node("GridContainer/WaterProductContainer/SourceOptions")
-onready var water_quant_box = get_node("GridContainer/WaterProductContainer/Quantity")
-onready var water_price = get_node("GridContainer/WaterProductContainer/Price")
+onready var water_product_container = get_node("GridContainer/WaterProductContainer")
+onready var water_list = water_product_container.water_list
+onready var water_source = water_product_container.water_source
+onready var water_quant_box = water_product_container.water_quant_box
+onready var water_price = water_product_container.water_label
+onready var water_current_quant = get_node("GridContainer/WaterProductContainer/CurrentQuantity")
 
+onready var lemon_product_container = get_node("GridContainer/LemonProductContainer")
+onready var lemon_list = lemon_product_container.lemon_list
+onready var lemon_source = lemon_product_container.option_box
+onready var lemon_quant_box = lemon_product_container.quant_box
+onready var lemon_current_quant = lemon_product_container.current_quantity
 
-onready var lemon_mix = IngredientItem.IngredientItem.new("lemon", "lemonade mix", 0, 0)
-onready var lemon_juice = IngredientItem.IngredientItem.new("lemon", "lemon juice", 0, 0)
-onready var lemons = IngredientItem.IngredientItem.new("lemon", "fresh lemons", 0, 0)
-onready var lemon_list = [lemon_mix, lemon_juice, lemons]
-onready var lemon_source = get_node("GridContainer/LemonProductContainer/SourceOptions")
-onready var lemon_quant_box = get_node("GridContainer/LemonProductContainer/Quantity")
+onready var sugar_product_container = get_node("GridContainer/SugarProductContainer")
+onready var sugar_list = sugar_product_container.sugar_list
+onready var sugar_source = sugar_product_container.option_box
+onready var sugar_quant_box = sugar_product_container.quant_box
+onready var sugar_current_quant = sugar_product_container.current_quantity
 
-onready var process_sugar = IngredientItem.IngredientItem.new("sugar", "processed sugar", 0, 0)
-onready var cane_sugar = IngredientItem.IngredientItem.new("sugar", "cane sugar", 0, 0)
-onready var stevia = IngredientItem.IngredientItem.new("sugar", "stevia", 0, 0)
-onready var sugar_list = [process_sugar, cane_sugar, stevia]
-onready var sugar_source = get_node("GridContainer/SugarProductContainer/SourceOptions")
-onready var sugar_quant_box = get_node("GridContainer/SugarProductContainer/Quantity")
+onready var cup_product_container = get_node("GridContainer/CupProdcutContainer")
+onready var cup_list = cup_product_container.cup_list
+onready var cup_source = cup_product_container.option_box
+onready var cup_quant_box = cup_product_container.quant_box
+onready var cup_current_quant = cup_product_container.current_quantity
 
-onready var paper_cup = IngredientItem.IngredientItem.new("cup", "paper cups", 0, 0)
-onready var plastic_cup = IngredientItem.IngredientItem.new("cup", "plastic cups", 0, 0)
-onready var branded_cup = IngredientItem.IngredientItem.new("cup", "branded cups", 0, 0)
-onready var cup_list = [paper_cup, plastic_cup, branded_cup]
-onready var cup_source = get_node("GridContainer/CupProdcutContainer/SourceOptions")
-onready var cup_quant_box = get_node("GridContainer/CupProdcutContainer/Quantity")
 
 onready var cost_label = get_node("TotalCost")
-
+onready var cost = cup_product_container.subtotal
 onready var purchase_btn = get_node("Button")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print (tap_water.get_quantity())
-	tap_water_debug.text = "# of tap waters = %s " % tap_water.get_quantity()
-
+	#tap_water_debug.text = "# of tap waters = %s " % tap_water.get_quantity()
+	tap_water_debug.text = "# of tap waters = %s " % water_product_container.tap_water.get_quantity()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
@@ -58,15 +50,16 @@ func _ready() -> void:
 
 func _on_Button_pressed() -> void:
 	purchase_items()
-	tap_water_debug.text = "# of tap waters = %s"  % tap_water.get_quantity()
-	lemon_debug.text = "# of lemons = %s" % lemon_mix.get_quantity()
-	sugar_debug.text = "# of sugars = %s" % process_sugar.get_quantity()
-	cup_debug.text = "# of cups = %s" % paper_cup.get_quantity()
+	tap_water_debug.text = "# of tap waters = %s"  % water_product_container.tap_water.get_quantity()
+	lemon_debug.text = "# of lemons = %s" % lemon_product_container.lemon_mix.get_quantity()
+	sugar_debug.text = "# of sugars = %s" % sugar_product_container.process_sugar.get_quantity()
+	cup_debug.text = "# of cups = %s" % cup_product_container.paper_cup.get_quantity()
 	# Reset spinboxes back to 0
 	lemon_quant_box.set_value(0)
 	water_quant_box.set_value(0)
 	cup_quant_box.set_value(0)
 	sugar_quant_box.set_value(0)
+	
 func purchase_items() -> void:
 	# Read through the lists and their quantities
 	# Add to the inventory on things > 0
@@ -87,31 +80,42 @@ func purchase_items() -> void:
 		if (water.get_subtype().to_upper() == water_source.get_item_text(w_index).to_upper()):
 			if (water_quant > 0):
 				water.set_quantity(water.get_quantity() + water_quant)
+				water_current_quant.text = "Currently own: %s" % water.get_quantity()
 			else:
 				break
-			print(water.get_subtype())
 	
 	for lemon in lemon_list:
 		if (lemon.get_subtype().to_upper() == lemon_source.get_item_text(l_index).to_upper()):
 			if (lemon_quant > 0):
 				lemon.set_quantity(lemon.get_quantity() + lemon_quant)
+				lemon_current_quant.text = "Currently own: %s" % lemon.get_quantity()
 			else:
 				break
-			print(lemon.get_subtype())
+			
 	
 	for sugar in sugar_list:
 		if (sugar.get_subtype().to_upper() == sugar_source.get_item_text(s_index).to_upper()):
 			if (sugar_quant > 0):
 				sugar.set_quantity(sugar.get_quantity() + sugar_quant)
+				sugar_current_quant.text = "Currently own: %s" % sugar.get_quantity()
 			else:
 				break
-			print(sugar.get_subtype())
+			
 			
 	for cup in cup_list:
 		if (cup.get_subtype().to_upper() == cup_source.get_item_text(c_index).to_upper()):
 			if (cup_quant > 0):
 				cup.set_quantity(cup.get_quantity() + cup_quant)
+				cup_current_quant.text = "Currently own: %s" % cup.get_quantity()
 			else:
 				break
-			print(cup.get_subtype())
 	
+
+func calculate_total() -> int:
+	return 0
+	
+func update_total_string() -> void:
+	pass
+	
+func _on_CupProdcutContainer_focus_exited() -> void:
+	pass # Replace with function body.

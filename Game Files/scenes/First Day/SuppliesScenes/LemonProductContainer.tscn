@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/First Day/SuppliesScenes/SuppliesItemContainer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/First Day/SuppliesScenes/LemonProduct.gd" type="Script" id=2]
 
 [node name="LemonProductContainer" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
 
 [node name="Label" parent="." index="0"]
 margin_right = 91.0
@@ -19,3 +21,8 @@ margin_right = 272.0
 [node name="Price" parent="." index="3"]
 margin_left = 276.0
 margin_right = 382.0
+
+[node name="CurrentQuantity" parent="." index="4"]
+margin_left = 386.0
+margin_right = 493.0
+[connection signal="item_selected" from="SourceOptions" to="." method="_on_SourceOptions_item_selected"]

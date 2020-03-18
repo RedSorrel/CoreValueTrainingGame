@@ -41,3 +41,10 @@ margin_bottom = 24.0
 size_flags_vertical = 1
 text = "Currently Own: 0"
 valign = 1
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 475.0
+margin_top = 5.0
+margin_right = 521.0
+margin_bottom = 19.0
+text = "Label 2"
