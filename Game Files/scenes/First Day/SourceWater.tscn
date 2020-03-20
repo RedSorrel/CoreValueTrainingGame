@@ -1,5 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://scenes/First Day/IngredientSource.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/First Day/SuppliesScenes/IngredientSource.tscn" type="PackedScene" id=2]
+
 
 [node name="SourceWater" instance=ExtResource( 2 )]

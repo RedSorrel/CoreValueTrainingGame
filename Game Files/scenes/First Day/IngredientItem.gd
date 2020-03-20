@@ -1,4 +1,3 @@
-
 extends Node
 
 class IngredientItem:
@@ -34,10 +33,7 @@ class IngredientItem:
 		
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var myIng = IngredientItem.new("water", "tap water", 2, 10)
-	print (myIng.get_type())
-	myIng.set_quantity(20)
-	print(myIng.get_quantity()) 
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

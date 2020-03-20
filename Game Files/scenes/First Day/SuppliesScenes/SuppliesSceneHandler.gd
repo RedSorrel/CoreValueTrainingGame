@@ -6,13 +6,11 @@ onready var lemon_debug = get_node("Debug/ColorRect/GridContainer/Lemons")
 onready var sugar_debug = get_node("Debug/ColorRect/GridContainer/Sugars")
 onready var cup_debug = get_node("Debug/ColorRect/GridContainer/Cups")
 
-onready var IngredientItem = preload("res://scenes/First Day/IngredientItem.gd")
-
 onready var water_product_container = get_node("GridContainer/WaterProductContainer")
 onready var water_list = water_product_container.water_list
-onready var water_source = water_product_container.water_source
-onready var water_quant_box = water_product_container.water_quant_box
-onready var water_price = water_product_container.water_label
+onready var water_source = water_product_container.option_box
+onready var water_quant_box = water_product_container.quant_box
+onready var water_price = water_product_container.current_quantity
 onready var water_current_quant = get_node("GridContainer/WaterProductContainer/CurrentQuantity")
 
 onready var lemon_product_container = get_node("GridContainer/LemonProductContainer")
@@ -112,10 +110,12 @@ func purchase_items() -> void:
 	
 
 func calculate_total() -> int:
-	return 0
+	print(cup_product_container.subtotal)
+	return sugar_product_container.sub_total + lemon_product_container.sub_total + water_product_container.subtotal + cup_product_container.subtotal
 	
 func update_total_string() -> void:
 	pass
 	
 func _on_CupProdcutContainer_focus_exited() -> void:
-	pass # Replace with function body.
+	print(calculate_total())
+	cost_label.text = "The total cost of these items is: $%s" % calculate_total()
