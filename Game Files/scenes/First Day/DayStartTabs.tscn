@@ -5,9 +5,10 @@
 [ext_resource path="res://scenes/First Day/SuppliesScenes/SuppliesInfoContainer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/First Day/Stats.gd" type="Script" id=4]
 [ext_resource path="res://scenes/First Day/RandomEventContainer.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/First Day/LemonadeAndStandContainer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/First Day/LemonadeStandScenes/LemonadeAndStandContainer.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/First Day/OverviewContainer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/First Day/TabSwitcher.gd" type="Script" id=8]
+
 
 [node name="DayStartOnePage" type="Control"]
 anchor_right = 1.0

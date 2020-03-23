@@ -1,0 +1,47 @@
+[gd_scene format=2]
+
+[node name="SourceItemClass" type="HBoxContainer"]
+margin_right = 681.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 186.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Item Source"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SourceOptions" type="OptionButton" parent="."]
+margin_left = 190.0
+margin_right = 376.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Select One"
+
+[node name="Buffs" type="Label" parent="."]
+margin_left = 380.0
+margin_right = 566.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "+1 / -1"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CurrentQuantity" type="Label" parent="."]
+margin_left = 570.0
+margin_top = 3.0
+margin_right = 680.0
+margin_bottom = 17.0
+text = "Currently Have: 0"
