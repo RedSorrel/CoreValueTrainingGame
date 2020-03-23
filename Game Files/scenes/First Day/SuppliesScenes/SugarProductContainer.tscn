@@ -26,3 +26,4 @@ margin_right = 372.0
 margin_left = 376.0
 margin_right = 483.0
 [connection signal="item_selected" from="SourceOptions" to="." method="_on_SourceOptions_item_selected"]
+[connection signal="value_changed" from="Quantity" to="." method="_on_Quantity_value_changed"]

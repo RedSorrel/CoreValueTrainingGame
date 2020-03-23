@@ -155,7 +155,6 @@ To make this amount
 will be used."
 
 [node name="HSeparator" type="HSeparator" parent="."]
-margin_left = 40.0
 margin_top = 382.0
 margin_right = 1286.0
 margin_bottom = 386.0

@@ -41,7 +41,7 @@ margin_top = 44.0
 margin_right = 487.0
 margin_bottom = 68.0
 
-[node name="CupProdcutContainer" parent="GridContainer" instance=ExtResource( 4 )]
+[node name="CupProductContainer" parent="GridContainer" instance=ExtResource( 4 )]
 margin_left = 547.0
 margin_top = 44.0
 margin_right = 1040.0
@@ -128,5 +128,4 @@ text = "# of sugars ="
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="focus_exited" from="GridContainer/CupProdcutContainer" to="." method="_on_CupProdcutContainer_focus_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

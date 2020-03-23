@@ -1,6 +1,5 @@
 extends VBoxContainer
 
-
 onready var tap_water_debug = get_node("Debug/ColorRect/GridContainer/Waters")
 onready var lemon_debug = get_node("Debug/ColorRect/GridContainer/Lemons")
 onready var sugar_debug = get_node("Debug/ColorRect/GridContainer/Sugars")
@@ -25,7 +24,7 @@ onready var sugar_source = sugar_product_container.option_box
 onready var sugar_quant_box = sugar_product_container.quant_box
 onready var sugar_current_quant = sugar_product_container.current_quantity
 
-onready var cup_product_container = get_node("GridContainer/CupProdcutContainer")
+onready var cup_product_container = get_node("GridContainer/CupProductContainer")
 onready var cup_list = cup_product_container.cup_list
 onready var cup_source = cup_product_container.option_box
 onready var cup_quant_box = cup_product_container.quant_box
@@ -33,14 +32,17 @@ onready var cup_current_quant = cup_product_container.current_quantity
 
 
 onready var cost_label = get_node("TotalCost")
-onready var cost = cup_product_container.subtotal
+onready var cost = cup_product_container.get_subtotal()
 onready var purchase_btn = get_node("Button")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#tap_water_debug.text = "# of tap waters = %s " % tap_water.get_quantity()
 	tap_water_debug.text = "# of tap waters = %s " % water_product_container.tap_water.get_quantity()
-
+	get_node("GridContainer/CupProductContainer").connect("quantity_changed", get_node("."), "update_total_string")
+	get_node("GridContainer/LemonProductContainer").connect("quantity_changed", get_node("."), "update_total_string")
+	get_node("GridContainer/WaterProductContainer").connect("quantity_changed", get_node("."), "update_total_string")
+	get_node("GridContainer/SugarProductContainer").connect("quantity_changed", get_node("."), "update_total_string")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
 #	pass
@@ -110,12 +112,10 @@ func purchase_items() -> void:
 	
 
 func calculate_total() -> int:
-	print(cup_product_container.subtotal)
-	return sugar_product_container.sub_total + lemon_product_container.sub_total + water_product_container.subtotal + cup_product_container.subtotal
+	return sugar_product_container.get_subtotal() + lemon_product_container.get_subtotal() + water_product_container.get_subtotal() + cup_product_container.get_subtotal()
 	
 func update_total_string() -> void:
-	pass
+	cost_label.text = "Total cost of these items is: $%s" % calculate_total()
 	
-func _on_CupProdcutContainer_focus_exited() -> void:
-	print(calculate_total())
-	cost_label.text = "The total cost of these items is: $%s" % calculate_total()
+
+
