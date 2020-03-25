@@ -38,7 +38,8 @@ onready var purchase_btn = get_node("Button")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#tap_water_debug.text = "# of tap waters = %s " % tap_water.get_quantity()
-	tap_water_debug.text = "# of tap waters = %s " % water_product_container.tap_water.get_quantity()
+	#tap_water_debug.text = "# of tap waters = %s " % water_product_container.tap_water.get_quantity()
+	tap_water_debug.text = "# of tap waters = %s " % Global.tap_water.get_quantity()
 	get_node("GridContainer/CupProductContainer").connect("quantity_changed", get_node("."), "update_total_string")
 	get_node("GridContainer/LemonProductContainer").connect("quantity_changed", get_node("."), "update_total_string")
 	get_node("GridContainer/WaterProductContainer").connect("quantity_changed", get_node("."), "update_total_string")
@@ -50,7 +51,7 @@ func _ready() -> void:
 
 func _on_Button_pressed() -> void:
 	purchase_items()
-	tap_water_debug.text = "# of tap waters = %s"  % water_product_container.tap_water.get_quantity()
+	tap_water_debug.text = "# of tap waters = %s"  % Global.tap_water.get_quantity()
 	lemon_debug.text = "# of lemons = %s" % lemon_product_container.lemon_mix.get_quantity()
 	sugar_debug.text = "# of sugars = %s" % sugar_product_container.process_sugar.get_quantity()
 	cup_debug.text = "# of cups = %s" % cup_product_container.paper_cup.get_quantity()
