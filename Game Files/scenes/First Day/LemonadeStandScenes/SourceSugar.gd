@@ -1,7 +1,7 @@
 extends Node
 
 onready var option_box = get_node("SourceOptions")
-onready var product_list = Global.water_list
+onready var product_list = Global.sugar_list
 onready var label = get_node("Label")
 onready var source_options = get_node("SourceOptions")
 onready var quantity = get_node("CurrentQuantity")

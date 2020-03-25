@@ -6,26 +6,26 @@ onready var sugar_debug = get_node("Debug/ColorRect/GridContainer/Sugars")
 onready var cup_debug = get_node("Debug/ColorRect/GridContainer/Cups")
 
 onready var water_product_container = get_node("GridContainer/WaterProductContainer")
-onready var water_list = water_product_container.water_list
+onready var water_list = water_product_container.product_list
 onready var water_source = water_product_container.option_box
 onready var water_quant_box = water_product_container.quant_box
 onready var water_price = water_product_container.current_quantity
 onready var water_current_quant = get_node("GridContainer/WaterProductContainer/CurrentQuantity")
 
 onready var lemon_product_container = get_node("GridContainer/LemonProductContainer")
-onready var lemon_list = lemon_product_container.lemon_list
+onready var lemon_list = lemon_product_container.product_list
 onready var lemon_source = lemon_product_container.option_box
 onready var lemon_quant_box = lemon_product_container.quant_box
 onready var lemon_current_quant = lemon_product_container.current_quantity
 
 onready var sugar_product_container = get_node("GridContainer/SugarProductContainer")
-onready var sugar_list = sugar_product_container.sugar_list
+onready var sugar_list = sugar_product_container.product_list
 onready var sugar_source = sugar_product_container.option_box
 onready var sugar_quant_box = sugar_product_container.quant_box
 onready var sugar_current_quant = sugar_product_container.current_quantity
 
 onready var cup_product_container = get_node("GridContainer/CupProductContainer")
-onready var cup_list = cup_product_container.cup_list
+onready var cup_list = cup_product_container.product_list
 onready var cup_source = cup_product_container.option_box
 onready var cup_quant_box = cup_product_container.quant_box
 onready var cup_current_quant = cup_product_container.current_quantity
@@ -52,9 +52,10 @@ func _ready() -> void:
 func _on_Button_pressed() -> void:
 	purchase_items()
 	tap_water_debug.text = "# of tap waters = %s"  % Global.tap_water.get_quantity()
-	lemon_debug.text = "# of lemons = %s" % lemon_product_container.lemon_mix.get_quantity()
-	sugar_debug.text = "# of sugars = %s" % sugar_product_container.process_sugar.get_quantity()
-	cup_debug.text = "# of cups = %s" % cup_product_container.paper_cup.get_quantity()
+	lemon_debug.text = "# of lemons = %s" % Global.lemon_mix.get_quantity()
+	sugar_debug.text = "# of sugars = %s" % Global.process_sugar.get_quantity()
+	cup_debug.text = "# of cups = %s" % Global.paper_cup.get_quantity()
+	
 	# Reset spinboxes back to 0
 	lemon_quant_box.set_value(0)
 	water_quant_box.set_value(0)

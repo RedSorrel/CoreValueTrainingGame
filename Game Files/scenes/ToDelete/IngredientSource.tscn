@@ -2,7 +2,6 @@
 
 [ext_resource path="res://scenes/First Day/SuppliesScenes/IngredientSource.gd" type="Script" id=1]
 
-
 [node name="Ingredient" type="HBoxContainer"]
 margin_right = 681.0
 margin_bottom = 20.0

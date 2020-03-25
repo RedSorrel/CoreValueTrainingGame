@@ -154,6 +154,14 @@ To make this amount
 0 lemon(s)
 will be used."
 
+[node name="Button" type="Button" parent="LemonadeInfo/SettingsContainer"]
+margin_top = 310.0
+margin_right = 661.0
+margin_bottom = 330.0
+size_flags_horizontal = 5
+size_flags_vertical = 6
+text = "Make Lemonade"
+
 [node name="HSeparator" type="HSeparator" parent="."]
 margin_top = 382.0
 margin_right = 1286.0

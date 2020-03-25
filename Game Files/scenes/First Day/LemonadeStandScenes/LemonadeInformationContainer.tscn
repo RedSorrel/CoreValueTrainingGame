@@ -7,7 +7,6 @@
 [ext_resource path="res://scenes/First Day/LemonadeStandScenes/SourceSugar.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/First Day/LemonadeStandScenes/SourceLemon.tscn" type="PackedScene" id=6]
 
-
 [node name="LemonadeContainer" type="HBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0

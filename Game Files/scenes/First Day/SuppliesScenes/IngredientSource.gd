@@ -10,24 +10,23 @@ onready var quant_box = get_node("Quantity")
 onready var product_list setget set_list
 onready var subtotal = 0 setget , get_subtotal
 onready var sub_price = 0
-onready var IngredientItem = preload("res://scenes/First Day/IngredientItem.gd")
 
 # Called when the node enters the scene tree for the first time.
-onready var dummyIng = IngredientItem.IngredientItem.new("dummy", "dummy", 0, 0)
+onready var dummyIng = Global.IngredientItem.IngredientItem.new("dummy", "dummy", 0, 0)
 
 func _ready() -> void:
 	#var supply_info_cont = get_node("res://scenes/First Day/SuppliesScenes/SuppliesSceneHandler.gd")
 	#supply_info_cont.connect("my_signal", self, "calculate_subtotal")
 	if not product_list == null:
-		populate_option_box()
-		
+		Global.populate_option_box(product_list, option_box)
+		print(product_list)
 
 func populate_option_box() -> void:
 	# option_box.additem("Item Name")
 	for product in product_list:
 		option_box.add_item(product.get_subtype().capitalize())
-	price_label.text = "Cost $%s / unit" % product_list[0].get_price()
 	current_quantity.text = "Currently own %s" % product_list[0].get_quantity()
+	price_label.text = "Cost $%s / unit" % product_list[0].get_price()
 	
 func _on_SourceOptions_item_selected(id: int) -> void:
 	# When selection is changed

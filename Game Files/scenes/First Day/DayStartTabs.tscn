@@ -9,7 +9,6 @@
 [ext_resource path="res://scenes/First Day/OverviewContainer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/First Day/TabSwitcher.gd" type="Script" id=8]
 
-
 [node name="DayStartOnePage" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
