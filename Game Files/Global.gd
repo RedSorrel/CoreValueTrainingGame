@@ -35,8 +35,6 @@ onready var cane_sugar = IngredientItem.IngredientItem.new("sugar", "cane sugar"
 onready var stevia = IngredientItem.IngredientItem.new("sugar", "stevia", 4, 0)
 onready var sugar_list = [process_sugar, cane_sugar, stevia]
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
 
 func populate_option_box(product_list: Array, option_box:Node) -> void:
