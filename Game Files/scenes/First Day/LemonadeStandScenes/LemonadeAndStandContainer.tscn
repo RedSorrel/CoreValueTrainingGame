@@ -1,11 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scenes/First Day/RatioIngredientLemon.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/First Day/LemonadeStandScenes/SourceWater.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/First Day/RatioContainerSugar.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/First Day/LemonadeStandScenes/SourceLemon.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/First Day/LemonadeStandScenes/SourceSugar.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/First Day/RatioContainerWater.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/First Day/LemonadeStandScenes/LemonadeInformationContainer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/First Day/LemonadeStandScenes/StandInfoContainer.tscn" type="PackedScene" id=2]
 
 [node name="LemonadeAndStandContainer" type="VBoxContainer"]
 anchor_right = 1.0
@@ -21,146 +17,13 @@ margin_bottom = 378.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="LemonadeInfo"]
-margin_right = 661.0
-margin_bottom = 378.0
-size_flags_horizontal = 3
-
-[node name="PitcherImg" type="ColorRect" parent="LemonadeInfo/VBoxContainer"]
-margin_right = 661.0
-margin_bottom = 274.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="LemonadeInfo/VBoxContainer/PitcherImg"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -207.5
-margin_top = -208.5
-margin_right = 207.5
-margin_bottom = 208.5
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "IMG"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Panel" type="Panel" parent="LemonadeInfo/VBoxContainer"]
-margin_top = 278.0
-margin_right = 661.0
-margin_bottom = 378.0
-rect_min_size = Vector2( 0, 100 )
-
-[node name="Label" type="Label" parent="LemonadeInfo/VBoxContainer/Panel"]
-anchor_right = 1.0
-margin_bottom = 14.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-text = "This lemonade is mostly watery with a touch of lemon and sugar."
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SettingsContainer" type="VBoxContainer" parent="LemonadeInfo"]
-margin_left = 665.0
+[node name="LemonadeContainer" parent="LemonadeInfo" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 1326.0
 margin_bottom = 378.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="LemonadeInfo/SettingsContainer"]
-margin_right = 661.0
-margin_bottom = 14.0
-text = "Lemonade Mix Ratio"
-align = 1
-
-[node name="LemonadeIngredients" type="VBoxContainer" parent="LemonadeInfo/SettingsContainer"]
-margin_top = 18.0
-margin_right = 661.0
-margin_bottom = 259.0
-size_flags_horizontal = 3
-
-[node name="IngredientRatio" type="HBoxContainer" parent="LemonadeInfo/SettingsContainer/LemonadeIngredients"]
-margin_right = 661.0
-margin_bottom = 38.0
-
-[node name="WaterRatioContainer" parent="LemonadeInfo/SettingsContainer/LemonadeIngredients/IngredientRatio" instance=ExtResource( 6 )]
-margin_right = 217.0
-
-[node name="RatioContainerSugar" parent="LemonadeInfo/SettingsContainer/LemonadeIngredients/IngredientRatio" instance=ExtResource( 3 )]
-margin_left = 221.0
-margin_right = 438.0
-
-[node name="RatioIngredientLemon" parent="LemonadeInfo/SettingsContainer/LemonadeIngredients/IngredientRatio" instance=ExtResource( 1 )]
-margin_left = 442.0
-margin_right = 661.0
-
-[node name="IngredientSource" type="GridContainer" parent="LemonadeInfo/SettingsContainer/LemonadeIngredients"]
-margin_top = 42.0
-margin_right = 661.0
-margin_bottom = 110.0
-size_flags_horizontal = 3
-custom_constants/hseparation = 13
-
-[node name="SourceWater" parent="LemonadeInfo/SettingsContainer/LemonadeIngredients/IngredientSource" instance=ExtResource( 2 )]
-margin_right = 661.0
-
-[node name="SourceSugar" parent="LemonadeInfo/SettingsContainer/LemonadeIngredients/IngredientSource" instance=ExtResource( 5 )]
-margin_top = 24.0
-margin_right = 661.0
-margin_bottom = 44.0
-
-[node name="SourceLemon" parent="LemonadeInfo/SettingsContainer/LemonadeIngredients/IngredientSource" instance=ExtResource( 4 )]
-margin_top = 48.0
-margin_right = 661.0
-margin_bottom = 68.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="LemonadeInfo/SettingsContainer/LemonadeIngredients"]
-margin_top = 114.0
-margin_right = 661.0
-margin_bottom = 138.0
-custom_constants/separation = 33
-
-[node name="Label" type="Label" parent="LemonadeInfo/SettingsContainer/LemonadeIngredients/HBoxContainer"]
-margin_top = 5.0
-margin_right = 95.0
-margin_bottom = 19.0
-text = "I want to make"
-
-[node name="SpinBox" type="SpinBox" parent="LemonadeInfo/SettingsContainer/LemonadeIngredients/HBoxContainer"]
-margin_left = 128.0
-margin_right = 202.0
-margin_bottom = 24.0
-
-[node name="Label2" type="Label" parent="LemonadeInfo/SettingsContainer/LemonadeIngredients/HBoxContainer"]
-margin_left = 235.0
-margin_top = 5.0
-margin_right = 368.0
-margin_bottom = 19.0
-text = "gallons of lemonade."
-
-[node name="Label2" type="Label" parent="LemonadeInfo/SettingsContainer/LemonadeIngredients"]
-margin_top = 142.0
-margin_right = 661.0
-margin_bottom = 241.0
-text = "You can make a max of 0 gallons of lemonade.
-To make this amount
-0 water(s)
-0 sugar(s)
-0 lemon(s)
-will be used."
-
-[node name="Button" type="Button" parent="LemonadeInfo/SettingsContainer"]
-margin_top = 310.0
-margin_right = 661.0
-margin_bottom = 330.0
-size_flags_horizontal = 5
-size_flags_vertical = 6
-text = "Make Lemonade"
 
 [node name="HSeparator" type="HSeparator" parent="."]
 margin_top = 382.0
@@ -169,92 +32,4 @@ margin_bottom = 386.0
 rect_min_size = Vector2( 1286, 4 )
 size_flags_horizontal = 0
 
-[node name="StandInfo" type="HBoxContainer" parent="."]
-margin_top = 390.0
-margin_right = 1326.0
-margin_bottom = 768.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="ImageContainer" type="VBoxContainer" parent="StandInfo"]
-margin_right = 661.0
-margin_bottom = 378.0
-size_flags_horizontal = 3
-
-[node name="ColorRect" type="ColorRect" parent="StandInfo/ImageContainer"]
-margin_right = 661.0
-margin_bottom = 378.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="SettingsContainer" type="VBoxContainer" parent="StandInfo"]
-margin_left = 665.0
-margin_right = 1326.0
-margin_bottom = 378.0
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="StandInfo/SettingsContainer"]
-margin_right = 661.0
-margin_bottom = 14.0
-text = "Your Lemonade Stand"
-align = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="StandInfo/SettingsContainer"]
-margin_top = 18.0
-margin_right = 661.0
-margin_bottom = 38.0
-custom_constants/separation = 10
-
-[node name="Label2" type="Label" parent="StandInfo/SettingsContainer/HBoxContainer"]
-margin_top = 3.0
-margin_right = 127.0
-margin_bottom = 17.0
-text = "Today the stand is a"
-
-[node name="OptionButton" type="OptionButton" parent="StandInfo/SettingsContainer/HBoxContainer"]
-margin_left = 137.0
-margin_right = 254.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-text = "Select one"
-
-[node name="Label3" type="Label" parent="StandInfo/SettingsContainer/HBoxContainer"]
-margin_left = 264.0
-margin_top = 3.0
-margin_right = 301.0
-margin_bottom = 17.0
-text = "at the"
-
-[node name="OptionButton2" type="OptionButton" parent="StandInfo/SettingsContainer/HBoxContainer"]
-margin_left = 311.0
-margin_right = 428.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-text = "Select one"
-
-[node name="Label4" type="Label" parent="StandInfo/SettingsContainer/HBoxContainer"]
-margin_left = 438.0
-margin_top = 3.0
-margin_right = 465.0
-margin_bottom = 17.0
-text = "with"
-
-[node name="OptionButton3" type="OptionButton" parent="StandInfo/SettingsContainer/HBoxContainer"]
-margin_left = 475.0
-margin_right = 592.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-text = "Select one"
-
-[node name="Label5" type="Label" parent="StandInfo/SettingsContainer/HBoxContainer"]
-margin_left = 602.0
-margin_top = 3.0
-margin_right = 661.0
-margin_bottom = 17.0
-text = "branding."
-
-[node name="Label2" type="Label" parent="StandInfo/SettingsContainer"]
-margin_top = 42.0
-margin_right = 661.0
-margin_bottom = 56.0
-text = "It can hold up to 0 gallons of lemonade."
+[node name="StandInfoContainer" parent="." instance=ExtResource( 2 )]

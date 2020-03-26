@@ -75,7 +75,7 @@ align = 1
 [node name="LemonadeIngredients" type="VBoxContainer" parent="SettingsContainer"]
 margin_top = 18.0
 margin_right = 661.0
-margin_bottom = 259.0
+margin_bottom = 283.0
 size_flags_horizontal = 3
 
 [node name="IngredientRatio" type="HBoxContainer" parent="SettingsContainer/LemonadeIngredients"]
@@ -147,3 +147,11 @@ To make this amount
 0 sugar(s)
 0 lemon(s)
 will be used."
+
+[node name="ButtonMixLemonade" type="Button" parent="SettingsContainer/LemonadeIngredients"]
+margin_left = 277.0
+margin_top = 245.0
+margin_right = 383.0
+margin_bottom = 265.0
+size_flags_horizontal = 4
+text = "Mix Lemonade"
