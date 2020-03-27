@@ -34,7 +34,10 @@ onready var process_sugar = IngredientItem.IngredientItem.new("sugar", "processe
 onready var cane_sugar = IngredientItem.IngredientItem.new("sugar", "cane sugar", 2, 0)
 onready var stevia = IngredientItem.IngredientItem.new("sugar", "stevia", 4, 0)
 onready var sugar_list = [process_sugar, cane_sugar, stevia]
-# Called when the node enters the scene tree for the first time.
+
+# recipe string, used to show the player the recipe they used the day before
+# as well as to display a lemonade description in IngredientRatio.gd
+onready var recipe = {}
 
 
 func populate_option_box(product_list: Array, option_box:Node) -> void:

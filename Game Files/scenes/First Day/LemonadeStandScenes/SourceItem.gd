@@ -14,8 +14,8 @@ onready var buffs = get_node("Buffs")
 	
 func _on_SourceOptions_item_selected(id: int) -> void:
 	quantity.text = "Currently Have: %s" % product_list[id].get_quantity()
-	print(product_list[id].get_quantity())
-
+	
+	
 func set_list(array) -> void:
 	product_list = array
 	
