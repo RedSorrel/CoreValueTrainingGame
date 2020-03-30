@@ -16,7 +16,7 @@ Handle the buffs here to share across many scenes, get updated by those scenes.
 var IngredientItem = preload("res://scenes/First Day/IngredientItem.gd")
 
 onready var tap_water = IngredientItem.IngredientItem.new("water","tap water", 1, 10)
-onready var bottled_water = IngredientItem.IngredientItem.new("water", "bottled water", 2, 0)
+onready var bottled_water = IngredientItem.IngredientItem.new("water", "bottled water", 2, 30)
 onready var spring_water = IngredientItem.IngredientItem.new("water", "spring water", 4, 0)
 onready var water_list = [tap_water, bottled_water, spring_water]
 
@@ -39,6 +39,13 @@ onready var sugar_list = [process_sugar, cane_sugar, stevia]
 # as well as to display a lemonade description in IngredientRatio.gd
 onready var recipe = {}
 
+onready var multiplier = 5 setget set_multiplier, get_multiplier
+
+func set_multiplier(value) -> void:
+	multiplier = value
+	
+func get_multiplier() -> int:
+	return multiplier
 
 func populate_option_box(product_list: Array, option_box:Node) -> void:
 	for product in product_list:

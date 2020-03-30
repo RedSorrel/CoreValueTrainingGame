@@ -50,3 +50,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="item_selected" from="SourceOptions" to="." method="_on_SourceOptions_item_selected"]
+[connection signal="visibility_changed" from="SourceOptions" to="." method="_on_SourceOptions_visibility_changed"]

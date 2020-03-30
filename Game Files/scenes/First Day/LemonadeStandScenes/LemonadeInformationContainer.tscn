@@ -157,3 +157,4 @@ margin_right = 383.0
 margin_bottom = 265.0
 size_flags_horizontal = 4
 text = "Mix Lemonade"
+[connection signal="visibility_changed" from="." to="." method="_on_LemonadeContainer_visibility_changed"]
