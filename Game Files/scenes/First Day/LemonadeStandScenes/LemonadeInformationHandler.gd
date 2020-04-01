@@ -74,9 +74,10 @@ func set_multipliers(gallons) -> void:
 func _on_Gallons_value_changed(value):
 	# For each item type, loop through and call option toggle
 	# in order to check and disable / renable items in the drop down box
+	update_general()
 	for i in items:
 		i.call_option_toggle()
-	update_general()
+	
 	print("Gallon value = " + str(value))
 	print("multiplier water = " + str(item_water.get_multiplier()))
 	pass # Replace with function body.
