@@ -39,14 +39,6 @@ onready var sugar_list = [process_sugar, cane_sugar, stevia]
 # as well as to display a lemonade description in IngredientRatio.gd
 onready var recipe = {}
 
-onready var multiplier = 5 setget set_multiplier, get_multiplier
-
-func set_multiplier(value) -> void:
-	multiplier = value
-	
-func get_multiplier() -> int:
-	return multiplier
-
 func populate_option_box(product_list: Array, option_box:Node) -> void:
 	for product in product_list:
 		option_box.add_item(product.get_subtype().capitalize())

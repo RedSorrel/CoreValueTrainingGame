@@ -127,10 +127,12 @@ margin_right = 95.0
 margin_bottom = 19.0
 text = "I want to make"
 
-[node name="SpinBox" type="SpinBox" parent="SettingsContainer/LemonadeIngredients/HBoxContainer"]
+[node name="Gallons" type="SpinBox" parent="SettingsContainer/LemonadeIngredients/HBoxContainer"]
 margin_left = 128.0
 margin_right = 202.0
 margin_bottom = 24.0
+min_value = 1.0
+value = 1.0
 
 [node name="Label2" type="Label" parent="SettingsContainer/LemonadeIngredients/HBoxContainer"]
 margin_left = 235.0
@@ -157,4 +159,4 @@ margin_right = 383.0
 margin_bottom = 265.0
 size_flags_horizontal = 4
 text = "Mix Lemonade"
-[connection signal="visibility_changed" from="." to="." method="_on_LemonadeContainer_visibility_changed"]
+[connection signal="value_changed" from="SettingsContainer/LemonadeIngredients/HBoxContainer/Gallons" to="." method="_on_Gallons_value_changed"]
