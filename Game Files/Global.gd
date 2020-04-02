@@ -13,7 +13,7 @@ Probably need to save a 'recipe' as a string? to display on the overview page
 Handle the buffs here to share across many scenes, get updated by those scenes.
 """
 # Ingredient objects
-var IngredientItem = preload("res://scenes/First Day/IngredientItem.gd")
+var IngredientItem = preload("res://src/Main/Pages/SuppliesScenes/IngredientItemClass.gd")
 
 onready var tap_water = IngredientItem.IngredientItem.new("water","tap water", 1, 10)
 onready var bottled_water = IngredientItem.IngredientItem.new("water", "bottled water", 2, 30)

@@ -1,0 +1,181 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/font/Montserrat-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scenes/ToDelete/LemonadeStand/ServeLemonade/ServeLemonade.gd" type="Script" id=2]
+[ext_resource path="res://assets/font/PTMono-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scenes/ToDelete/LemonadeStand/ServeLemonade/KeyXSugar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/ToDelete/LemonadeStand/ServeLemonade/KeyZIce.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/ToDelete/LemonadeStand/ServeLemonade/KeySpaceServe.tscn" type="PackedScene" id=6]
+
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://assets/font/PTMono-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 80
+font_data = SubResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 45
+font_data = ExtResource( 3 )
+
+[node name="MiniGame" type="Popup"]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = 50.0
+margin_right = -100.0
+margin_bottom = -50.0
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ImageContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 575.0
+margin_bottom = 668.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Lemoande Img" type="ColorRect" parent="HBoxContainer/ImageContainer"]
+margin_right = 575.0
+margin_bottom = 414.0
+rect_min_size = Vector2( 500, 400 )
+size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="HBoxContainer/ImageContainer/Lemoande Img"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -37.5
+margin_bottom = 37.5
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Lemonade Img"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cup Img" type="ColorRect" parent="HBoxContainer/ImageContainer"]
+margin_left = 187.0
+margin_top = 418.0
+margin_right = 387.0
+margin_bottom = 668.0
+rect_min_size = Vector2( 200, 250 )
+size_flags_horizontal = 6
+size_flags_vertical = 5
+color = Color( 0.807843, 0.823529, 0.894118, 1 )
+
+[node name="Label2" type="Label" parent="HBoxContainer/ImageContainer/Cup Img"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -37.5
+margin_bottom = 37.5
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Cup Img"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CommandContainer" type="Control" parent="HBoxContainer"]
+margin_left = 590.0
+margin_right = 1166.0
+margin_bottom = 668.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Background" type="ColorRect" parent="HBoxContainer/CommandContainer"]
+margin_right = 581.0
+margin_bottom = 668.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.235294, 0.235294, 0.235294, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/CommandContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBoxContainer/CommandContainer/VBoxContainer"]
+margin_right = 576.0
+margin_bottom = 75.0
+custom_fonts/font = SubResource( 1 )
+text = "Commands"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/CommandContainer/VBoxContainer"]
+margin_top = 79.0
+margin_right = 576.0
+margin_bottom = 668.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 20
+columns = 2
+
+[node name="KeyZIce" parent="HBoxContainer/CommandContainer/VBoxContainer/GridContainer" instance=ExtResource( 5 )]
+margin_right = 295.0
+
+[node name="KeyXSugar" parent="HBoxContainer/CommandContainer/VBoxContainer/GridContainer" instance=ExtResource( 4 )]
+margin_left = 299.0
+margin_right = 447.0
+
+[node name="KeySpaceServe" parent="HBoxContainer/CommandContainer/VBoxContainer/GridContainer" instance=ExtResource( 6 )]
+margin_top = 70.0
+margin_right = 295.0
+margin_bottom = 120.0
+
+[node name="Debug" type="Label" parent="HBoxContainer/CommandContainer"]
+margin_left = 31.5919
+margin_top = 409.875
+margin_right = 271.592
+margin_bottom = 513.875
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Debug"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ice" type="Label" parent="HBoxContainer/CommandContainer/Debug"]
+margin_top = 104.0
+margin_right = 240.0
+margin_bottom = 208.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "ice"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sugar" type="Label" parent="HBoxContainer/CommandContainer/Debug"]
+margin_top = 170.625
+margin_right = 240.0
+margin_bottom = 274.625
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "sugar"
+__meta__ = {
+"_edit_use_anchors_": false
+}

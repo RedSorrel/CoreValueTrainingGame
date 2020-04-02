@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/ToDelete/LemonadeStand/GUI/LemonadeStandGUI.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/ToDelete/LemonadeStand/ServeLemonade/MiniGame.tscn" type="PackedScene" id=2]
+
+
+[node name="StandScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.422974, 0.422974, 0.492188, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CustomerLayer" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.422974, 0.422974, 0.492188, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Foreground" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.422974, 0.422974, 0.492188, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LemonadeStandGUI" parent="." instance=ExtResource( 1 )]
+
+[node name="MiniGame" parent="." instance=ExtResource( 2 )]
+visible = false

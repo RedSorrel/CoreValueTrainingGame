@@ -1,0 +1,146 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/Main/Pages/SuppliesScenes/IngredientItemClass.gd" type="Script" id=1]
+[ext_resource path="res://src/Stats.gd" type="Script" id=2]
+[ext_resource path="res://src/Main/Tabs/TabSwitcher.gd" type="Script" id=3]
+[ext_resource path="res://src/Main/Pages/LemonadeAndStandScene/LemonadeAndStandContainer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Main/Pages/Overview/OverviewContainer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Main/Pages/SuppliesScenes/SuppliesInfoContainer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/RandomEventContainer.tscn" type="PackedScene" id=7]
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabsOnSide" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Body" type="VBoxContainer" parent="TabsOnSide"]
+margin_right = 1366.0
+margin_bottom = 768.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="HBoxContainer" parent="TabsOnSide/Body"]
+margin_right = 1366.0
+margin_bottom = 100.0
+
+[node name="ColorRect" type="ColorRect" parent="TabsOnSide/Body/Header"]
+margin_right = 1366.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.176471, 0.176471, 0.176471, 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabsOnSide/Body/Header/ColorRect"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -243.0
+margin_top = -7.0
+margin_bottom = 7.0
+custom_constants/separation = 86
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoneyLabel" type="Label" parent="TabsOnSide/Body/Header/ColorRect/HBoxContainer"]
+margin_right = 83.0
+margin_bottom = 14.0
+text = "Money: $500"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BuffLabel" type="Label" parent="TabsOnSide/Body/Header/ColorRect/HBoxContainer"]
+margin_left = 169.0
+margin_right = 234.0
+margin_bottom = 14.0
+text = "5/5/-2/5/0"
+
+[node name="Mid" type="HBoxContainer" parent="TabsOnSide/Body"]
+margin_top = 104.0
+margin_right = 1366.0
+margin_bottom = 768.0
+size_flags_vertical = 3
+script = ExtResource( 3 )
+
+[node name="Content" type="Control" parent="TabsOnSide/Body/Mid"]
+margin_right = 1283.0
+margin_bottom = 664.0
+size_flags_horizontal = 3
+
+[node name="Background" type="ColorRect" parent="TabsOnSide/Body/Mid/Content"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+color = Color( 0.572549, 0.54902, 0.635294, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OverviewContainer" parent="TabsOnSide/Body/Mid/Content" instance=ExtResource( 5 )]
+
+[node name="LemonadeAndStandContainer" parent="TabsOnSide/Body/Mid/Content" instance=ExtResource( 4 )]
+visible = false
+
+[node name="SuppliesContainer" parent="TabsOnSide/Body/Mid/Content" instance=ExtResource( 6 )]
+visible = false
+
+[node name="RandomEventContainer" parent="TabsOnSide/Body/Mid/Content" instance=ExtResource( 7 )]
+
+[node name="TabButtonContainer" type="VBoxContainer" parent="TabsOnSide/Body/Mid"]
+margin_left = 1287.0
+margin_right = 1366.0
+margin_bottom = 664.0
+size_flags_horizontal = 9
+size_flags_vertical = 3
+
+[node name="Overview" type="Button" parent="TabsOnSide/Body/Mid/TabButtonContainer"]
+margin_right = 79.0
+margin_bottom = 218.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+pressed = true
+text = "Overview"
+
+[node name="Lemonade" type="Button" parent="TabsOnSide/Body/Mid/TabButtonContainer"]
+margin_top = 222.0
+margin_right = 79.0
+margin_bottom = 440.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+text = "Lemonade"
+
+[node name="Supplies" type="Button" parent="TabsOnSide/Body/Mid/TabButtonContainer"]
+margin_top = 444.0
+margin_right = 79.0
+margin_bottom = 664.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+text = "Supplies"
+
+[node name="Stats" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="IngredientItem" type="Node" parent="."]
+script = ExtResource( 1 )
+[connection signal="pressed" from="TabsOnSide/Body/Mid/TabButtonContainer/Overview" to="TabsOnSide/Body/Mid" method="_on_Overview_pressed"]
+[connection signal="pressed" from="TabsOnSide/Body/Mid/TabButtonContainer/Lemonade" to="TabsOnSide/Body/Mid" method="_on_Lemonade_pressed"]
+[connection signal="pressed" from="TabsOnSide/Body/Mid/TabButtonContainer/Supplies" to="TabsOnSide/Body/Mid" method="_on_Supplies_pressed"]

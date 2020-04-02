@@ -1,0 +1,162 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/Main/Pages/LemonadeAndStandScene/LemonadeMixingMenu/IngredientSources/Water/SourceWater.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Main/Pages/LemonadeAndStandScene/LemonadeMixingMenu/IngredientRatios/RatioIngredientLemon.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Main/Pages/LemonadeAndStandScene/LemonadeMixingMenu/IngredientRatios/RatioContainerSugar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Main/Pages/LemonadeAndStandScene/LemonadeMixingMenu/IngredientRatios/RatioContainerWater.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Main/Pages/LemonadeAndStandScene/LemonadeMixingMenu/LemonadeInformationHandler.gd" type="Script" id=5]
+[ext_resource path="res://src/Main/Pages/LemonadeAndStandScene/LemonadeMixingMenu/IngredientSources/Lemon/SourceLemon.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Main/Pages/LemonadeAndStandScene/LemonadeMixingMenu/IngredientSources/Sugar/SourceSugar.tscn" type="PackedScene" id=7]
+
+[node name="LemonadeContainer" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -40.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 661.0
+margin_bottom = 768.0
+size_flags_horizontal = 3
+
+[node name="PitcherImg" type="ColorRect" parent="VBoxContainer"]
+margin_right = 661.0
+margin_bottom = 664.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/PitcherImg"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -207.5
+margin_top = -208.5
+margin_right = 207.5
+margin_bottom = 208.5
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "IMG"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+margin_top = 668.0
+margin_right = 661.0
+margin_bottom = 768.0
+rect_min_size = Vector2( 0, 100 )
+
+[node name="LemonadeDesc" type="Label" parent="VBoxContainer/Panel"]
+anchor_right = 1.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "This lemonade is mostly watery with a touch of lemon and sugar."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SettingsContainer" type="VBoxContainer" parent="."]
+margin_left = 665.0
+margin_right = 1326.0
+margin_bottom = 768.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="SettingsContainer"]
+margin_right = 661.0
+margin_bottom = 14.0
+text = "Lemonade Mix Ratio"
+align = 1
+
+[node name="LemonadeIngredients" type="VBoxContainer" parent="SettingsContainer"]
+margin_top = 18.0
+margin_right = 661.0
+margin_bottom = 283.0
+size_flags_horizontal = 3
+
+[node name="IngredientRatiosContainer" type="HBoxContainer" parent="SettingsContainer/LemonadeIngredients"]
+margin_right = 661.0
+margin_bottom = 38.0
+
+[node name="RatioContainerWater" parent="SettingsContainer/LemonadeIngredients/IngredientRatiosContainer" instance=ExtResource( 4 )]
+margin_right = 217.0
+
+[node name="RatioContainerLemon" parent="SettingsContainer/LemonadeIngredients/IngredientRatiosContainer" instance=ExtResource( 2 )]
+margin_left = 221.0
+margin_right = 438.0
+
+[node name="RatioContainerSugar" parent="SettingsContainer/LemonadeIngredients/IngredientRatiosContainer" instance=ExtResource( 3 )]
+margin_left = 442.0
+margin_right = 661.0
+
+[node name="IngredientSource" type="GridContainer" parent="SettingsContainer/LemonadeIngredients"]
+margin_top = 42.0
+margin_right = 661.0
+margin_bottom = 110.0
+size_flags_horizontal = 3
+custom_constants/hseparation = 13
+
+[node name="SourceWater" parent="SettingsContainer/LemonadeIngredients/IngredientSource" instance=ExtResource( 1 )]
+margin_right = 661.0
+
+[node name="SourceSugar" parent="SettingsContainer/LemonadeIngredients/IngredientSource" instance=ExtResource( 7 )]
+margin_top = 24.0
+margin_right = 661.0
+margin_bottom = 44.0
+
+[node name="SourceLemon" parent="SettingsContainer/LemonadeIngredients/IngredientSource" instance=ExtResource( 6 )]
+margin_top = 48.0
+margin_right = 661.0
+margin_bottom = 68.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsContainer/LemonadeIngredients"]
+margin_top = 114.0
+margin_right = 661.0
+margin_bottom = 138.0
+custom_constants/separation = 33
+
+[node name="Label" type="Label" parent="SettingsContainer/LemonadeIngredients/HBoxContainer"]
+margin_top = 5.0
+margin_right = 95.0
+margin_bottom = 19.0
+text = "I want to make"
+
+[node name="Gallons" type="SpinBox" parent="SettingsContainer/LemonadeIngredients/HBoxContainer"]
+margin_left = 128.0
+margin_right = 202.0
+margin_bottom = 24.0
+min_value = 1.0
+value = 1.0
+
+[node name="Label2" type="Label" parent="SettingsContainer/LemonadeIngredients/HBoxContainer"]
+margin_left = 235.0
+margin_top = 5.0
+margin_right = 368.0
+margin_bottom = 19.0
+text = "gallons of lemonade."
+
+[node name="AlertLabel" type="Label" parent="SettingsContainer/LemonadeIngredients"]
+margin_top = 142.0
+margin_right = 661.0
+margin_bottom = 241.0
+text = "You can make a max of 0 gallons of lemonade.
+To make this amount
+0 water(s)
+0 sugar(s)
+0 lemon(s)
+will be used."
+
+[node name="ButtonMixLemonade" type="Button" parent="SettingsContainer/LemonadeIngredients"]
+margin_left = 277.0
+margin_top = 245.0
+margin_right = 383.0
+margin_bottom = 265.0
+size_flags_horizontal = 4
+text = "Mix Lemonade"
+[connection signal="value_changed" from="SettingsContainer/LemonadeIngredients/HBoxContainer/Gallons" to="." method="_on_Gallons_value_changed"]

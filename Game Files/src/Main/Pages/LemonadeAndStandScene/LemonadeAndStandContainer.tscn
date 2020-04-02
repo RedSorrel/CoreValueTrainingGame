@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Main/Pages/LemonadeAndStandScene/LemonadeMixingMenu/LemonadeInformationContainer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Main/Pages/LemonadeAndStandScene/LemonadeStandMenu/StandInfoContainer.tscn" type="PackedScene" id=2]
+
+[node name="LemonadeAndStandContainer" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LemonadeInfo" type="HBoxContainer" parent="."]
+margin_right = 1326.0
+margin_bottom = 378.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LemonadeContainer" parent="LemonadeInfo" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1326.0
+margin_bottom = 378.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HSeparator" type="HSeparator" parent="."]
+margin_top = 382.0
+margin_right = 1286.0
+margin_bottom = 386.0
+rect_min_size = Vector2( 1286, 4 )
+size_flags_horizontal = 0
+
+[node name="StandInfoContainer" parent="." instance=ExtResource( 2 )]

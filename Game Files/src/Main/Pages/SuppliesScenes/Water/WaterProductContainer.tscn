@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Main/Pages/SuppliesScenes/ProductBase/ProductContainer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Main/Pages/SuppliesScenes/Water/WaterProduct.gd" type="Script" id=2]
+
+[node name="WaterProductContainer" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Label" parent="." index="0"]
+margin_right = 85.0
+text = "Water Source"
+
+[node name="SourceOptions" parent="." index="1"]
+margin_left = 89.0
+margin_right = 188.0
+
+[node name="Quantity" parent="." index="2"]
+margin_left = 192.0
+margin_right = 266.0
+
+[node name="Price" parent="." index="3"]
+margin_left = 270.0
+margin_right = 376.0
+
+[node name="CurrentQuantity" parent="." index="4"]
+margin_left = 380.0
+margin_right = 487.0
+[connection signal="item_selected" from="SourceOptions" to="." method="_on_SourceOptions_item_selected"]
+[connection signal="value_changed" from="Quantity" to="." method="_on_Quantity_value_changed"]

@@ -1,0 +1,78 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/ToDelete/Upgrade_Item.tscn" type="PackedScene" id=1]
+
+
+[node name="Buy Upgrades Screen" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1366.0
+margin_bottom = 768.0
+color = Color( 0.439216, 0.439216, 0.439216, 1 )
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 69.0
+margin_top = 28.0
+margin_right = -40.0
+margin_bottom = -29.0
+custom_constants/vseparation = 150
+custom_constants/hseparation = 0
+columns = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Upgrade_Item" parent="ColorRect/GridContainer" instance=ExtResource( 1 )]
+margin_right = 419.0
+margin_bottom = 137.0
+
+[node name="Upgrade_Item2" parent="ColorRect/GridContainer" instance=ExtResource( 1 )]
+margin_left = 419.0
+margin_right = 838.0
+margin_bottom = 137.0
+
+[node name="Upgrade_Item3" parent="ColorRect/GridContainer" instance=ExtResource( 1 )]
+margin_left = 838.0
+margin_right = 1257.0
+margin_bottom = 137.0
+
+[node name="Upgrade_Item4" parent="ColorRect/GridContainer" instance=ExtResource( 1 )]
+margin_top = 287.0
+margin_right = 419.0
+margin_bottom = 424.0
+
+[node name="Upgrade_Item5" parent="ColorRect/GridContainer" instance=ExtResource( 1 )]
+margin_left = 419.0
+margin_top = 287.0
+margin_right = 838.0
+margin_bottom = 424.0
+
+[node name="Upgrade_Item6" parent="ColorRect/GridContainer" instance=ExtResource( 1 )]
+margin_left = 838.0
+margin_top = 287.0
+margin_right = 1257.0
+margin_bottom = 424.0
+
+[node name="Upgrade_Item7" parent="ColorRect/GridContainer" instance=ExtResource( 1 )]
+margin_top = 574.0
+margin_right = 419.0
+margin_bottom = 711.0
+
+[node name="Upgrade_Item8" parent="ColorRect/GridContainer" instance=ExtResource( 1 )]
+margin_left = 419.0
+margin_top = 574.0
+margin_right = 838.0
+margin_bottom = 711.0
+
+[node name="Upgrade_Item9" parent="ColorRect/GridContainer" instance=ExtResource( 1 )]
+margin_left = 838.0
+margin_top = 574.0
+margin_right = 1257.0
+margin_bottom = 711.0
