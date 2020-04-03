@@ -1,4 +1,4 @@
-## CoreValueTrainingGame
+# Core Value Training Game
 ## Documentation
 
 ### Table of Contents
@@ -11,15 +11,14 @@
 
 
 ### Stack
-This game is built using the [Godot Engine](https://godotengine.org/download/)
+This game is built using the Godot Engine.
 Godot uses its own script and has a version where you can use C#.
 For the purposes of this game, GDScript is used as most tutorials and guides
 are written in this script.
 
-GDScript closely resembles Python in terms of syntax.
 
 ### Quick Start
-1. Install Godot
+1. Install [Godot](https://godotengine.org/download/)
 2. Clone this repository
 3. Locate Main.tscn in src/Main and double click it
 4. Press F6 to run these scene
@@ -33,7 +32,7 @@ GDScript closely resembles Python in terms of syntax.
 
 
 #### FAQ
--**I can't move a node in the 2D viewport**
+- **I can't move a node in the 2D viewport**
 Some GUI nodes like VBoxContainer and HBoxContainer take control of where their children are displayed and Godot won't allow you to move those children manually in the viewport. These nodes act similar to Web Dev components like Flexbox and Grids. Think of them as Flexbox parent containers.
 
 A few things you can do:
@@ -43,6 +42,7 @@ A few things you can do:
 2. You can add a node that doesn't have restrictions like VBox, HBox, or Margin such as a plain Control node or ColorRect if you want a background. Any child nodes added here can be moved manually in the 2D viewport.
 
 Something like this:
+
     MarginContainer
     --ColorRect
     ----VBoxContainer/ Other Nodes
