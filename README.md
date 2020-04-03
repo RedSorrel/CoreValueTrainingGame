@@ -2,11 +2,12 @@
 ## Documentation
 
 ### Table of Contents
-- [Stack] (#stack)
-- [Quick Start] (#quick-start)
-- [How to Edit] (#how-to-edit)
-- [Code Style Guide] (#code-style-guide)
-- [File Structure] (#file-structure)
+- [Stack](#stack)
+- [Quick Start](#quick-start)
+- [How to Edit Scenes](#how-to-edit-scene-files)
+- [How to Edit Scripts](#how-to-edit-script-files)
+- [Code Style Guide](#code-style-guide)
+- [File Structure](#file-structure)
 
 
 ### Stack
@@ -17,7 +18,7 @@ are written in this script.
 
 GDScript closely resembles Python in terms of syntax.
 
-### [quick-start] Quick Start
+### Quick Start
 1. Install Godot
 2. Clone this repository
 3. Locate Main.tscn in src/Main and double click it
@@ -33,14 +34,15 @@ GDScript closely resembles Python in terms of syntax.
 
 #### FAQ
 -**I can't move a node in the 2D viewport**
-    Some GUI nodes like VBoxContainer and HBoxContainer take control of where their children are displayed and Godot won't allow you to move those children manually in the viewport. These nodes act similar to Web Dev components like Flexbox and Grids. Think of them as Flexbox parent containers.
+Some GUI nodes like VBoxContainer and HBoxContainer take control of where their children are displayed and Godot won't allow you to move those children manually in the viewport. These nodes act similar to Web Dev components like Flexbox and Grids. Think of them as Flexbox parent containers.
 
-    A few things you can do:
-    1. With a child node selected, you can edit the size flags of it in the Inspector. Default is set to Fill, but you can select Expand so that node will take up any left over space. You can Shrink Center or Shrink End.
-        You can adjust the minmum size in Rect and any extra margins in Margin.
-    2. You can add a node that doesn't have restrictions like VBox, HBox, or Margin such as a plain Control node or ColorRect if you want a background. Any child nodes added here can be moved manually in the 2D viewport.
+A few things you can do:
 
-    Something like this:
+1. With a child node selected, you can edit the size flags of it in the Inspector. Default is set to Fill, but you can select Expand so that node will take up any left over space. You can Shrink Center or Shrink End.
+    You can adjust the minmum size in Rect and any extra margins in Margin.
+2. You can add a node that doesn't have restrictions like VBox, HBox, or Margin such as a plain Control node or ColorRect if you want a background. Any child nodes added here can be moved manually in the 2D viewport.
+
+Something like this:
     MarginContainer
     --ColorRect
     ----VBoxContainer/ Other Nodes
@@ -52,7 +54,7 @@ GDScript closely resembles Python in terms of syntax.
 
 
 ### Signals, what are they and how do I use them?
-Signals documentation (here)[https://docs.godotengine.org/en/3.2/getting_started/step_by_step/signals.html#signals]
+Signals documentation [here]([https://docs.godotengine.org/en/3.2/getting_started/step_by_step/signals.html#signals)
 
 
 ### Code Documentation
@@ -64,27 +66,28 @@ Follow the best practices guide found here: https://docs.godotengine.org/en/late
 
 ### File Structure
 Keep Scene files and scripts associated with each other in the same folder.
-i.e. from the (Docs)[https://docs.godotengine.org/en/latest/getting_started/workflow/project_setup/project_organization.html]
-    /models
-        /town
-            /house
+i.e. from the [Docs](https://docs.godotengine.org/en/latest/getting_started/workflow/project_setup/project_organization.html)
+
+    models
+        town
+            house
                 house.fbx
                 window.png
                 door.png
-    /characters
-        /player
+    characters
+        player
             player.fbx
             player.png
-        /enemies
-            /goblin
+        enemies
+            goblin
                 goblin.fbx
                 goblin.png
-        /npcs
-            /suzanne
+        npcs
+            suzanne
                 suzanne.fbx
                 suzanne.png
-    /levels
-        /riverdale
+    levels
+        riverdale
             riverdale.scn
 
 
