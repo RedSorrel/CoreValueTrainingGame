@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bombs_icon.png-20bbeb2a9c2183c5ba88f2b340aec35c.stex"
+path="res://.import/energy_bar_bg.png-3bb23ab90c7dad96e67140dfe5abe1c6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/GUI/bombs_icon.png"
-dest_files=[ "res://.import/bombs_icon.png-20bbeb2a9c2183c5ba88f2b340aec35c.stex" ]
+source_file="res://assets/Tutorial Assets/GUI/energy_bar_bg.png"
+dest_files=[ "res://.import/energy_bar_bg.png-3bb23ab90c7dad96e67140dfe5abe1c6.stex" ]
 
 [params]
 

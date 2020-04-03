@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lifebar_bg.png-bbb11f3195d73a18fddc4dc15125c977.stex"
+path="res://.import/order_queue_bg.png-5493df1950603a070684b47c166c941c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/GUI/lifebar_bg.png"
-dest_files=[ "res://.import/lifebar_bg.png-bbb11f3195d73a18fddc4dc15125c977.stex" ]
+source_file="res://assets/Tutorial Assets/GUI/order_queue_bg.png"
+dest_files=[ "res://.import/order_queue_bg.png-5493df1950603a070684b47c166c941c.stex" ]
 
 [params]
 

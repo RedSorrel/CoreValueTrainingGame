@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/label_EP.png-ef88c59a1bf6f69d3411e8daa0c276ff.stex"
+path="res://.import/buddy_green.png-5b01e9953d409413184b09ef9215a4fa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/GUI/label_EP.png"
-dest_files=[ "res://.import/label_EP.png-ef88c59a1bf6f69d3411e8daa0c276ff.stex" ]
+source_file="res://assets/Tutorial Assets/chararacters/buddy_green.png"
+dest_files=[ "res://.import/buddy_green.png-5b01e9953d409413184b09ef9215a4fa.stex" ]
 
 [params]
 
