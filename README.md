@@ -33,6 +33,7 @@ are written in this script.
 
 #### FAQ
 - **I can't move a node in the 2D viewport**
+
 Some GUI nodes like VBoxContainer and HBoxContainer take control of where their children are displayed and Godot won't allow you to move those children manually in the viewport. These nodes act similar to Web Dev components like Flexbox and Grids. Think of them as Flexbox parent containers.
 
 A few things you can do:
@@ -54,7 +55,7 @@ Something like this:
 
 
 ### Signals, what are they and how do I use them?
-Signals documentation [here]([https://docs.godotengine.org/en/3.2/getting_started/step_by_step/signals.html#signals)
+Signals documentation [here](https://docs.godotengine.org/en/3.2/getting_started/step_by_step/signals.html)
 
 
 ### Code Documentation
