@@ -55,14 +55,14 @@ Something like this:
 
 
 ### Signals, what are they and how do I use them?
-Signals documentation [here](https://docs.godotengine.org/en/3.2/getting_started/step_by_step/signals.html)
+Signals documentation [here](https://docs.godotengine.org/en/3.2/getting_started/step_by_step/signals.html).
 
 
 ### Code Documentation
-Code documenations if found here: https://docs.godotengine.org/en/3.2/
+Code documentation for GDscript are found [here](https://docs.godotengine.org/en/3.2/).
 
 ### Code Style Guide
-Follow the best practices guide found here: https://docs.godotengine.org/en/latest/getting_started/scripting/gdscript/gdscript_styleguide.html
+Follow the best practices guide found [here](https://docs.godotengine.org/en/latest/getting_started/scripting/gdscript/gdscript_styleguide.html).
 
 
 ### File Structure
@@ -94,7 +94,7 @@ i.e. from the [Docs](https://docs.godotengine.org/en/latest/getting_started/work
 
 
 ### Tutorials
-List of tutorials collected by Godot here: https://docs.godotengine.org/en/latest/community/tutorials.html
+List of tutorials collected by Godot [here](https://docs.godotengine.org/en/latest/community/tutorials.html)
 
 
 
