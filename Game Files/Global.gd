@@ -1,5 +1,6 @@
 extends Node
 
+signal changed
 """
 Needs to contain information to be shared amongst many scenes.
 Ingridient Items are something that needs to be shared between the
@@ -35,6 +36,11 @@ onready var cane_sugar = IngredientItem.IngredientItem.new("sugar", "cane sugar"
 onready var stevia = IngredientItem.IngredientItem.new("sugar", "stevia", 4, 0)
 onready var sugar_list = [process_sugar, cane_sugar, stevia]
 
+###########
+## Money ##
+###########
+onready var money = 100.00
+
 # recipe string, used to show the player the recipe they used the day before
 # as well as to display a lemonade description in IngredientRatio.gd
 onready var recipe = {}
@@ -45,3 +51,4 @@ func populate_option_box(product_list: Array, option_box:Node) -> void:
 
 func cost_string(product_list: Array) -> String:
 	return "Cost $%s / unit" % product_list[0].get_price()
+

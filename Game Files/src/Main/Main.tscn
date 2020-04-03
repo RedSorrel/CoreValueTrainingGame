@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://src/Main/Pages/SuppliesScenes/IngredientItemClass.gd" type="Script" id=1]
+[ext_resource path="res://src/Main/ConnectorHandler.gd" type="Script" id=1]
 [ext_resource path="res://src/Stats.gd" type="Script" id=2]
 [ext_resource path="res://src/Main/Tabs/TabSwitcher.gd" type="Script" id=3]
 [ext_resource path="res://src/Main/Pages/LemonadeAndStandScene/LemonadeAndStandContainer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Main/Pages/Overview/OverviewContainer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/Main/Pages/SuppliesScenes/SuppliesInfoContainer.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/RandomEventContainer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/RandomEvent/RandomEventContainer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/DailyOverview/DailyOverview.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Main/Money.gd" type="Script" id=9]
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -18,6 +20,7 @@ __meta__ = {
 [node name="TabsOnSide" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -46,26 +49,29 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -243.0
-margin_top = -7.0
-margin_bottom = 7.0
+margin_left = -234.0
+margin_top = -50.0
+margin_bottom = 50.0
 custom_constants/separation = 86
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MoneyLabel" type="Label" parent="TabsOnSide/Body/Header/ColorRect/HBoxContainer"]
+margin_top = 43.0
 margin_right = 83.0
-margin_bottom = 14.0
+margin_bottom = 57.0
 text = "Money: $500"
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="BuffLabel" type="Label" parent="TabsOnSide/Body/Header/ColorRect/HBoxContainer"]
 margin_left = 169.0
+margin_top = 43.0
 margin_right = 234.0
-margin_bottom = 14.0
+margin_bottom = 57.0
 text = "5/5/-2/5/0"
 
 [node name="Mid" type="HBoxContainer" parent="TabsOnSide/Body"]
@@ -97,7 +103,11 @@ visible = false
 [node name="SuppliesContainer" parent="TabsOnSide/Body/Mid/Content" instance=ExtResource( 6 )]
 visible = false
 
+[node name="DailyOverview" parent="TabsOnSide/Body/Mid/Content" instance=ExtResource( 8 )]
+visible = false
+
 [node name="RandomEventContainer" parent="TabsOnSide/Body/Mid/Content" instance=ExtResource( 7 )]
+visible = false
 
 [node name="TabButtonContainer" type="VBoxContainer" parent="TabsOnSide/Body/Mid"]
 margin_left = 1287.0
@@ -138,9 +148,6 @@ text = "Supplies"
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource( 2 )
-
-[node name="IngredientItem" type="Node" parent="."]
-script = ExtResource( 1 )
 [connection signal="pressed" from="TabsOnSide/Body/Mid/TabButtonContainer/Overview" to="TabsOnSide/Body/Mid" method="_on_Overview_pressed"]
 [connection signal="pressed" from="TabsOnSide/Body/Mid/TabButtonContainer/Lemonade" to="TabsOnSide/Body/Mid" method="_on_Lemonade_pressed"]
 [connection signal="pressed" from="TabsOnSide/Body/Mid/TabButtonContainer/Supplies" to="TabsOnSide/Body/Mid" method="_on_Supplies_pressed"]

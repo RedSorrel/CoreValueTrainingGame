@@ -3,8 +3,6 @@
 [ext_resource path="res://src/Simulation/Simulation.gd" type="Script" id=1]
 [ext_resource path="res://src/Simulation/Customer.gd" type="Script" id=2]
 
-
-
 [node name="OverviewContainer" type="VBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0

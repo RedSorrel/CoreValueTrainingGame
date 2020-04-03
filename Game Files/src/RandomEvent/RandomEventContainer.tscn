@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/RandomEvent/RandomEvent.gd" type="Script" id=1]
+
+[node name="RandomEventContainer" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1366.0
+margin_bottom = 768.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.211765, 0.333333, 0.368627, 1 )
+
+[node name="Label" type="Label" parent="ColorRect"]
+margin_top = 4.0
+margin_right = 1366.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+text = "Random Event!"
+align = 1
+
+[node name="Label2" type="Label" parent="ColorRect"]
+margin_top = 22.0
+margin_right = 1366.0
+margin_bottom = 70.0
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris commodo quis imperdiet massa.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris commodo quis imperdiet massa.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris commodo quis imperdiet massa."
+
+[node name="Button" type="Button" parent="ColorRect"]
+margin_left = 649.0
+margin_top = 74.0
+margin_right = 717.0
+margin_bottom = 94.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Option 1"
+
+[node name="Button2" type="Button" parent="ColorRect"]
+margin_left = 649.0
+margin_top = 98.0
+margin_right = 717.0
+margin_bottom = 118.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Option 2"
+[connection signal="visibility_changed" from="." to="." method="_on_RandomEventContainer_visibility_changed"]
+[connection signal="pressed" from="ColorRect/Button" to="." method="_on_Button_pressed"]
