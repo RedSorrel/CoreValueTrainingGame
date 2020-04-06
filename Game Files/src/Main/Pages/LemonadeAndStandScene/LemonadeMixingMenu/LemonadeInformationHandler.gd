@@ -1,5 +1,6 @@
 extends HBoxContainer
 
+signal price_changed(value)
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -20,6 +21,9 @@ onready var item_sugar = get_node("SettingsContainer/LemonadeIngredients/Ingredi
 onready var items = [item_water, item_lemon, item_sugar]
 
 onready var gallon_node = get_node("SettingsContainer/LemonadeIngredients/HBoxContainer/Gallons")
+onready var lemonade_price = 1.00 setget set_price, get_price
+onready var current_price_label = get_node("SettingsContainer/LemonadeIngredients/PriceAdjustContainer/CurrentPriceLabel")
+onready var lemonade_new_price = get_node("SettingsContainer/LemonadeIngredients/PriceAdjustContainer/AdjustPrice")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -81,3 +85,28 @@ func _on_Gallons_value_changed(value):
 	print("Gallon value = " + str(value))
 	print("multiplier water = " + str(item_water.get_multiplier()))
 	pass # Replace with function body.
+
+
+
+func _on_SetPriceButton_pressed():
+	# Get the price in the spinbox AdjustPrice
+	# Set the price to this new price
+	# Update the Current price label
+	# Send this info to the simulation or global
+	set_price(lemonade_new_price.value)
+	update_price_string()
+	
+	# Send the price to the simulation so it can update
+	# the price of lemonade there
+	emit_signal("price_changed", get_price())
+	pass # Replace with function body.
+
+func update_price_string() -> void:
+	current_price_label.text = "Current price / cup of lemonade: $%.*f" % [2, get_price()]
+	pass
+		
+func set_price(value:float) -> void:
+	lemonade_price = value
+	
+func get_price() -> float: 
+	return lemonade_price

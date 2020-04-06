@@ -75,16 +75,18 @@ func _on_Supplies_pressed() -> void:
 		supplies_btn.pressed = true
 
 func _on_StartGameButton_pressed(revenue) -> void:
-	#custom signal
+	#custom signal from simulation button press
 	#Set the profit
 	daily_overview.set_revenue_text(revenue)
-	
 	daily_overview.visible = true
 
-func _on_Dismissed_pressed() -> void:
+func _on_Dismissed_pressed(isEnd) -> void:
 	# Signal is emitted from the DailyOverview scene
 	# happens when the dismiss button is pressed
 	# Now we shall show the RandomEvent to the player
-	random_event.visible = true
-	print("TabSwitcher: Daily dissmissed has been pressed")
+	if isEnd:
+		pass
+	else:
+		random_event.visible = true
+		print("TabSwitcher: Daily dissmissed has been pressed")
 	
