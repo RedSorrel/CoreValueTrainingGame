@@ -11,11 +11,14 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 1366.0
-margin_bottom = 768.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0.403922, 0.403922, 0.403922, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -101,3 +104,11 @@ margin_left = 980.0
 margin_right = 1221.0
 margin_bottom = 14.0
 text = "Day 5: You chose to do ____ to _______."
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+margin_left = 658.0
+margin_top = 89.0
+margin_right = 708.0
+margin_bottom = 109.0
+size_flags_horizontal = 4
+text = "Finish"

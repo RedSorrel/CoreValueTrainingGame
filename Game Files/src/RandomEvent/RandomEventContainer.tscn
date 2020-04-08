@@ -32,6 +32,7 @@ margin_bottom = 70.0
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris commodo quis imperdiet massa.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris commodo quis imperdiet massa.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris commodo quis imperdiet massa."
+align = 1
 
 [node name="Button" type="Button" parent="ColorRect"]
 margin_left = 649.0
@@ -50,5 +51,9 @@ margin_bottom = 118.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "Option 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="visibility_changed" from="." to="." method="_on_RandomEventContainer_visibility_changed"]
 [connection signal="pressed" from="ColorRect/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/Button2" to="." method="_on_Button2_pressed"]
