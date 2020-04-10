@@ -104,13 +104,13 @@ visible = false
 [node name="SuppliesContainer" parent="TabsOnSide/Body/Mid/Content" instance=ExtResource( 6 )]
 visible = false
 
-[node name="EndScreen" parent="TabsOnSide/Body/Mid/Content" instance=ExtResource( 10 )]
-visible = false
-
 [node name="DailyOverview" parent="TabsOnSide/Body/Mid/Content" instance=ExtResource( 8 )]
 visible = false
 
 [node name="RandomEventContainer" parent="TabsOnSide/Body/Mid/Content" instance=ExtResource( 7 )]
+visible = false
+
+[node name="EndScreen" parent="TabsOnSide/Body/Mid/Content" instance=ExtResource( 10 )]
 visible = false
 
 [node name="TabButtonContainer" type="VBoxContainer" parent="TabsOnSide/Body/Mid"]

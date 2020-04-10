@@ -80,13 +80,12 @@ func _on_StartGameButton_pressed(revenue) -> void:
 	daily_overview.set_revenue_text(revenue)
 	daily_overview.visible = true
 
-func _on_Dismissed_pressed(isEnd) -> void:
+func _on_Dismissed_pressed() -> void:
 	# Signal is emitted from the DailyOverview scene
 	# happens when the dismiss button is pressed
 	# Now we shall show the RandomEvent to the player
-	if isEnd:
-		pass
-	else:
-		random_event.visible = true
-		print("TabSwitcher: Daily dissmissed has been pressed")
+	
+	#TODO don't show this scene when it's the last day
+	random_event.visible = true
+		
 	

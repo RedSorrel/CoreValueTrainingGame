@@ -2,58 +2,89 @@
 
 [ext_resource path="res://src/RandomEvent/RandomEvent.gd" type="Script" id=1]
 
-[node name="RandomEventContainer" type="VBoxContainer"]
+[node name="RandomEventContainer" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 1366.0
-margin_bottom = 768.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0.211765, 0.333333, 0.368627, 1 )
 
-[node name="Label" type="Label" parent="ColorRect"]
-margin_top = 4.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 margin_right = 1366.0
-margin_bottom = 18.0
+margin_bottom = 768.0
+
+[node name="Header" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_right = 1366.0
+margin_bottom = 14.0
 size_flags_horizontal = 3
 text = "Random Event!"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label2" type="Label" parent="ColorRect"]
-margin_top = 22.0
+[node name="Prompt" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_top = 18.0
 margin_right = 1366.0
-margin_bottom = 70.0
+margin_bottom = 66.0
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris commodo quis imperdiet massa.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris commodo quis imperdiet massa.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris commodo quis imperdiet massa."
 align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Button" type="Button" parent="ColorRect"]
+[node name="GoodChoice" type="Button" parent="MarginContainer/VBoxContainer"]
 margin_left = 649.0
-margin_top = 74.0
+margin_top = 70.0
 margin_right = 717.0
-margin_bottom = 94.0
+margin_bottom = 90.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "Option 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Button2" type="Button" parent="ColorRect"]
+[node name="BadChoice" type="Button" parent="MarginContainer/VBoxContainer"]
 margin_left = 649.0
-margin_top = 98.0
+margin_top = 94.0
 margin_right = 717.0
-margin_bottom = 118.0
+margin_bottom = 114.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "Option 2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Dismiss" type="Button" parent="MarginContainer/VBoxContainer"]
+visible = false
+margin_left = 651.0
+margin_top = 118.0
+margin_right = 715.0
+margin_bottom = 138.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Dismiss"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="visibility_changed" from="." to="." method="_on_RandomEventContainer_visibility_changed"]
-[connection signal="pressed" from="ColorRect/Button" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="ColorRect/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/GoodChoice" to="." method="_on_GoodChoice_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BadChoice" to="." method="_on_BadChoice_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Dismiss" to="." method="_on_Dismiss_pressed"]

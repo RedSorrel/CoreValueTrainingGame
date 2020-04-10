@@ -8,6 +8,7 @@ func _ready():
 	var supplies_container = get_node("Body/Mid/Content/SuppliesContainer")
 	var simulation_node = get_node("Body/Mid/Content/OverviewContainer")
 	var end_screen = get_node("Body/Mid/Content/EndScreen")
+	var random_event = get_node("Body/Mid/Content/RandomEventContainer")
 	# Need to go through two levels of get_nodes in order to grab the container we want
 	# Why? The info we need resides in LemonadeContainer, the signal we're looking for
 	# Cannot assess through Lemonade AND Stand container, the parent container
