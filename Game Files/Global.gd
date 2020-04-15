@@ -15,6 +15,7 @@ Handle the buffs here to share across many scenes, get updated by those scenes.
 """
 # Ingredient objects
 var IngredientItem = preload("res://src/Main/Pages/SuppliesScenes/IngredientItemClass.gd")
+var Money = preload("res://src/Main/Money.gd")
 
 onready var tap_water = IngredientItem.IngredientItem.new("water","tap water", 1, 10)
 onready var bottled_water = IngredientItem.IngredientItem.new("water", "bottled water", 2, 30)
@@ -40,7 +41,7 @@ onready var sugar_list = [process_sugar, cane_sugar, stevia]
 ## Money ##
 ###########
 onready var money = 100.00
-
+onready var money2 = Money.Money.new()
 # recipe string, used to show the player the recipe they used the day before
 # as well as to display a lemonade description in IngredientRatio.gd
 onready var recipe = {}

@@ -51,6 +51,9 @@ func _ready() -> void:
 
 func _on_Button_pressed() -> void:
 	purchase_items()
+	
+	#Debug, delete these soon
+	
 	tap_water_debug.text = "# of tap waters = %s"  % Global.tap_water.get_quantity()
 	lemon_debug.text = "# of lemons = %s" % Global.lemon_mix.get_quantity()
 	sugar_debug.text = "# of sugars = %s" % Global.process_sugar.get_quantity()
@@ -111,13 +114,30 @@ func purchase_items() -> void:
 				cup_current_quant.text = "Currently own: %s" % cup.get_quantity()
 			else:
 				break
+				
+	# Deduct money from wallet
+	Global.money2.set_money(Global.money2.get_money() - calculate_total())
+	print(Global.money2.get_money())
 	
 
 func calculate_total() -> int:
 	return sugar_product_container.get_subtotal() + lemon_product_container.get_subtotal() + water_product_container.get_subtotal() + cup_product_container.get_subtotal()
 	
 func update_total_string() -> void:
-	cost_label.text = "Total cost of these items is: $%s" % calculate_total()
+	# Called each time quantity spin button is updated
+	# Update the total
+	var total = calculate_total()
+	cost_label.text = "Total cost of these items is: $%s" % total
+	# Check money to see if cost is greater than what is in the wallet
+	# disable the button and turn the color red if cost is greater
+	# otherwise enable the purchase button
+	if total > Global.money:
+		print("costs too much")
+		purchase_btn.disabled = true
+		cost_label.add_color_override("font_color", Color(1, 0, 0, 1))
+	else:
+		cost_label.add_color_override("font_color", Color(1, 1, 1, 1))
+		purchase_btn.disabled = false
 	
 
 

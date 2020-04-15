@@ -27,7 +27,7 @@ Resides in OverviewContainer
 #		display in overview, update money in money bar
 onready var revenue
 onready var lemonade_price = 1.00
-onready var counter = 2
+onready var counter = 3
 
 func calculate_customers() -> int:
 	# calculate customers based on factors
@@ -75,7 +75,8 @@ func _ready() -> void:
 
 func set_revenue(value) -> void:
 	revenue = value
-	emit_signal("money_changed", value)
+	#emit_signal("money_changed", value)
+	emit_signal("money_changed")
 	
 func get_revenue() -> float:
 	return revenue

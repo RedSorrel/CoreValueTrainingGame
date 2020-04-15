@@ -12,6 +12,9 @@ onready var supplies_scene := get_node("Content/SuppliesContainer")
 
 onready var daily_overview := get_node("Content/DailyOverview")
 onready var random_event := get_node("Content/RandomEventContainer")
+onready var end_screen := get_node("Content/EndScreen")
+
+onready var isGameEnd = false
 
 onready var active_scene = overview_scene
 onready var active_button = overview_btn
@@ -24,7 +27,9 @@ func _ready() -> void:
 	# Daily Overview exists, so use their parent instead.
 	
 	overview_scene.connect("pressed", self, "_on_StartGameButton_pressed")
-	daily_overview.connect("pressed", self, "_on_Dismissed_pressed")
+	daily_overview.connect("pressed", self, "_on_Daily_Dismissed_pressed")
+	random_event.connect("pressed", self, "_on_Random_Dismissed_pressed")
+	overview_scene.connect("week_ends", self, "_on_Week_Ends")
 	make_active_visible()
 	
 	
@@ -80,12 +85,28 @@ func _on_StartGameButton_pressed(revenue) -> void:
 	daily_overview.set_revenue_text(revenue)
 	daily_overview.visible = true
 
-func _on_Dismissed_pressed() -> void:
+func _on_Daily_Dismissed_pressed() -> void:
 	# Signal is emitted from the DailyOverview scene
 	# happens when the dismiss button is pressed
 	# Now we shall show the RandomEvent to the player
 	
 	#TODO don't show this scene when it's the last day
 	random_event.visible = true
-		
+	
+	
+	
+func _on_Week_Ends() -> bool:
+	# The counter in Simulation has hit 1 or 0
+	# it's time to show the end screen
+	# update the variable, and then use this variable in Random's dimiss func
+	# that way we get one more random event before the game ends
+	isGameEnd = true
+	return isGameEnd
+	
+func _on_Random_Dismissed_pressed() -> void:
+	# When random event is dismissed, show the end screen if
+	# it is the end of the game
+	if isGameEnd:
+		end_screen.visible = true
+	pass
 	

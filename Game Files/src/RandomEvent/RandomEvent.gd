@@ -1,5 +1,7 @@
 extends Control
 
+signal pressed
+
 onready var prompt = get_node("MarginContainer/VBoxContainer/Prompt")
 onready var good_choice = get_node("MarginContainer/VBoxContainer/GoodChoice")
 onready var bad_choice = get_node("MarginContainer/VBoxContainer/BadChoice")
@@ -30,26 +32,31 @@ onready var be_good_prompts = {
 	"Take the wallet to the police station, explaining where it was dropped.",
 	"You decide to take the wallet to the police station. They help you write a report and the rest is up to them. The next day, the cyclist stops by and thanks you. They buy a cup of lemonade and tip you extra in thanks.",
 	"Decide to mail the wallet, using the address found on the driver’s license, and take a few dollars as a reward.", 
-	"You decide to pocket some money and then send the wallet. You notice that the cyclist rides on the other side of the road now. You can't really tell, but you feel like the cyclist is glaring at you from behind their sunglasses as they speed by."] }
+	"You decide to pocket some money and then send the wallet. You notice that the cyclist rides on the other side of the road now. You can't really tell, but you feel like the cyclist is glaring at you from behind their sunglasses as they speed by."],
+3 : [
+	"During the day, a cyclist zips past your stand. You hear a thud and see that the cyclist’s wallet has fallen out of their pocket. You hold on to the wallet for safe keeping. Now it’s the end of the day and no one has come for it.",
+	"Take the wallet to the police station, explaining where it was dropped.",
+	"You decide to take the wallet to the police station. They help you write a report and the rest is up to them. The next day, the cyclist stops by and thanks you. They buy a cup of lemonade and tip you extra in thanks.",
+	"Decide to mail the wallet, using the address found on the driver’s license, and take a few dollars as a reward.", 
+	"You decide to pocket some money and then send the wallet. You notice that the cyclist rides on the other side of the road now. You can't really tell, but you feel like the cyclist is glaring at you from behind their sunglasses as they speed by."]
+	}
 
 # RNG
 onready var rng = RandomNumberGenerator.new()
 onready var rand 
 
 func _ready():
-	rng.randomize()
-	rand = rng.randi() % be_good_prompts.size()
-	#good_choice.text = be_good_prompts[0][1]
-	#bad_choice.text = be_good_prompts[0][3]
-	#set_prompt(be_good_prompts[0][0])
-	display_prompt()
 	pass # Replace with function body.
 
 
 func _on_RandomEventContainer_visibility_changed():
 	# In the future, have a list of random events that occur
 	# stuff them in array and pop one out at the end of the day
-	pass # Replace with function body.
+	# and pop it out of the array too, to keep from repeats
+	rng.randomize()
+	rand = rng.randi() % be_good_prompts.size()
+	display_prompt()
+	
 
 
 func set_prompt(string) -> void:
@@ -58,7 +65,15 @@ func set_prompt(string) -> void:
 func display_prompt() -> void:
 	# grab a random prompt and display it
 	# start with one group and we'll add more later
+	#Reset the visibility of the buttons
+	if good_choice.visible == false:
+		good_choice.visible = true
 	
+	if bad_choice.visible == false:
+		bad_choice.visible = true
+	
+	if dismiss.visible == true:
+		dismiss.visible = false
 	
 	prompt.text = be_good_prompts[rand][0]
 	good_choice.set_text(be_good_prompts[rand][1])
@@ -92,9 +107,9 @@ func display_reaction(button: Button) -> void:
 		set_prompt(be_good_prompts[rand][2])
 	else:
 		set_prompt(be_good_prompts[rand][4])
-		
-	print("Display reaction get")
 
 
 func _on_Dismiss_pressed():
 	self.visible = false
+	# get rid of prompt, no duplicates!
+	emit_signal("pressed")
