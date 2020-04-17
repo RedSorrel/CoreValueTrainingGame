@@ -1,9 +1,11 @@
 extends Node
 
-signal changed
-
-
 class Money:
+	# Money object that holds the value of the player's wallet
+	# emits a signal if the value gets changed
+	# the MoneyLabel scene will update its string to the player
+	# to the new current money value
+	signal changed(value)
 	var amount = 100.00 setget set_money, get_money
 	
 	# Called when the node enters the scene tree for the first time.
@@ -15,19 +17,5 @@ class Money:
 	func get_money() -> float:
 		print("Money in wallet" + str(amount))
 		return amount
-	
-onready var label_template = "Money: $%.*f"
-
-
-func _ready():
-		self.text = label_template % [2, Global.money2.get_money()]
-		Global.money2.connect("changed", get_node("."), "_on_Money_changed" )
-		pass # Replace with function body.
-
-func _on_Money_changed() -> void:
-	var amount = Global.money2.get_money()
-	self.text = label_template % [2, amount]
-	print("Money is now %f " % amount)
-	pass
 	
 

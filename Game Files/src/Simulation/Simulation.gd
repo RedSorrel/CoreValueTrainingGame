@@ -43,8 +43,12 @@ func run_sim() -> void:
 		#revenue = num_customers * lemonade_price
 		set_revenue(num_customers * lemonade_price)
 		var cups = num_customers
-		#print("You made $%s today" % get_revenue())
 		
+		
+		# Add revenue to the wallet!
+		Global.money.set_money(Global.money.get_money() + get_revenue())
+	
+	
 		#End of sim
 		#Pop up of end of Day Overview
 		#	How much money was made, customers served
@@ -84,9 +88,11 @@ func get_revenue() -> float:
 func _on_StartGameButton_pressed() -> void:
 	# Start game is in the Overview which this script should be attached to
 	# Emits signal and revenue to Tabswitcher which will handle in its own function
+	print("A")
 	run_sim()
 	counter -= 1
 	emit_signal("pressed", get_revenue())
+	
 
 
 func _on_Price_changed(value) -> void:

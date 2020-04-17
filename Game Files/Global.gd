@@ -40,8 +40,7 @@ onready var sugar_list = [process_sugar, cane_sugar, stevia]
 ###########
 ## Money ##
 ###########
-onready var money = 100.00
-onready var money2 = Money.Money.new()
+onready var money = Money.Money.new()
 # recipe string, used to show the player the recipe they used the day before
 # as well as to display a lemonade description in IngredientRatio.gd
 onready var recipe = {}

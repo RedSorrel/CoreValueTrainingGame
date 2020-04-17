@@ -116,8 +116,8 @@ func purchase_items() -> void:
 				break
 				
 	# Deduct money from wallet
-	Global.money2.set_money(Global.money2.get_money() - calculate_total())
-	print(Global.money2.get_money())
+	Global.money.set_money(Global.money.get_money() - calculate_total())
+	print(Global.money.get_money())
 	
 
 func calculate_total() -> int:
@@ -131,7 +131,7 @@ func update_total_string() -> void:
 	# Check money to see if cost is greater than what is in the wallet
 	# disable the button and turn the color red if cost is greater
 	# otherwise enable the purchase button
-	if total > Global.money:
+	if total > Global.money.get_money():
 		print("costs too much")
 		purchase_btn.disabled = true
 		cost_label.add_color_override("font_color", Color(1, 0, 0, 1))
