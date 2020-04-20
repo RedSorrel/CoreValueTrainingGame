@@ -7,6 +7,7 @@ func _ready():
 	var money_label = get_node("Body/Header/ColorRect/HBoxContainer/MoneyLabel")
 	var supplies_container = get_node("Body/Mid/Content/SuppliesContainer")
 	var simulation_node = get_node("Body/Mid/Content/OverviewContainer")
+	var random_event = get_node("Body/Mid/Content/RandomEventContainer")
 	#var end_screen = get_node("Body/Mid/Content/EndScreen")
 	#var random_event = get_node("Body/Mid/Content/RandomEventContainer")
 	# Need to go through two levels of get_nodes in order to grab the container we want
@@ -19,6 +20,8 @@ func _ready():
 	simulation_node.connect("money_changed", money_label, "_on_Money_changed")
 	
 	lemonade_container.connect("price_changed", simulation_node, "_on_Price_changed")
+	
+	random_event.connect("good_bad_points_changed", simulation_node, "_on_Good_Bad_Points_changed")
 	
 	#simulation_node.connect("week_ends", end_screen, "_on_WeekEnds")
 	pass

@@ -27,17 +27,67 @@ Resides in OverviewContainer
 #		display in overview, update money in money bar
 onready var revenue
 onready var lemonade_price = 1.00
-onready var counter = 3
+onready var counter = 10
 
+onready var todays_recipe = []
+onready var good_bad_points = [0,0]
+# Update this later, pull from another function/node/variable
+# 	so when that is updated, this is updated too DRY
+onready var recipe_water = ["watery", "some water", "barely any"]
+onready var recipe_sugar = ["sugary", "some sugar", "barely any"]
+onready var recipe_lemon = ["lemony", "some lemon", "barely any"]
+onready var recipe_descriptors = [recipe_water, recipe_lemon, recipe_sugar]
+
+
+func get_bonus_recipe_rand() -> void:
+	# Randomly generate a recipe
+	# Get bonus customers if you have it
+	print(Global.recipe)
+	var rng = RandomNumberGenerator.new()
+		
+	for i in recipe_descriptors.size():
+		rng.randomize()
+		var rand = rng.randi() % recipe_water.size()
+		todays_recipe.append(recipe_descriptors[i][rand]) 
+		
+func set_bonus_recipe(water, lemon, sugar) -> void:
+	# lowercase
+	todays_recipe = [water, lemon, sugar]
+
+func is_player_recipe_same() -> bool:
+	# compare the two recipes
+	# if they're the same, true
+	# if they're not, false
+	#copy dictionary into an array
+	var player_recipe = [
+		Global.recipe["Water"].to_lower(),
+		Global.recipe["Lemon"].to_lower(),
+		Global.recipe["Sugar"].to_lower()]
+		
+	return player_recipe == todays_recipe
+	
 func calculate_customers() -> int:
 	# calculate customers based on factors
+	# Base numbers
 	var base_num = 50
 	var event = 25
 	var weather = 10
+	
+	# Bonus customers if the recipe is the same as today's bonus recipe
+	if is_player_recipe_same():
+		base_num += 20
+		
+	# Get the choices the player has made and pointify them
+	# + 1 for good, - 1 for bad
+	# multiply by 10? and get that many customers
+	base_num += (10 * good_bad_points[0]) - (10 * good_bad_points[1])
+	
+	# Add a few based on
 	return base_num + event + weather
 	
-	
+
 func run_sim() -> void:
+	get_bonus_recipe_rand()
 	if counter > 1:
 		var num_customers = calculate_customers()
 		#revenue = num_customers * lemonade_price
@@ -85,10 +135,10 @@ func set_revenue(value) -> void:
 func get_revenue() -> float:
 	return revenue
 	
+
 func _on_StartGameButton_pressed() -> void:
 	# Start game is in the Overview which this script should be attached to
 	# Emits signal and revenue to Tabswitcher which will handle in its own function
-	print("A")
 	run_sim()
 	counter -= 1
 	emit_signal("pressed", get_revenue())
@@ -99,3 +149,11 @@ func _on_Price_changed(value) -> void:
 	# Calls when the lemonade price has been changed in the lemonade scene
 	# It shall update the lemonade price to the new current price.
 	lemonade_price = value
+
+func _on_Good_Bad_Points_changed(points_array) -> void:
+	# Random event has ran, we need to save the current points
+	# so we can give or loose customers based on player's choices
+	good_bad_points = points_array
+	print("Something got picked in the random event!")
+	print("Ponts go something like this good: %d bad: %d" % [good_bad_points[0], good_bad_points[1]])
+	

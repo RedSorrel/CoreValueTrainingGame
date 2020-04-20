@@ -5,7 +5,7 @@ signal price_changed(value)
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+onready var MAX_GALLONS = 5
 onready var recipe_string
 onready var lemonade_desc = get_node("VBoxContainer/Panel/LemonadeDesc")
 onready var alert_label = get_node("SettingsContainer/LemonadeIngredients/AlertLabel")

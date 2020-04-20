@@ -1,12 +1,16 @@
 extends Control
 
 signal pressed
+signal good_bad_points_changed
 
 onready var prompt = get_node("MarginContainer/VBoxContainer/Prompt")
 onready var good_choice = get_node("MarginContainer/VBoxContainer/GoodChoice")
 onready var bad_choice = get_node("MarginContainer/VBoxContainer/BadChoice")
 onready var dismiss = get_node("MarginContainer/VBoxContainer/Dismiss")
 
+# index 0 shall be good points
+# index 1 shall be bad points
+onready var good_bad_counter = [0,0]
 """
 Template for prompts:
 	Prompt text,
@@ -87,11 +91,12 @@ func display_prompt() -> void:
 
 func _on_GoodChoice_pressed():
 	display_reaction(good_choice)
-	pass # Replace with function body.
+	good_bad_counter[0] += 1
+	
 	
 func _on_BadChoice_pressed():
 	display_reaction(bad_choice)
-	pass # Replace with function body.
+	good_bad_counter[1] += 1
 
 
 func display_reaction(button: Button) -> void:
@@ -107,9 +112,15 @@ func display_reaction(button: Button) -> void:
 		set_prompt(be_good_prompts[rand][2])
 	else:
 		set_prompt(be_good_prompts[rand][4])
+		
+	# Let's emit the signal for sending the points out to the simulation
+	emit_signal("good_bad_points_changed", get_points())
 
 
 func _on_Dismiss_pressed():
 	self.visible = false
 	# get rid of prompt, no duplicates!
 	emit_signal("pressed")
+
+func get_points() -> Array:
+	return good_bad_counter

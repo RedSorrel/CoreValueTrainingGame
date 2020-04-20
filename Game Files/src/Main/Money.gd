@@ -15,7 +15,6 @@ class Money:
 		
 		
 	func get_money() -> float:
-		print("Money in wallet" + str(amount))
 		return amount
 	
 
