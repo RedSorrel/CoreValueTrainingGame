@@ -23,5 +23,6 @@ func _ready():
 	
 	random_event.connect("good_bad_points_changed", simulation_node, "_on_Good_Bad_Points_changed")
 	
+	simulation_node.connect("random_event_set", random_event, "_on_set_Random_Event_type")
 	#simulation_node.connect("week_ends", end_screen, "_on_WeekEnds")
 	pass

@@ -2,6 +2,7 @@ extends Control
 signal pressed(value)
 signal money_changed(value)
 signal week_ends
+signal random_event_set(value)
 
 """
 Run the numbers when player presses the start button.
@@ -28,6 +29,7 @@ Resides in OverviewContainer
 onready var revenue
 onready var lemonade_price = 1.00
 onready var counter = 10
+onready var weather = 0
 
 onready var todays_recipe = []
 onready var good_bad_points = [0,0]
@@ -38,6 +40,9 @@ onready var recipe_sugar = ["sugary", "some sugar", "barely any"]
 onready var recipe_lemon = ["lemony", "some lemon", "barely any"]
 onready var recipe_descriptors = [recipe_water, recipe_lemon, recipe_sugar]
 
+# A preprogrammed week so everyone can play the same challenge, but their choices
+# will lead 
+onready var week = [set_bonus_recipe("watery", "lemony", "sugary"), set_weather("sunny")]
 
 func get_bonus_recipe_rand() -> void:
 	# Randomly generate a recipe
@@ -53,6 +58,7 @@ func get_bonus_recipe_rand() -> void:
 func set_bonus_recipe(water, lemon, sugar) -> void:
 	# lowercase
 	todays_recipe = [water, lemon, sugar]
+	print("I have set the bonus recipe, sir!")
 
 func is_player_recipe_same() -> bool:
 	# compare the two recipes
@@ -69,12 +75,15 @@ func is_player_recipe_same() -> bool:
 func calculate_customers() -> int:
 	# calculate customers based on factors
 	# Base numbers
+	# change this to counter size
+	for i in week.size():
+		week[i]
+		
 	var base_num = 50
 	var event = 25
-	var weather = 10
-	
 	# Bonus customers if the recipe is the same as today's bonus recipe
 	if is_player_recipe_same():
+		print("the recipe is the same!")
 		base_num += 20
 		
 	# Get the choices the player has made and pointify them
@@ -87,7 +96,8 @@ func calculate_customers() -> int:
 	
 
 func run_sim() -> void:
-	get_bonus_recipe_rand()
+	#get_bonus_recipe_rand()
+	set_random_event_type("good")
 	if counter > 1:
 		var num_customers = calculate_customers()
 		#revenue = num_customers * lemonade_price
@@ -135,7 +145,15 @@ func set_revenue(value) -> void:
 func get_revenue() -> float:
 	return revenue
 	
+func set_weather(value : String):
+	if value == "rainy":
+		weather = -10
+	elif value == "sunny":
+		weather = 10
 
+func set_random_event_type(value: String) -> void:
+	emit_signal("random_event_set", value)
+		
 func _on_StartGameButton_pressed() -> void:
 	# Start game is in the Overview which this script should be attached to
 	# Emits signal and revenue to Tabswitcher which will handle in its own function
@@ -155,5 +173,5 @@ func _on_Good_Bad_Points_changed(points_array) -> void:
 	# so we can give or loose customers based on player's choices
 	good_bad_points = points_array
 	print("Something got picked in the random event!")
-	print("Ponts go something like this good: %d bad: %d" % [good_bad_points[0], good_bad_points[1]])
+	print("Points go something like this good: %d bad: %d" % [good_bad_points[0], good_bad_points[1]])
 	

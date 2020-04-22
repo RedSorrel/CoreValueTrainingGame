@@ -69,7 +69,7 @@ func set_prompt(string) -> void:
 func display_prompt() -> void:
 	# grab a random prompt and display it
 	# start with one group and we'll add more later
-	#Reset the visibility of the buttons
+	# Reset the visibility of the buttons
 	if good_choice.visible == false:
 		good_choice.visible = true
 	
@@ -88,7 +88,24 @@ func display_prompt() -> void:
 	#button_one.set_text(be_good_prompts[rand][1])
 	#button_two.set_text(be_good_prompts[rand][2])
 
-
+func _on_set_Random_Event_type(value: String) -> void:
+	if value == "good":
+		# pick the good prompts
+		print("Be good prompt selected")
+		pass
+	elif value == "excellent":
+		# pick the be excellent prompts
+		pass
+	elif value == "friend":
+		# pick the be a friend prompts
+		pass
+	elif value == "you":
+		# pick the be you prompts
+		pass
+	else:
+		print("Error: wrong value entered, please in put good, excellent, friend, or you")
+		
+	
 func _on_GoodChoice_pressed():
 	display_reaction(good_choice)
 	good_bad_counter[0] += 1
