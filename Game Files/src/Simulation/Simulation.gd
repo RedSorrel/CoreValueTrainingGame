@@ -44,6 +44,20 @@ onready var recipe_descriptors = [recipe_water, recipe_lemon, recipe_sugar]
 # will lead 
 onready var week = [set_bonus_recipe("watery", "lemony", "sugary"), set_weather("sunny")]
 
+# EVENT STUFF
+ #
+ #
+
+
+# CUSTOMER TYPE PLACE HOLDER
+# array with highest price they'll pay for lemonade
+# recipe that they prefer
+# recipe, highest price
+onready var customer_average = [["some water", "lemony", "some sugar"], 4.00]
+onready var customer_sporty = [["watery", "some lemon", "barely any"], 6.00 ]
+
+onready var player_recipe = []
+		
 func get_bonus_recipe_rand() -> void:
 	# Randomly generate a recipe
 	# Get bonus customers if you have it
@@ -58,9 +72,8 @@ func get_bonus_recipe_rand() -> void:
 func set_bonus_recipe(water, lemon, sugar) -> void:
 	# lowercase
 	todays_recipe = [water, lemon, sugar]
-	print("I have set the bonus recipe, sir!")
 
-func is_player_recipe_same() -> bool:
+func is_player_recipe_same(target_recipe) -> bool:
 	# compare the two recipes
 	# if they're the same, true
 	# if they're not, false
@@ -70,8 +83,25 @@ func is_player_recipe_same() -> bool:
 		Global.recipe["Lemon"].to_lower(),
 		Global.recipe["Sugar"].to_lower()]
 		
-	return player_recipe == todays_recipe
+	return player_recipe == target_recipe
 	
+func is_player_recipe_close(target_recipe) -> int:
+	var counter = 0
+	player_recipe = [
+		Global.recipe["Water"].to_lower(),
+		Global.recipe["Lemon"].to_lower(),
+		Global.recipe["Sugar"].to_lower()]
+	if not is_player_recipe_same(target_recipe):
+		# if the recipe is not the same, then how close is it?
+		for i in player_recipe:
+			if (i in target_recipe):
+				counter+= 1
+	else:
+		counter = 3
+			
+	return counter
+	
+
 func calculate_customers() -> int:
 	# calculate customers based on factors
 	# Base numbers
@@ -82,10 +112,16 @@ func calculate_customers() -> int:
 	var base_num = 50
 	var event = 25
 	# Bonus customers if the recipe is the same as today's bonus recipe
-	if is_player_recipe_same():
-		print("the recipe is the same!")
+	# not so much bonus customers if it's one off
+	if is_player_recipe_close(todays_recipe) == 3:
 		base_num += 20
-		
+	elif is_player_recipe_close(todays_recipe) == 2:
+		base_num += 10
+	elif is_player_recipe_close(todays_recipe) == 1:
+		base_num += 5
+	
+	if is_player_recipe_close(todays_recipe) > 2:
+		print("the recipe is close to today's recipe'")
 	# Get the choices the player has made and pointify them
 	# + 1 for good, - 1 for bad
 	# multiply by 10? and get that many customers
@@ -98,6 +134,7 @@ func calculate_customers() -> int:
 func run_sim() -> void:
 	#get_bonus_recipe_rand()
 	set_random_event_type("good")
+	
 	if counter > 1:
 		var num_customers = calculate_customers()
 		#revenue = num_customers * lemonade_price
@@ -130,7 +167,12 @@ func run_sim() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	if Global.recipe.size() > 0:
+		player_recipe = [
+			Global.recipe["Water"].to_lower(),
+			Global.recipe["Lemon"].to_lower(),
+			Global.recipe["Sugar"].to_lower()]
+		print(player_recipe)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -144,7 +186,8 @@ func set_revenue(value) -> void:
 	
 func get_revenue() -> float:
 	return revenue
-	
+
+# WEATHER
 func set_weather(value : String):
 	if value == "rainy":
 		weather = -10
