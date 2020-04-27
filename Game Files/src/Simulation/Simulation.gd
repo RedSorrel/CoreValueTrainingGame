@@ -3,7 +3,7 @@ signal pressed(value)
 signal money_changed(value)
 signal week_ends
 signal random_event_set(value)
-
+signal beats
 """
 Run the numbers when player presses the start button.
 Take in information from the player manipulated items.
@@ -28,7 +28,7 @@ Resides in OverviewContainer
 #		display in overview, update money in money bar
 onready var revenue
 onready var lemonade_price = 1.00
-onready var counter = 10
+onready var day_counter = 0
 onready var weather = 0
 
 onready var todays_recipe = []
@@ -41,8 +41,11 @@ onready var recipe_lemon = ["lemony", "some lemon", "barely any"]
 onready var recipe_descriptors = [recipe_water, recipe_lemon, recipe_sugar]
 
 # A preprogrammed week so everyone can play the same challenge, but their choices
-# will lead 
-onready var week = [set_bonus_recipe("watery", "lemony", "sugary"), set_weather("sunny")]
+# format: recipe[], weather(sunny, rainy), core_value_prompt(good, excellent, friend, you)
+onready var week = [
+	[["watery", "lemony", "sugary"], "sunny", "excellent"],
+	[["watery", "some lemon", "barely any"], "sunny", "good"]
+	]
 
 # EVENT STUFF
  #
@@ -53,10 +56,20 @@ onready var week = [set_bonus_recipe("watery", "lemony", "sugary"), set_weather(
 # array with highest price they'll pay for lemonade
 # recipe that they prefer
 # recipe, highest price
+# TBD
 onready var customer_average = [["some water", "lemony", "some sugar"], 4.00]
 onready var customer_sporty = [["watery", "some lemon", "barely any"], 6.00 ]
 
 onready var player_recipe = []
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	if Global.recipe.size() > 0:
+		player_recipe = [
+			Global.recipe["Water"].to_lower(),
+			Global.recipe["Lemon"].to_lower(),
+			Global.recipe["Sugar"].to_lower()]
+		print(player_recipe)
 		
 func get_bonus_recipe_rand() -> void:
 	# Randomly generate a recipe
@@ -69,9 +82,9 @@ func get_bonus_recipe_rand() -> void:
 		var rand = rng.randi() % recipe_water.size()
 		todays_recipe.append(recipe_descriptors[i][rand]) 
 		
-func set_bonus_recipe(water, lemon, sugar) -> void:
+func set_bonus_recipe(recipe: Array) -> void:
 	# lowercase
-	todays_recipe = [water, lemon, sugar]
+	todays_recipe = recipe
 
 func is_player_recipe_same(target_recipe) -> bool:
 	# compare the two recipes
@@ -86,6 +99,10 @@ func is_player_recipe_same(target_recipe) -> bool:
 	return player_recipe == target_recipe
 	
 func is_player_recipe_close(target_recipe) -> int:
+	# Grab the player's recipe
+	# let's compare it to the target recipe
+	# Give points based on how close the player is to this recipe
+	# Used to check the daily bonus recipe and customer preferred recipe
 	var counter = 0
 	player_recipe = [
 		Global.recipe["Water"].to_lower(),
@@ -106,9 +123,7 @@ func calculate_customers() -> int:
 	# calculate customers based on factors
 	# Base numbers
 	# change this to counter size
-	for i in week.size():
-		week[i]
-		
+	
 	var base_num = 50
 	var event = 25
 	# Bonus customers if the recipe is the same as today's bonus recipe
@@ -120,8 +135,6 @@ func calculate_customers() -> int:
 	elif is_player_recipe_close(todays_recipe) == 1:
 		base_num += 5
 	
-	if is_player_recipe_close(todays_recipe) > 2:
-		print("the recipe is close to today's recipe'")
 	# Get the choices the player has made and pointify them
 	# + 1 for good, - 1 for bad
 	# multiply by 10? and get that many customers
@@ -133,9 +146,9 @@ func calculate_customers() -> int:
 
 func run_sim() -> void:
 	#get_bonus_recipe_rand()
-	set_random_event_type("good")
-	
-	if counter > 1:
+	#set_random_event_type("excellent")
+	set_day(week[day_counter])
+	if day_counter < 6:
 		var num_customers = calculate_customers()
 		#revenue = num_customers * lemonade_price
 		set_revenue(num_customers * lemonade_price)
@@ -151,7 +164,7 @@ func run_sim() -> void:
 		#	How much money was made, customers served
 		
 		#pop up menu for random event
-		print("Counter = %d"  % counter)
+		print("Counter = %d"  % day_counter)
 	else:
 		# Run end of game
 		# Display End game screen
@@ -165,20 +178,11 @@ func run_sim() -> void:
 	
 	
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	if Global.recipe.size() > 0:
-		player_recipe = [
-			Global.recipe["Water"].to_lower(),
-			Global.recipe["Lemon"].to_lower(),
-			Global.recipe["Sugar"].to_lower()]
-		print(player_recipe)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
 
+
+# SETTER GETTERS
 func set_revenue(value) -> void:
 	revenue = value
 	#emit_signal("money_changed", value)
@@ -186,7 +190,16 @@ func set_revenue(value) -> void:
 	
 func get_revenue() -> float:
 	return revenue
-
+	
+	
+func set_day(day: Array) -> void:
+	# take the day counter and the week array and start setting things
+	
+	# Call these funcs
+	set_bonus_recipe(day[0])
+	set_weather(day[1])
+	set_random_event_type(day[2])
+	
 # WEATHER
 func set_weather(value : String):
 	if value == "rainy":
@@ -196,20 +209,24 @@ func set_weather(value : String):
 
 func set_random_event_type(value: String) -> void:
 	emit_signal("random_event_set", value)
-		
+	print("A")
+	print(value)
+
+
+# SIGNALS
 func _on_StartGameButton_pressed() -> void:
 	# Start game is in the Overview which this script should be attached to
 	# Emits signal and revenue to Tabswitcher which will handle in its own function
 	run_sim()
-	counter -= 1
+	day_counter += 1
 	emit_signal("pressed", get_revenue())
 	
-
 
 func _on_Price_changed(value) -> void:
 	# Calls when the lemonade price has been changed in the lemonade scene
 	# It shall update the lemonade price to the new current price.
 	lemonade_price = value
+
 
 func _on_Good_Bad_Points_changed(points_array) -> void:
 	# Random event has ran, we need to save the current points

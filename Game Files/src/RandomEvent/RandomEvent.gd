@@ -8,23 +8,25 @@ onready var good_choice = get_node("MarginContainer/VBoxContainer/GoodChoice")
 onready var bad_choice = get_node("MarginContainer/VBoxContainer/BadChoice")
 onready var dismiss = get_node("MarginContainer/VBoxContainer/Dismiss")
 
+
 # index 0 shall be good points
 # index 1 shall be bad points
 onready var good_bad_counter = [0,0]
 """
 Template for prompts:
-	Prompt text,
-	Good Choice button text,
-	Good choice reaction,
-	Bad Choice button text, 
-	Bad choice reaction
+	1 Prompt text,
+	2 Good Choice button text,
+	3 Good choice reaction,
+	4 Bad Choice button text, 
+	5 Bad choice reaction
 """
 onready var be_good_prompts = {
-0: ["You hand a customer a cup of lemonade. As you do, a bug flies into the cup. The customer hasn't noticed",
- "Pour a new cup",
-"The customer looks confused as you take back the cup. You exlain to the customer that there was a bug in the cup, as you pour them a fresh cup of lemonade. They smile and thank you for the new cup.",
-"Say nothing",
-"You smile at the customer and hand them the cup. You get paid all the same. Later you see that someone is ranting about your stand on a local area web forum."], 
+0: [
+	"You hand a customer a cup of lemonade. As you do, a bug flies into the cup. The customer hasn't noticed",
+	"Pour a new cup",
+	"The customer looks confused as you take back the cup. You exlain to the customer that there was a bug in the cup, as you pour them a fresh cup of lemonade. They smile and thank you for the new cup.",
+	"Say nothing",
+	"You smile at the customer and hand them the cup. You get paid all the same. Later you see that someone is ranting about your stand on a local area web forum."], 
 1 : [
 	"After purchasing some groceries you find that by mistake the clerk has given you too much money back in change.",
 	"Return to the store and give the clerk back the extra change, explaining the mistake.",
@@ -44,12 +46,40 @@ onready var be_good_prompts = {
 	"Decide to mail the wallet, using the address found on the driver’s license, and take a few dollars as a reward.", 
 	"You decide to pocket some money and then send the wallet. You notice that the cyclist rides on the other side of the road now. You can't really tell, but you feel like the cyclist is glaring at you from behind their sunglasses as they speed by."]
 	}
-
+	
+onready var be_excellent_prompts = {
+	0: [
+		"Something about excleency",
+		"Be Excellent",
+		"You were totally excellent today!",
+		"Be !Excellent",
+		"Bruh, you were not excellent today"],
+	1 : [
+		"Something about excleency",
+		"Be Excellent",
+		"You were totally excellent today!",
+		"Be !Excellent",
+		"Bruh, you were not excellent today"],
+	2 : [
+		"Something about excleency",
+		"Be Excellent",
+		"You were totally excellent today!",
+		"Be !Excellent",
+		"Bruh, you were not excellent today"],
+	3 : [
+		"Something about excleency",
+		"Be Excellent",
+		"You were totally excellent today!",
+		"Be !Excellent",
+		"Bruh, you were not excellent today"]
+}
+onready var today_prompts = []
 # RNG
 onready var rng = RandomNumberGenerator.new()
 onready var rand 
 
 func _ready():
+	print("randoready")
 	pass # Replace with function body.
 
 
@@ -58,7 +88,7 @@ func _on_RandomEventContainer_visibility_changed():
 	# stuff them in array and pop one out at the end of the day
 	# and pop it out of the array too, to keep from repeats
 	rng.randomize()
-	rand = rng.randi() % be_good_prompts.size()
+	rand = rng.randi() % today_prompts.size()
 	display_prompt()
 	
 
@@ -79,9 +109,9 @@ func display_prompt() -> void:
 	if dismiss.visible == true:
 		dismiss.visible = false
 	
-	prompt.text = be_good_prompts[rand][0]
-	good_choice.set_text(be_good_prompts[rand][1])
-	bad_choice.set_text(be_good_prompts[rand][3])
+	prompt.text = today_prompts[rand][0]
+	good_choice.set_text(today_prompts[rand][1])
+	bad_choice.set_text(today_prompts[rand][3])
 	
 	#print(be_good_prompts[rand])
 	#set_prompt(be_good_prompts[rand][0])
@@ -91,10 +121,10 @@ func display_prompt() -> void:
 func _on_set_Random_Event_type(value: String) -> void:
 	if value == "good":
 		# pick the good prompts
-		print("Be good prompt selected")
-		pass
+		today_prompts = be_good_prompts
 	elif value == "excellent":
 		# pick the be excellent prompts
+		today_prompts = be_excellent_prompts
 		pass
 	elif value == "friend":
 		# pick the be a friend prompts
@@ -104,8 +134,9 @@ func _on_set_Random_Event_type(value: String) -> void:
 		pass
 	else:
 		print("Error: wrong value entered, please in put good, excellent, friend, or you")
-		
 	
+	
+
 func _on_GoodChoice_pressed():
 	display_reaction(good_choice)
 	good_bad_counter[0] += 1
