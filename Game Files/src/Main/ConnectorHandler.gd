@@ -15,6 +15,7 @@ func _ready():
 	# Cannot assess through Lemonade AND Stand container, the parent container
 	# So go down one more level and connect them
 	var lemonade_container = get_node("Body/Mid/Content/LemonadeAndStandContainer").get_node("LemonadeInfo/LemonadeContainer")
+	var lemonade_stand = get_node("Body/Mid/Content/LemonadeAndStandContainer").get_node("StandInfoContainer")
 	
 	supplies_container.connect("money_changed", money_label, "_on_Money_changed")
 	simulation_node.connect("money_changed", money_label, "_on_Money_changed")
@@ -25,4 +26,8 @@ func _ready():
 	
 	simulation_node.connect("random_event_set", random_event, "_on_set_Random_Event_type")
 	#simulation_node.connect("week_ends", end_screen, "_on_WeekEnds")
+	
+	simulation_node.connect("get_location", lemonade_stand, "_is_location_the_same")
+	
+	
 	pass

@@ -4,6 +4,9 @@ signal money_changed(value)
 signal week_ends
 signal random_event_set(value)
 signal beats
+
+# Location Signal
+signal get_location(value)
 """
 Run the numbers when player presses the start button.
 Take in information from the player manipulated items.
@@ -43,8 +46,11 @@ onready var recipe_descriptors = [recipe_water, recipe_lemon, recipe_sugar]
 # A preprogrammed week so everyone can play the same challenge, but their choices
 # format: recipe[], weather(sunny, rainy), core_value_prompt(good, excellent, friend, you)
 onready var week = [
-	[["watery", "lemony", "sugary"], "sunny", "excellent"],
-	[["watery", "some lemon", "barely any"], "sunny", "good"]
+	[["watery", "lemony", "sugary"], "sunny", "good"],
+	[["watery", "some lemon", "barely any"], "sunny", "excellent"],
+	[["watery", "some lemon", "barely any"], "sunny", "excellent"],
+	[["watery", "some lemon", "barely any"], "sunny", "excellent"],
+	[["watery", "some lemon", "barely any"], "sunny", "excellent"]
 	]
 
 # EVENT STUFF
@@ -147,6 +153,7 @@ func calculate_customers() -> int:
 func run_sim() -> void:
 	#get_bonus_recipe_rand()
 	#set_random_event_type("excellent")
+	emit_signal("get_location", "location 1")
 	set_day(week[day_counter])
 	if day_counter < 6:
 		var num_customers = calculate_customers()
