@@ -184,4 +184,6 @@ margin_right = 397.0
 margin_bottom = 24.0
 text = "Set price"
 [connection signal="value_changed" from="SettingsContainer/LemonadeIngredients/HBoxContainer/Gallons" to="." method="_on_Gallons_value_changed"]
+[connection signal="pressed" from="SettingsContainer/LemonadeIngredients/ButtonMixLemonade" to="." method="_on_ButtonMixLemonade_pressed"]
+[connection signal="toggled" from="SettingsContainer/LemonadeIngredients/ButtonMixLemonade" to="." method="_on_ButtonMixLemonade_toggled"]
 [connection signal="pressed" from="SettingsContainer/LemonadeIngredients/PriceAdjustContainer/SetPriceButton" to="." method="_on_SetPriceButton_pressed"]

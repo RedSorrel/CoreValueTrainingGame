@@ -72,6 +72,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="RewardString" type="Label" parent="MarginContainer/VBoxContainer"]
+visible = false
+margin_top = 118.0
+margin_right = 1366.0
+margin_bottom = 132.0
+text = "temp string"
+align = 1
+
 [node name="Dismiss" type="Button" parent="MarginContainer/VBoxContainer"]
 visible = false
 margin_left = 651.0

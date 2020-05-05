@@ -25,6 +25,7 @@ onready var lemonade_price = 1.00 setget set_price, get_price
 onready var current_price_label = get_node("SettingsContainer/LemonadeIngredients/PriceAdjustContainer/CurrentPriceLabel")
 onready var lemonade_new_price = get_node("SettingsContainer/LemonadeIngredients/PriceAdjustContainer/AdjustPrice")
 
+onready var gallons_of_lemonade = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# connect the signal for when a ratio description has been changed by the player
@@ -110,3 +111,16 @@ func set_price(value:float) -> void:
 	
 func get_price() -> float: 
 	return lemonade_price
+
+
+func _on_ButtonMixLemonade_pressed():
+	# When this button is pressed
+	# Make Lemonade if the following conditions are met
+	# The player has enough resources to make the lemonade with the recipe and sources chosen
+	# and the number of gallons they have chosen is valid
+	# I.e. they have enough resources to make this lemonade
+	# Save the amount of lemonade made to a variable
+	print(item_water.product_list[0].get_quantity())
+	gallons_of_lemonade = gallon_node.value
+	print(gallons_of_lemonade)
+	pass # Replace with function body.
