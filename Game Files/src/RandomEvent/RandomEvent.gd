@@ -148,7 +148,7 @@ func _on_RandomEventContainer_visibility_changed():
 		
 	# Hide the reward string each time the visibility changes
 	# so when the it's the next day's event, it will not be visible
-	reward_string.visbile = false
+	reward_string.visible = false
 	
 
 

@@ -2,14 +2,18 @@ extends CanvasItem
 
 	
 onready var product_list setget set_list, get_list
-onready var option_box = get_node("SourceOptions")
 onready var label = get_node("Label")
 onready var source_options = get_node("SourceOptions")
 onready var quantity = get_node("CurrentQuantity")
 onready var buffs = get_node("Buffs")
 onready var multiplier = 1
 # Goal: To extend the source item class to run most everything
-	# and the children classes pass an array value to it
+# and the children classes pass an array value to it
+# Product list is made of IngredientItemClass objects (IngredientItemClass.gd)
+# This SourceItem class is to be used in the lemonade mixing page
+# It will check to see if the player has enough 'items' from a source (water, lemons, sugar)
+# to make lemonade.
+# Displays how much the player currently has in the inventory
 
 func _on_SourceOptions_item_selected(id: int) -> void:
 	quantity.text = "Currently Have: %s" % product_list[id].get_quantity()
@@ -23,15 +27,15 @@ func get_list() -> Array:
 	
 func set_source_components(product_list) -> void:
 	self.product_list = product_list
-	Global.populate_option_box(self.product_list, option_box)
+	Global.populate_option_box(self.product_list, source_options)
 	quantity.text = "Currently Have: %s" % self.product_list[0].get_quantity()
 	
 func get_selected_item_text() -> String:
-	return option_box.get_item_text(option_box.get_selected_id())
+	return source_options.get_item_text(source_options.get_selected_id())
 # TODO Code for displaying buffs	
 
 func get_selected_id() -> int:
-	return option_box.get_item_id()
+	return source_options.get_item_id()
 	
 func get_source_options() -> Node:
 	return source_options
@@ -67,7 +71,7 @@ func _on_SourceOptions_visibility_changed():
 	# that houses these scenes becomes visible
 	
 	# Update the quantity text
-	quantity.text = "Currently Have %s" % product_list[source_options.get_selected()].get_quantity()
+	update_quantity_text()
 	if self.is_visible():
 		#option_toggle(Global.get_multiplier())
 		option_toggle(multiplier)
@@ -80,3 +84,9 @@ func get_multiplier() -> int:
 	
 func call_option_toggle() -> void:
 	option_toggle(self.get_multiplier())
+	
+func update_quantity_text() -> void:
+	# call this when the scene changes visibility
+	# or when values have been changed
+	# maybe should be a signal
+	quantity.text = "Currently Have %s" % product_list[source_options.get_selected()].get_quantity()

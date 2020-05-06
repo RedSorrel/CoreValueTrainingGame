@@ -10,6 +10,8 @@ onready var recipe_string
 onready var lemonade_desc = get_node("VBoxContainer/Panel/LemonadeDesc")
 onready var alert_label = get_node("SettingsContainer/LemonadeIngredients/AlertLabel")
 
+onready var mix_button = get_node("SettingsContainer/LemonadeIngredients/ButtonMixLemonade")
+
 onready var ratio_water = get_node("SettingsContainer/LemonadeIngredients/IngredientRatiosContainer/RatioContainerWater")
 onready var ratio_lemon = get_node("SettingsContainer/LemonadeIngredients/IngredientRatiosContainer/RatioContainerLemon")
 onready var ratio_sugar = get_node("SettingsContainer/LemonadeIngredients/IngredientRatiosContainer/RatioContainerSugar")
@@ -57,17 +59,25 @@ func update_lemonade_desc() -> void:
 func update_general() -> void:
 	# This was made because I was stuffing too many calls into one function
 	# didn't make sense, so breaking it up and putting it in here.
-	# called when ratio option boxes ore gallon spin box have been changed
+	# called when ratio option boxes or gallon spin box have been changed
 	# to display relevant text such as the recipe change,
 	# how much lemonade the player can make
 	# and updating multipliers
 	update_lemonade_desc()
 	update_alert_label()
 	set_multipliers(gallon_node.value)
-	print(item_water.get_multiplier())
+	
+	# Disable the button if the player lacks resources
+	# to create the recipe with ingredients and number of gallons
+	# TODO: Update immediately on screen, will update if recipe changes or gallons num changes
+	for i in items:
+		if i.source_options.is_item_disabled(i.source_options.get_selected_id()):
+			mix_button.disabled = true
+		else:
+			mix_button.disabled = false
 	
 func update_alert_label() -> void:
-	alert_label.text = "You can make a max of 0 gallons of lemonade.\n To make this amount\n" + str(ratio_water.get_ratio_multiplier()) + " water(s) \n" + str(ratio_lemon.get_ratio_multiplier())+ " lemon(s)\n" + str(ratio_sugar.get_ratio_multiplier()) + " sugar(s)\n will be used."
+	alert_label.text = "You can make a max of 0 gallons of lemonade.\n To make this amount\n" + str(ratio_water.get_ratio_multiplier() * gallon_node.value) + " water(s) \n" + str(ratio_lemon.get_ratio_multiplier() * gallon_node.value) + " lemon(s)\n" + str(ratio_sugar.get_ratio_multiplier() * gallon_node.value) + " sugar(s)\n will be used."
 
 
 func set_multipliers(gallons) -> void:
@@ -120,7 +130,27 @@ func _on_ButtonMixLemonade_pressed():
 	# and the number of gallons they have chosen is valid
 	# I.e. they have enough resources to make this lemonade
 	# Save the amount of lemonade made to a variable
-	print(item_water.product_list[0].get_quantity())
-	gallons_of_lemonade = gallon_node.value
+	# print(item_water.product_list[0].get_quantity())
+	# item_water.product_list[0].set_quantity(item_water.prduct_list[0].get_quantity() - item_water.get_multiplier())
+	
+	# Deduct (multiplier) many items from the quantity from each item
+	# and update the string to display the changes immediately
+	for i in items:
+		print(i.source_options.get_selected_id())
+		subtract_items(i.product_list[i.source_options.get_selected_id()], i.get_multiplier())
+		i.update_quantity_text()
+		
+
+	# Lock the ability to change the recipe
+	# Player can make more lemonade, but is restricted to this recipe only
+	
+	# Add the number from the spin box to the gallon variable
+	gallons_of_lemonade += gallon_node.value
 	print(gallons_of_lemonade)
 	pass # Replace with function body.
+
+
+func subtract_items(item, multiplier) -> void :
+	print("item subtracted")
+	item.set_quantity(item.get_quantity() - multiplier)
+	
