@@ -141,6 +141,15 @@ margin_right = 368.0
 margin_bottom = 19.0
 text = "gallons of lemonade."
 
+[node name="ExceedCupsLabel" type="Label" parent="SettingsContainer/LemonadeIngredients"]
+visible = false
+margin_top = 142.0
+margin_right = 661.0
+margin_bottom = 173.0
+text = "Not enough cups to serve this much lemonade.
+You will not be able to sell the excess lemonade."
+align = 1
+
 [node name="AlertLabel" type="Label" parent="SettingsContainer/LemonadeIngredients"]
 margin_top = 142.0
 margin_right = 661.0

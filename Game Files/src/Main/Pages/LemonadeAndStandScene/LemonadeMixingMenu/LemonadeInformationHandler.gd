@@ -2,15 +2,12 @@ extends HBoxContainer
 
 signal price_changed(value)
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 onready var MAX_GALLONS = 5
 onready var recipe_string
 onready var lemonade_desc = get_node("VBoxContainer/Panel/LemonadeDesc")
 onready var alert_label = get_node("SettingsContainer/LemonadeIngredients/AlertLabel")
 onready var not_enough_label = get_node("SettingsContainer/LemonadeIngredients/NotEnoughLabel")
-
+onready var exeeds_cup_label = get_node("SettingsContainer/LemonadeIngredients/ExceedCupsLabel")
 onready var mix_button = get_node("SettingsContainer/LemonadeIngredients/ButtonMixLemonade")
 
 onready var ratio_water = get_node("SettingsContainer/LemonadeIngredients/IngredientRatiosContainer/RatioContainerWater")
@@ -64,7 +61,8 @@ func update_general() -> void:
 	# to display relevant text such as the recipe change,
 	# how much lemonade the player can make
 	# and updating multipliers
-	print("A")
+	
+	alert_player_cup_limit()
 	update_lemonade_desc()
 	update_alert_label()
 	set_multipliers(gallon_node.value)
@@ -86,7 +84,7 @@ func update_general() -> void:
 			not_enough_label.visible = false
 	
 func update_alert_label() -> void:
-	alert_label.text = "You can make a max of 0 gallons of lemonade.\n To make this amount\n" + str(ratio_water.get_ratio_multiplier() * gallon_node.value) + " water(s) \n" + str(ratio_lemon.get_ratio_multiplier() * gallon_node.value) + " lemon(s)\n" + str(ratio_sugar.get_ratio_multiplier() * gallon_node.value) + " sugar(s)\n will be used."
+	alert_label.text = "You currently have " + str(gallons_of_lemonade)+ " gallons of lemonade made.\n To make this amount\n" + str(ratio_water.get_ratio_multiplier() * gallon_node.value) + " water(s) \n" + str(ratio_lemon.get_ratio_multiplier() * gallon_node.value) + " lemon(s)\n" + str(ratio_sugar.get_ratio_multiplier() * gallon_node.value) + " sugar(s)\n will be used."
 
 
 func set_multipliers(gallons) -> void:
@@ -98,13 +96,8 @@ func set_multipliers(gallons) -> void:
 func _on_Gallons_value_changed(value):
 	# For each item type, loop through and call option toggle
 	# in order to check and disable / renable items in the drop down box
-	
-	
 	update_general()
-	#print("Gallon value = " + str(value))
-	#print("multiplier water = " + str(item_water.get_multiplier()))
-	pass # Replace with function body.
-
+	
 
 
 func _on_SetPriceButton_pressed():
@@ -154,10 +147,13 @@ func _on_ButtonMixLemonade_pressed():
 	
 	# Add the number from the spin box to the gallon variable
 	gallons_of_lemonade += gallon_node.value
-	print(gallons_of_lemonade)
 	
 	# call the update again, disable the mix button if player doesn't have enough
 	update_general()
+	
+	# Reset gallons back to 1
+	gallon_node.value = 1
+	
 
 
 func subtract_items(item, multiplier) -> void :
@@ -171,10 +167,21 @@ func alert_player_cup_limit() -> void:
 	# the rest will be thrown out
 	
 	#SUM CUPS or limit one type of cup
+	# Get player num cups
+	var sum_cups = 0
 	
-	#GALLONS TO CUPS 16 cups to a gallon, do division
+	sum_cups = Global.cup_list[0].get_quantity()
+	print(sum_cups)
 	
+	#GALLONS TO CUPS 16 cups to a gallon, a comparison
+	var gallons_to_cups = (gallon_node.value + gallons_of_lemonade)* 16
+	var enough_cups = sum_cups >= gallons_to_cups
 	
-	# COMPARISON
-	
-	pass
+	if enough_cups:
+		# Hide the alert if it's visible
+		exeeds_cup_label.visible = false
+		
+	else:
+		# show the alert 
+		exeeds_cup_label.add_color_override("font_color", Color(1, .5, .5))
+		exeeds_cup_label.visible = true
