@@ -16,25 +16,29 @@ Handle the buffs here to share across many scenes, get updated by those scenes.
 # Ingredient objects
 var IngredientItem = preload("res://src/Main/Pages/SuppliesScenes/IngredientItemClass.gd")
 var Money = preload("res://src/Main/Money.gd")
-
-onready var tap_water = IngredientItem.IngredientItem.new("water","tap water", 1, 10)
-onready var bottled_water = IngredientItem.IngredientItem.new("water", "bottled water", 2, 30)
-onready var spring_water = IngredientItem.IngredientItem.new("water", "spring water", 4, 0)
+# Ingredient Item: type, name, cost, starting quantity 
+# 					"water", "tap water", "2", 10
+# limiting everything to 1 item for now, until buffs are added
+# otherwise no sense having more items and expensive ones without any benefit
+# or make everything cost the same
+onready var tap_water = IngredientItem.IngredientItem.new("water","tap water", 1, 0)
+onready var bottled_water = IngredientItem.IngredientItem.new("water", "bottled water", 1, 0)
+onready var spring_water = IngredientItem.IngredientItem.new("water", "spring water", 1, 0)
 onready var water_list = [tap_water, bottled_water, spring_water]
 
 onready var paper_cup = IngredientItem.IngredientItem.new("cup", "paper cups", 1, 0)
-onready var plastic_cup = IngredientItem.IngredientItem.new("cup", "plastic cups", 2, 0)
-onready var branded_cup = IngredientItem.IngredientItem.new("cup", "branded cups", 4, 0)
-onready var cup_list = [paper_cup, plastic_cup, branded_cup]
+onready var plastic_cup = IngredientItem.IngredientItem.new("cup", "plastic cups", 1, 0)
+onready var branded_cup = IngredientItem.IngredientItem.new("cup", "branded cups", 1, 0)
+onready var cup_list = [plastic_cup]
 
 onready var lemon_mix = IngredientItem.IngredientItem.new("lemon","lemonade mix", 1, 10)
-onready var lemon_juice = IngredientItem.IngredientItem.new("lemon", "lemon juice concentrate", 2, 0)
-onready var fresh_lemons = IngredientItem.IngredientItem.new("lemon", "fresh squeezed lemons", 4, 0)
+onready var lemon_juice = IngredientItem.IngredientItem.new("lemon", "lemon juice concentrate", 1, 0)
+onready var fresh_lemons = IngredientItem.IngredientItem.new("lemon", "fresh squeezed lemons", 1, 0)
 onready var lemon_list = [lemon_mix, lemon_juice, fresh_lemons]
 
-onready var process_sugar = IngredientItem.IngredientItem.new("sugar", "processed sugar", 1, 10)
-onready var cane_sugar = IngredientItem.IngredientItem.new("sugar", "cane sugar", 2, 0)
-onready var stevia = IngredientItem.IngredientItem.new("sugar", "stevia", 4, 0)
+onready var process_sugar = IngredientItem.IngredientItem.new("sugar", "processed sugar", 1, 0)
+onready var cane_sugar = IngredientItem.IngredientItem.new("sugar", "cane sugar", 1, 0)
+onready var stevia = IngredientItem.IngredientItem.new("sugar", "stevia", 1, 0)
 onready var sugar_list = [process_sugar, cane_sugar, stevia]
 
 ###########

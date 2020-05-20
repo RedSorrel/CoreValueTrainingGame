@@ -86,20 +86,26 @@ func update_general() -> void:
 func update_alert_label() -> void:
 	alert_label.text = "You currently have " + str(gallons_of_lemonade)+ " gallons of lemonade made.\n To make this amount\n" + str(ratio_water.get_ratio_multiplier() * gallon_node.value) + " water(s) \n" + str(ratio_lemon.get_ratio_multiplier() * gallon_node.value) + " lemon(s)\n" + str(ratio_sugar.get_ratio_multiplier() * gallon_node.value) + " sugar(s)\n will be used."
 
-
 func set_multipliers(gallons) -> void:
 	# update the multipliers in case anything has changed
 	for i in range(0, ratios.size()):
 		items[i].set_multiplier(ratios[i].get_ratio_multiplier() * gallons)
 
-
+func update_price_string() -> void:
+	current_price_label.text = "Current price / cup of lemonade: $%.*f" % [2, get_price()]
+	pass
+		
+func set_price(value:float) -> void:
+	lemonade_price = value
+	
+func get_price() -> float: 
+	return lemonade_price
+	
 func _on_Gallons_value_changed(value):
 	# For each item type, loop through and call option toggle
 	# in order to check and disable / renable items in the drop down box
 	update_general()
 	
-
-
 func _on_SetPriceButton_pressed():
 	# Get the price in the spinbox AdjustPrice
 	# Set the price to this new price
@@ -112,17 +118,6 @@ func _on_SetPriceButton_pressed():
 	# the price of lemonade there
 	emit_signal("price_changed", get_price())
 	pass # Replace with function body.
-
-func update_price_string() -> void:
-	current_price_label.text = "Current price / cup of lemonade: $%.*f" % [2, get_price()]
-	pass
-		
-func set_price(value:float) -> void:
-	lemonade_price = value
-	
-func get_price() -> float: 
-	return lemonade_price
-
 
 func _on_ButtonMixLemonade_pressed():
 	# When this button is pressed
@@ -140,6 +135,8 @@ func _on_ButtonMixLemonade_pressed():
 		print(i.source_options.get_selected_id())
 		subtract_items(i.product_list[i.source_options.get_selected_id()], i.get_multiplier())
 		i.update_quantity_text()
+		
+	subtract_items(Global.cup_list[0], gallon_node.value)
 		
 
 	# Lock the ability to change the recipe

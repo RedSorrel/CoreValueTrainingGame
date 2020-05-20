@@ -63,3 +63,7 @@ func calculate_subtotal(value) -> int:
 	sub_price = product_list[option_box.get_selected_id()].get_price()
 	subtotal = sub_price * int(value)
 	return subtotal
+
+
+func _on_SuppliesItemContainer_visibility_changed():
+	current_quantity.text = "Currently own %s" % product_list[0].get_quantity()

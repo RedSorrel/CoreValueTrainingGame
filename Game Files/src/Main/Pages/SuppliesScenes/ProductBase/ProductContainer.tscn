@@ -41,3 +41,4 @@ margin_bottom = 24.0
 size_flags_vertical = 1
 text = "Currently Own: 0"
 valign = 1
+[connection signal="visibility_changed" from="." to="." method="_on_SuppliesItemContainer_visibility_changed"]

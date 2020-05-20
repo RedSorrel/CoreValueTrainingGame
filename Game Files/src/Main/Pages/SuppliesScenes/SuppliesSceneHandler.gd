@@ -1,10 +1,5 @@
 extends VBoxContainer
 
-onready var tap_water_debug = get_node("Debug/ColorRect/GridContainer/Waters")
-onready var lemon_debug = get_node("Debug/ColorRect/GridContainer/Lemons")
-onready var sugar_debug = get_node("Debug/ColorRect/GridContainer/Sugars")
-onready var cup_debug = get_node("Debug/ColorRect/GridContainer/Cups")
-
 onready var water_product_container = get_node("GridContainer/WaterProductContainer")
 onready var water_list = water_product_container.product_list
 onready var water_source = water_product_container.option_box
@@ -39,7 +34,6 @@ onready var purchase_btn = get_node("Button")
 func _ready() -> void:
 	#tap_water_debug.text = "# of tap waters = %s " % tap_water.get_quantity()
 	#tap_water_debug.text = "# of tap waters = %s " % water_product_container.tap_water.get_quantity()
-	tap_water_debug.text = "# of tap waters = %s " % Global.tap_water.get_quantity()
 	get_node("GridContainer/CupProductContainer").connect("quantity_changed", get_node("."), "update_total_string")
 	get_node("GridContainer/LemonProductContainer").connect("quantity_changed", get_node("."), "update_total_string")
 	get_node("GridContainer/WaterProductContainer").connect("quantity_changed", get_node("."), "update_total_string")
@@ -51,13 +45,6 @@ func _ready() -> void:
 
 func _on_Button_pressed() -> void:
 	purchase_items()
-	
-	#Debug, delete these soon
-	
-	tap_water_debug.text = "# of tap waters = %s"  % Global.tap_water.get_quantity()
-	lemon_debug.text = "# of lemons = %s" % Global.lemon_mix.get_quantity()
-	sugar_debug.text = "# of sugars = %s" % Global.process_sugar.get_quantity()
-	cup_debug.text = "# of cups = %s" % Global.paper_cup.get_quantity()
 	
 	# Reset spinboxes back to 0
 	lemon_quant_box.set_value(0)
@@ -138,6 +125,3 @@ func update_total_string() -> void:
 	else:
 		cost_label.add_color_override("font_color", Color(1, 1, 1, 1))
 		purchase_btn.disabled = false
-	
-
-
