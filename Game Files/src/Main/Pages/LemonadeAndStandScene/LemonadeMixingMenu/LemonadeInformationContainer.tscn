@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Main/Pages/LemonadeAndStandScene/LemonadeMixingMenu/IngredientSources/Water/SourceWater.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Main/Pages/LemonadeAndStandScene/LemonadeMixingMenu/IngredientRatios/RatioIngredientLemon.tscn" type="PackedScene" id=2]
@@ -7,47 +7,32 @@
 [ext_resource path="res://src/Main/Pages/LemonadeAndStandScene/LemonadeMixingMenu/LemonadeInformationHandler.gd" type="Script" id=5]
 [ext_resource path="res://src/Main/Pages/LemonadeAndStandScene/LemonadeMixingMenu/IngredientSources/Lemon/SourceLemon.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Main/Pages/LemonadeAndStandScene/LemonadeMixingMenu/IngredientSources/Sugar/SourceSugar.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/images/pitcher_small.jpg" type="Texture" id=8]
 
 [node name="LemonadeContainer" type="HBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -40.0
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_right = 661.0
+margin_right = 681.0
 margin_bottom = 768.0
 size_flags_horizontal = 3
 
-[node name="PitcherImg" type="ColorRect" parent="VBoxContainer"]
-margin_right = 661.0
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+margin_right = 681.0
 margin_bottom = 664.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="VBoxContainer/PitcherImg"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -207.5
-margin_top = -208.5
-margin_right = 207.5
-margin_bottom = 208.5
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "IMG"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture = ExtResource( 8 )
+expand = true
 
 [node name="Panel" type="Panel" parent="VBoxContainer"]
 margin_top = 668.0
-margin_right = 661.0
+margin_right = 681.0
 margin_bottom = 768.0
 rect_min_size = Vector2( 0, 100 )
 
@@ -61,63 +46,66 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="PitcherImg" type="ColorRect" parent="."]
+visible = false
+margin_right = 661.0
+margin_bottom = 664.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
 [node name="SettingsContainer" type="VBoxContainer" parent="."]
-margin_left = 665.0
-margin_right = 1326.0
+margin_left = 685.0
+margin_right = 1366.0
 margin_bottom = 768.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="SettingsContainer"]
-margin_right = 661.0
+margin_right = 681.0
 margin_bottom = 14.0
 text = "Lemonade Mix Ratio"
 align = 1
 
 [node name="LemonadeIngredients" type="VBoxContainer" parent="SettingsContainer"]
 margin_top = 18.0
-margin_right = 661.0
+margin_right = 681.0
 margin_bottom = 346.0
 size_flags_horizontal = 3
 
 [node name="IngredientRatiosContainer" type="HBoxContainer" parent="SettingsContainer/LemonadeIngredients"]
-margin_right = 661.0
+margin_right = 681.0
 margin_bottom = 38.0
 
 [node name="RatioContainerWater" parent="SettingsContainer/LemonadeIngredients/IngredientRatiosContainer" instance=ExtResource( 4 )]
-margin_right = 217.0
 
 [node name="RatioContainerLemon" parent="SettingsContainer/LemonadeIngredients/IngredientRatiosContainer" instance=ExtResource( 2 )]
-margin_left = 221.0
-margin_right = 438.0
+margin_left = 228.0
+margin_right = 452.0
 
 [node name="RatioContainerSugar" parent="SettingsContainer/LemonadeIngredients/IngredientRatiosContainer" instance=ExtResource( 3 )]
-margin_left = 442.0
-margin_right = 661.0
+margin_left = 456.0
+margin_right = 681.0
 
 [node name="IngredientSource" type="GridContainer" parent="SettingsContainer/LemonadeIngredients"]
 margin_top = 42.0
-margin_right = 661.0
+margin_right = 681.0
 margin_bottom = 110.0
 size_flags_horizontal = 3
 custom_constants/hseparation = 13
 
 [node name="SourceWater" parent="SettingsContainer/LemonadeIngredients/IngredientSource" instance=ExtResource( 1 )]
-margin_right = 661.0
 
 [node name="SourceSugar" parent="SettingsContainer/LemonadeIngredients/IngredientSource" instance=ExtResource( 7 )]
 margin_top = 24.0
-margin_right = 661.0
 margin_bottom = 44.0
 
 [node name="SourceLemon" parent="SettingsContainer/LemonadeIngredients/IngredientSource" instance=ExtResource( 6 )]
 margin_top = 48.0
-margin_right = 661.0
 margin_bottom = 68.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="SettingsContainer/LemonadeIngredients"]
 margin_top = 114.0
-margin_right = 661.0
+margin_right = 681.0
 margin_bottom = 138.0
 custom_constants/separation = 33
 
@@ -152,7 +140,7 @@ align = 1
 
 [node name="AlertLabel" type="Label" parent="SettingsContainer/LemonadeIngredients"]
 margin_top = 142.0
-margin_right = 661.0
+margin_right = 681.0
 margin_bottom = 241.0
 text = "You can make a max of 0 gallons of lemonade.
 To make this amount
@@ -163,23 +151,23 @@ will be used."
 
 [node name="NotEnoughLabel" type="Label" parent="SettingsContainer/LemonadeIngredients"]
 margin_top = 245.0
-margin_right = 661.0
+margin_right = 681.0
 margin_bottom = 276.0
 text = "You don't have the required amount of ingredients!
 Change recipe, number of gallons, or ingredient"
 align = 1
 
 [node name="ButtonMixLemonade" type="Button" parent="SettingsContainer/LemonadeIngredients"]
-margin_left = 277.0
+margin_left = 287.0
 margin_top = 280.0
-margin_right = 383.0
+margin_right = 393.0
 margin_bottom = 300.0
 size_flags_horizontal = 4
 text = "Mix Lemonade"
 
 [node name="PriceAdjustContainer" type="HBoxContainer" parent="SettingsContainer/LemonadeIngredients"]
 margin_top = 304.0
-margin_right = 661.0
+margin_right = 681.0
 margin_bottom = 328.0
 
 [node name="CurrentPriceLabel" type="Label" parent="SettingsContainer/LemonadeIngredients/PriceAdjustContainer"]

@@ -24,40 +24,39 @@ align = 1
 [node name="GridContainer" type="GridContainer" parent="."]
 margin_top = 37.0
 margin_right = 1366.0
-margin_bottom = 105.0
+margin_bottom = 193.0
 custom_constants/vseparation = 20
 custom_constants/hseparation = 60
-columns = 2
 
 [node name="WaterProductContainer" parent="GridContainer" instance=ExtResource( 2 )]
-margin_right = 487.0
+margin_right = 493.0
 
 [node name="LemonProductContainer" parent="GridContainer" instance=ExtResource( 1 )]
-margin_left = 547.0
-margin_right = 1040.0
+margin_top = 44.0
+margin_right = 493.0
+margin_bottom = 68.0
 
 [node name="SugarProductContainer" parent="GridContainer" instance=ExtResource( 3 )]
-margin_top = 44.0
-margin_right = 487.0
-margin_bottom = 68.0
+margin_top = 88.0
+margin_right = 493.0
+margin_bottom = 112.0
 
 [node name="CupProductContainer" parent="GridContainer" instance=ExtResource( 4 )]
-margin_left = 547.0
-margin_top = 44.0
-margin_right = 1040.0
-margin_bottom = 68.0
+margin_top = 132.0
+margin_right = 493.0
+margin_bottom = 156.0
 
 [node name="TotalCost" type="Label" parent="."]
-margin_top = 128.0
+margin_top = 216.0
 margin_right = 1366.0
-margin_bottom = 142.0
+margin_bottom = 230.0
 text = "The total cost of these items is: $999.00"
 
 [node name="Button" type="Button" parent="."]
 margin_left = 633.0
-margin_top = 165.0
+margin_top = 253.0
 margin_right = 733.0
-margin_bottom = 265.0
+margin_bottom = 353.0
 rect_min_size = Vector2( 100, 100 )
 size_flags_horizontal = 4
 text = "Purchase"

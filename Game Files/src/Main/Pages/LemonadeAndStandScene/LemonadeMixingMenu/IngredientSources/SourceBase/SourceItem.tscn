@@ -13,7 +13,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_right = 167.0
+margin_right = 224.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -23,22 +23,23 @@ __meta__ = {
 }
 
 [node name="SourceOptions" type="OptionButton" parent="."]
-margin_left = 171.0
-margin_right = 338.0
+margin_left = 228.0
+margin_right = 452.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Select One"
 
 [node name="CurrentQuantity" type="Label" parent="."]
-margin_left = 342.0
+margin_left = 456.0
 margin_top = 3.0
-margin_right = 509.0
+margin_right = 681.0
 margin_bottom = 17.0
 size_flags_horizontal = 3
 text = "Currently Have: 0"
 
 [node name="Buffs" type="Label" parent="."]
+visible = false
 margin_left = 513.0
 margin_right = 681.0
 margin_bottom = 20.0

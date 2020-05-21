@@ -69,6 +69,7 @@ __meta__ = {
 }
 
 [node name="BuffLabel" type="Label" parent="TabsOnSide/Body/Header/ColorRect/HBoxContainer"]
+visible = false
 margin_left = 169.0
 margin_top = 43.0
 margin_right = 234.0

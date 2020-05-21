@@ -155,7 +155,7 @@ func run_sim() -> void:
 	#set_random_event_type("excellent")
 	emit_signal("get_location", "location 1")
 	set_day(week[day_counter])
-	if day_counter < 6:
+	if day_counter < 4:
 		var num_customers = calculate_customers()
 		#revenue = num_customers * lemonade_price
 		set_revenue(num_customers * lemonade_price)
