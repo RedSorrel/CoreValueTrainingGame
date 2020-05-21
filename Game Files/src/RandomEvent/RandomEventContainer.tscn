@@ -45,7 +45,7 @@ size_flags_vertical = 0
 margin_right = 200.0
 margin_bottom = 200.0
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect"]
+[node name="Image" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/NinePatchRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
@@ -105,7 +105,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RewardString" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="RewardLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 visible = false
 margin_top = 118.0
 margin_right = 1366.0

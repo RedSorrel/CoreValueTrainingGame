@@ -48,9 +48,9 @@ onready var recipe_descriptors = [recipe_water, recipe_lemon, recipe_sugar]
 onready var week = [
 	[["watery", "lemony", "sugary"], "sunny", "good"],
 	[["watery", "some lemon", "barely any"], "sunny", "excellent"],
-	[["watery", "some lemon", "barely any"], "sunny", "excellent"],
-	[["watery", "some lemon", "barely any"], "sunny", "excellent"],
-	[["watery", "some lemon", "barely any"], "sunny", "excellent"]
+	[["watery", "some lemon", "barely any"], "sunny", "good"],
+	[["watery", "some lemon", "barely any"], "sunny", "friend"],
+	[["watery", "some lemon", "barely any"], "sunny", "you"]
 	]
 
 # EVENT STUFF
