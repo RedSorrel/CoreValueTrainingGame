@@ -84,8 +84,16 @@ func update_general() -> void:
 			not_enough_label.visible = false
 	
 func update_alert_label() -> void:
-	alert_label.text = "You currently have " + str(gallons_of_lemonade)+ " gallons of lemonade made.\n To make this amount\n" + str(ratio_water.get_ratio_multiplier() * gallon_node.value) + " water(s) \n" + str(ratio_lemon.get_ratio_multiplier() * gallon_node.value) + " lemon(s)\n" + str(ratio_sugar.get_ratio_multiplier() * gallon_node.value) + " sugar(s)\n will be used."
-
+	#alert_label.text = "You currently have " + str(gallons_of_lemonade)+ " gallons of lemonade made.\n To make this amount\n" + str(ratio_water.get_ratio_multiplier() * gallon_node.value) + " water(s) \n" + str(ratio_lemon.get_ratio_multiplier() * gallon_node.value) + " lemon(s)\n" + str(ratio_sugar.get_ratio_multiplier() * gallon_node.value) + " sugar(s)\n will be used."
+	#alert_label.set_text("You currently have " + str(gallons_of_lemonade)+ " gallons of lemonade made.\n To make this amount\n" + str(ratio_water.get_ratio_multiplier() * gallon_node.value) + " water(s) \n" + str(ratio_lemon.get_ratio_multiplier() * gallon_node.value) + " lemon(s)\n" + str(ratio_sugar.get_ratio_multiplier() * gallon_node.value) + " sugar(s)\n will be used.")
+	
+	# clear the text, it's a richtext label and in order to use BBCode
+	# we need to use .append_bbcode so it can parse bbcode (other methods won't do this or will give errors)
+	# however it still appends to the existing placeholder string so
+	# empty out the text and then append the new string
+	# see RichTextLabel documentation for more info
+	alert_label.text = "" 
+	alert_label.append_bbcode("You currently have " + str(gallons_of_lemonade)+ " gallons of lemonade made.\n To make this amount:\n[b]" + str(ratio_water.get_ratio_multiplier() * gallon_node.value) + " water(s) \n" + str(ratio_lemon.get_ratio_multiplier() * gallon_node.value) + " lemon(s)\n" + str(ratio_sugar.get_ratio_multiplier() * gallon_node.value) + " sugar(s)[/b]\n will be used.")
 func set_multipliers(gallons) -> void:
 	# update the multipliers in case anything has changed
 	for i in range(0, ratios.size()):

@@ -3,9 +3,9 @@
 [ext_resource path="res://src/Main/Pages/LemonadeAndStandScene/LemonadeMixingMenu/IngredientSources/SourceBase/SourceItem.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Main/Pages/LemonadeAndStandScene/LemonadeMixingMenu/IngredientSources/Sugar/SourceSugar.gd" type="Script" id=2]
 
-
 [node name="SourceSugar" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="Label" parent="." index="0"]
+bbcode_text = "[b]Sugar Source[/b]"
 text = "Sugar Source"

@@ -1,26 +1,45 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Main/Pages/LemonadeAndStandScene/LemonadeMixingMenu/IngredientRatios/RatioBase/IngredientRatioClass.gd" type="Script" id=1]
+[ext_resource path="res://assets/font/PTMono-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/font/Montserrat-Bold.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 2 )
 
 [node name="IngredientRatioContainer" type="VBoxContainer"]
 margin_right = 224.0
-margin_bottom = 38.0
+margin_bottom = 39.0
 size_flags_horizontal = 3
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="RichTextLabel" parent="."]
 margin_right = 224.0
-margin_bottom = 14.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 20 )
+size_flags_horizontal = 3
+size_flags_vertical = 4
+custom_fonts/mono_font = SubResource( 1 )
+custom_fonts/bold_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+bbcode_text = "[center][b]Ingredient[/b][/center]"
 text = "Ingredient"
-align = 1
+scroll_active = false
 
 [node name="RatioDescription" type="OptionButton" parent="."]
-margin_top = 18.0
+margin_top = 24.0
 margin_right = 224.0
-margin_bottom = 38.0
+margin_bottom = 44.0
 size_flags_horizontal = 3
 text = "Select One"
 [connection signal="item_selected" from="RatioDescription" to="." method="_on_RatioDescription_item_selected"]
