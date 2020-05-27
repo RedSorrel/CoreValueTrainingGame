@@ -1,44 +1,53 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/Main/Pages/SuppliesScenes/ProductBase/ProductClass.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/random_event_placeholder.jpg" type="Texture" id=2]
 
 [node name="SuppliesItemContainer" type="HBoxContainer"]
-margin_right = 360.0
-margin_bottom = 24.0
+margin_right = 1475.0
+margin_bottom = 30.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="."]
-margin_top = 5.0
+margin_top = 18.0
 margin_right = 69.0
-margin_bottom = 19.0
+margin_bottom = 32.0
 text = "ItemName"
 
 [node name="SourceOptions" type="OptionButton" parent="."]
 margin_left = 73.0
 margin_right = 172.0
-margin_bottom = 24.0
+margin_bottom = 50.0
 text = "Select One"
 
 [node name="Quantity" type="SpinBox" parent="."]
 margin_left = 176.0
 margin_right = 250.0
-margin_bottom = 24.0
+margin_bottom = 50.0
 
 [node name="Price" type="Label" parent="."]
 margin_left = 254.0
-margin_top = 5.0
+margin_top = 18.0
 margin_right = 360.0
-margin_bottom = 19.0
+margin_bottom = 32.0
 text = "Cost: $500 / unit"
 
 [node name="CurrentQuantity" type="Label" parent="."]
 margin_left = 364.0
 margin_right = 471.0
-margin_bottom = 24.0
+margin_bottom = 50.0
 size_flags_vertical = 1
 text = "Currently Own: 0"
 valign = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 475.0
+margin_right = 525.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 2 )
+expand = true
 [connection signal="visibility_changed" from="." to="." method="_on_SuppliesItemContainer_visibility_changed"]

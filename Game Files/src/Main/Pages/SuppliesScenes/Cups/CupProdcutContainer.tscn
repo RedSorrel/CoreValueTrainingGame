@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/Main/Pages/SuppliesScenes/ProductBase/ProductContainer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Main/Pages/SuppliesScenes/Cups/CupProduct.gd" type="Script" id=2]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/random_event_placeholder.jpg-bf857ff2033db9d2086ef5ad49652e56.stex"
 
 [node name="CupProdcutContainer" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -25,5 +29,10 @@ margin_right = 362.0
 [node name="CurrentQuantity" parent="." index="4"]
 margin_left = 366.0
 margin_right = 473.0
+
+[node name="TextureRect" parent="." index="5"]
+margin_left = 477.0
+margin_right = 527.0
+texture = SubResource( 1 )
 [connection signal="item_selected" from="SourceOptions" to="." method="_on_SourceOptions_item_selected"]
 [connection signal="value_changed" from="Quantity" to="." method="_on_Quantity_value_changed"]

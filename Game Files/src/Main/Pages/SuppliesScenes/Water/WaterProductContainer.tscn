@@ -25,5 +25,9 @@ margin_right = 376.0
 [node name="CurrentQuantity" parent="." index="4"]
 margin_left = 380.0
 margin_right = 487.0
+
+[node name="TextureRect" parent="." index="5"]
+margin_left = 491.0
+margin_right = 541.0
 [connection signal="item_selected" from="SourceOptions" to="." method="_on_SourceOptions_item_selected"]
 [connection signal="value_changed" from="Quantity" to="." method="_on_Quantity_value_changed"]

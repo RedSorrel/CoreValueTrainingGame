@@ -3,10 +3,6 @@
 [ext_resource path="res://src/Main/Pages/SuppliesScenes/ProductBase/ProductContainer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Main/Pages/SuppliesScenes/Lemon/LemonProduct.gd" type="Script" id=2]
 
-
-
-
-
 [node name="LemonProductContainer" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
@@ -29,5 +25,9 @@ margin_right = 382.0
 [node name="CurrentQuantity" parent="." index="4"]
 margin_left = 386.0
 margin_right = 493.0
+
+[node name="TextureRect" parent="." index="5"]
+margin_left = 497.0
+margin_right = 547.0
 [connection signal="item_selected" from="SourceOptions" to="." method="_on_SourceOptions_item_selected"]
 [connection signal="value_changed" from="Quantity" to="." method="_on_Quantity_value_changed"]
