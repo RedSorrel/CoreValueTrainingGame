@@ -13,7 +13,7 @@ Take in information from the player manipulated items.
 Then display them on the end day screen
 Display on the overview screen after Random Event is solved
 
-Resides in OverviewContainer
+Resides in OverviewContainer (StartgameContainer)
 """
 
 #onready var money_label = get_node("TabsOnSide/Main/Header/ColorRect/HBoxContainer/MoneyLabel")
@@ -75,7 +75,7 @@ func _ready() -> void:
 			Global.recipe["Water"].to_lower(),
 			Global.recipe["Lemon"].to_lower(),
 			Global.recipe["Sugar"].to_lower()]
-		print(player_recipe)
+		#print(player_recipe)
 		
 func get_bonus_recipe_rand() -> void:
 	# Randomly generate a recipe
@@ -171,7 +171,7 @@ func run_sim() -> void:
 		#	How much money was made, customers served
 		
 		#pop up menu for random event
-		print("Counter = %d"  % day_counter)
+		#print("Counter = %d"  % day_counter)
 	else:
 		# Run end of game
 		# Display End game screen
@@ -180,7 +180,7 @@ func run_sim() -> void:
 		# Display random event choices
 		# What end does the player get? new display?
 		emit_signal("week_ends")
-		print("This is the end of the game!")
+		#print("This is the end of the game!")
 	
 	
 	
@@ -216,8 +216,6 @@ func set_weather(value : String):
 
 func set_random_event_type(value: String) -> void:
 	emit_signal("random_event_set", value)
-	print("A")
-	print(value)
 
 
 # SIGNALS
@@ -239,6 +237,6 @@ func _on_Good_Bad_Points_changed(points_array) -> void:
 	# Random event has ran, we need to save the current points
 	# so we can give or loose customers based on player's choices
 	good_bad_points = points_array
-	print("Something got picked in the random event!")
-	print("Points go something like this good: %d bad: %d" % [good_bad_points[0], good_bad_points[1]])
+	#print("Something got picked in the random event!")
+	#print("Points go something like this good: %d bad: %d" % [good_bad_points[0], good_bad_points[1]])
 	

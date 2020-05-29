@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/EndScreen/EndScreen.gd" type="Script" id=1]
+[ext_resource path="res://assets/font/Comfortaa-Bold.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
 
 [node name="EndScene" type="Control"]
 anchor_right = 1.0
@@ -27,18 +31,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Header" type="Label" parent="VBoxContainer"]
 margin_right = 1366.0
-margin_bottom = 31.0
-text = "End Game!
-Here's how you did"
+margin_bottom = 19.0
+custom_fonts/font = SubResource( 1 )
+text = "End of Game!"
+align = 1
+valign = 1
+
+[node name="SubHeader" type="Label" parent="VBoxContainer"]
+margin_top = 23.0
+margin_right = 1366.0
+margin_bottom = 37.0
+text = "Here's how you did"
 align = 1
 valign = 1
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
-margin_top = 35.0
+margin_top = 41.0
 margin_right = 1366.0
-margin_bottom = 49.0
+margin_bottom = 55.0
 columns = 4
 
 [node name="Label" type="Label" parent="VBoxContainer/GridContainer"]
@@ -65,50 +77,49 @@ margin_bottom = 14.0
 text = "Total Gallons Made:"
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
-margin_top = 53.0
+margin_top = 59.0
 margin_right = 1366.0
-margin_bottom = 67.0
+margin_bottom = 73.0
 text = "Here are your Random Event choices:"
 
-[node name="GridContainer2" type="GridContainer" parent="VBoxContainer"]
-margin_top = 71.0
+[node name="RandomEventSummary" type="GridContainer" parent="VBoxContainer"]
+margin_top = 77.0
 margin_right = 1366.0
-margin_bottom = 85.0
-columns = 5
+margin_bottom = 163.0
 
-[node name="Label" type="Label" parent="VBoxContainer/GridContainer2"]
+[node name="Label" type="Label" parent="VBoxContainer/RandomEventSummary"]
 margin_right = 241.0
 margin_bottom = 14.0
 text = "Day 1: You chose to do ____ to _______."
 
-[node name="Label2" type="Label" parent="VBoxContainer/GridContainer2"]
-margin_left = 245.0
-margin_right = 486.0
-margin_bottom = 14.0
+[node name="Label2" type="Label" parent="VBoxContainer/RandomEventSummary"]
+margin_top = 18.0
+margin_right = 241.0
+margin_bottom = 32.0
 text = "Day 2: You chose to do ____ to _______."
 
-[node name="Label3" type="Label" parent="VBoxContainer/GridContainer2"]
-margin_left = 490.0
-margin_right = 731.0
-margin_bottom = 14.0
+[node name="Label3" type="Label" parent="VBoxContainer/RandomEventSummary"]
+margin_top = 36.0
+margin_right = 241.0
+margin_bottom = 50.0
 text = "Day 3: You chose to do ____ to _______."
 
-[node name="Label4" type="Label" parent="VBoxContainer/GridContainer2"]
-margin_left = 735.0
-margin_right = 976.0
-margin_bottom = 14.0
+[node name="Label4" type="Label" parent="VBoxContainer/RandomEventSummary"]
+margin_top = 54.0
+margin_right = 241.0
+margin_bottom = 68.0
 text = "Day 4: You chose to do ____ to _______."
 
-[node name="Label5" type="Label" parent="VBoxContainer/GridContainer2"]
-margin_left = 980.0
-margin_right = 1221.0
-margin_bottom = 14.0
+[node name="Label5" type="Label" parent="VBoxContainer/RandomEventSummary"]
+margin_top = 72.0
+margin_right = 241.0
+margin_bottom = 86.0
 text = "Day 5: You chose to do ____ to _______."
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 margin_left = 658.0
-margin_top = 89.0
+margin_top = 167.0
 margin_right = 708.0
-margin_bottom = 109.0
+margin_bottom = 187.0
 size_flags_horizontal = 4
 text = "Finish"

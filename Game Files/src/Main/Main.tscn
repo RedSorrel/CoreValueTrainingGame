@@ -51,8 +51,8 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 margin_left = -234.0
-margin_top = -50.0
-margin_bottom = 50.0
+margin_top = -51.3604
+margin_bottom = 48.6396
 custom_constants/separation = 86
 __meta__ = {
 "_edit_use_anchors_": false
@@ -84,7 +84,7 @@ size_flags_vertical = 3
 script = ExtResource( 3 )
 
 [node name="Content" type="Control" parent="TabsOnSide/Body/Mid"]
-margin_right = 1283.0
+margin_right = 1271.0
 margin_bottom = 664.0
 size_flags_horizontal = 3
 
@@ -97,12 +97,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="OverviewContainer" parent="TabsOnSide/Body/Mid/Content" instance=ExtResource( 5 )]
+[node name="StartGameContainer" parent="TabsOnSide/Body/Mid/Content" instance=ExtResource( 5 )]
+visible = false
 margin_top = -1.29236
 margin_bottom = -1.29236
 
 [node name="LemonadeAndStandContainer" parent="TabsOnSide/Body/Mid/Content" instance=ExtResource( 4 )]
-visible = false
+margin_top = -1.36035
+margin_bottom = -1.36035
 
 [node name="SuppliesContainer" parent="TabsOnSide/Body/Mid/Content" instance=ExtResource( 6 )]
 visible = false
@@ -117,44 +119,44 @@ visible = false
 visible = false
 
 [node name="TabButtonContainer" type="VBoxContainer" parent="TabsOnSide/Body/Mid"]
-margin_left = 1287.0
+margin_left = 1275.0
 margin_right = 1366.0
 margin_bottom = 664.0
 size_flags_horizontal = 9
 size_flags_vertical = 3
 
-[node name="Overview" type="Button" parent="TabsOnSide/Body/Mid/TabButtonContainer"]
-margin_right = 79.0
+[node name="Lemonade" type="Button" parent="TabsOnSide/Body/Mid/TabButtonContainer"]
+margin_right = 91.0
 margin_bottom = 218.0
 rect_min_size = Vector2( 50, 50 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
 pressed = true
-text = "Overview"
-
-[node name="Lemonade" type="Button" parent="TabsOnSide/Body/Mid/TabButtonContainer"]
-margin_top = 222.0
-margin_right = 79.0
-margin_bottom = 440.0
-rect_min_size = Vector2( 50, 50 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-toggle_mode = true
 text = "Lemonade"
 
 [node name="Supplies" type="Button" parent="TabsOnSide/Body/Mid/TabButtonContainer"]
-margin_top = 444.0
-margin_right = 79.0
-margin_bottom = 664.0
+margin_top = 222.0
+margin_right = 91.0
+margin_bottom = 440.0
 rect_min_size = Vector2( 50, 50 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
 text = "Supplies"
 
+[node name="Overview" type="Button" parent="TabsOnSide/Body/Mid/TabButtonContainer"]
+margin_top = 444.0
+margin_right = 91.0
+margin_bottom = 664.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+text = "Start Serving"
+
 [node name="Stats" type="Node" parent="."]
 script = ExtResource( 2 )
-[connection signal="pressed" from="TabsOnSide/Body/Mid/TabButtonContainer/Overview" to="TabsOnSide/Body/Mid" method="_on_Overview_pressed"]
 [connection signal="pressed" from="TabsOnSide/Body/Mid/TabButtonContainer/Lemonade" to="TabsOnSide/Body/Mid" method="_on_Lemonade_pressed"]
 [connection signal="pressed" from="TabsOnSide/Body/Mid/TabButtonContainer/Supplies" to="TabsOnSide/Body/Mid" method="_on_Supplies_pressed"]
+[connection signal="pressed" from="TabsOnSide/Body/Mid/TabButtonContainer/Overview" to="TabsOnSide/Body/Mid" method="_on_Overview_pressed"]

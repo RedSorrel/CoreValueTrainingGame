@@ -72,7 +72,7 @@ onready var be_excellent_prompts = {
 		"Roll out of bed, you need to hustle!",
 		"You set up shop and take shelter under your umbrella. Business is slow and eventually the rain lets up and sunlight begins to poke through the clouds. People begin pouring out of their homes to enjoy some time outside and some patronize your stand!",
 		"Pull the covers over your head, you’ll try again tomorrow.",
-		"Outcome: You stay in bed, resting. The rain lets up and you contemplate setting up your stand. You figure by the time you have it up and running it will be time to pack up and head home, so you stay inside for the rest of the evening.",
+		"You stay in bed, resting. The rain lets up and you contemplate setting up your stand. You figure by the time you have it up and running it will be time to pack up and head home, so you stay inside for the rest of the evening.",
 		"res://assets/images/random_event_placeholder.jpg"]
 }
 
@@ -120,20 +120,6 @@ onready var be_you_prompts = {
 		"Your sales steadily increase while you invest in this employee, eventually your sales double.",
 		"One applicant is a solid salesperson. Guarantees that he will increase your sales by 50%, although, you are not entirely sure he follows your core values.",
 		"Your sales do increase by 50%, but your customer service suffers and you start to lose customers.",
-		"res://assets/images/random_event_placeholder.jpg"],
-	2 : [
-		"Something about being yourself",
-		"Be Yourself",
-		"You were totally yourself today!",
-		"Be !You",
-		"Bruh, you were not yourself today",
-		"res://assets/images/random_event_placeholder.jpg"],
-	3 : [
-		"Something about being yourself",
-		"Be Yourself",
-		"You were totally yourself today!",
-		"Be !You",
-		"Bruh, you were not yourself today",
 		"res://assets/images/random_event_placeholder.jpg"]
 }
 
@@ -241,7 +227,9 @@ func display_reaction(button: Button) -> void:
 		
 	# Let's emit the signal for sending the points out to the simulation
 	emit_signal("good_bad_points_changed", get_points())
-
+	
+	# Record the player's choices to display on end screen
+	record_player_choice(today_prompts[rand][0], button, prompt.text)
 
 func _on_Dismiss_pressed():
 	self.visible = false
@@ -250,3 +238,12 @@ func _on_Dismiss_pressed():
 
 func get_points() -> Array:
 	return good_bad_counter
+	
+func record_player_choice(prompt, choice, result) -> void:
+	# Let's record the prompt, the button text / choice text, and the resulting action
+	# Store it in a dictionary in player_stats
+	# We'll use this in the end game screen for a summary
+	var index = Global.player_stats["Choices"].size()
+	Global.player_stats["Choices"]["Day_" + str(index)] = [prompt, choice.text, result]
+
+	print(Global.player_stats.Choices)

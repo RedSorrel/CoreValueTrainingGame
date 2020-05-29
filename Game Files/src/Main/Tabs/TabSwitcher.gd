@@ -3,8 +3,12 @@ extends Node
 # Lives on the Mid node in Main
 # used as a connection between all the scenes and buttons to switch between them
 
+# !! IMPORTANT Overview is no longer being used but refactoring in Godot
+# Is a pain I'll do my best to do what I can in the time I have
+# so for now think of Overview Scenes and button as a "start game" scene and button page
+
 onready var overview_btn := get_node("TabButtonContainer/Overview") 
-onready var overview_scene := get_node("Content/OverviewContainer")
+onready var overview_scene := get_node("Content/StartGameContainer")
 onready var lemonade_btn := get_node("TabButtonContainer/Lemonade")
 onready var lemonade_scene := get_node("Content/LemonadeAndStandContainer")
 onready var supplies_btn := get_node("TabButtonContainer/Supplies")
@@ -16,8 +20,8 @@ onready var end_screen := get_node("Content/EndScreen")
 
 onready var isGameEnd = false
 
-onready var active_scene = overview_scene
-onready var active_button = overview_btn
+onready var active_scene = lemonade_scene
+onready var active_button = lemonade_btn
 
 onready var start_button := get_node("Content/OverviewContainer/StartGameButton")
 

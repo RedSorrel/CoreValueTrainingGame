@@ -6,7 +6,7 @@ extends MarginContainer
 func _ready():
 	var money_label = get_node("Body/Header/ColorRect/HBoxContainer/MoneyLabel")
 	var supplies_container = get_node("Body/Mid/Content/SuppliesContainer")
-	var simulation_node = get_node("Body/Mid/Content/OverviewContainer")
+	var simulation_node = get_node("Body/Mid/Content/StartGameContainer")
 	var random_event = get_node("Body/Mid/Content/RandomEventContainer")
 	#var end_screen = get_node("Body/Mid/Content/EndScreen")
 	#var random_event = get_node("Body/Mid/Content/RandomEventContainer")

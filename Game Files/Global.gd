@@ -3,15 +3,8 @@ extends Node
 signal changed
 """
 Needs to contain information to be shared amongst many scenes.
-Ingridient Items are something that needs to be shared between the
+Ingredient Items are something that needs to be shared between the
 supply scene and the lemonade scene.
-
-Add buffs to the products too, so we can display them
-
-
-Probably need to save a 'recipe' as a string? to display on the overview page
-
-Handle the buffs here to share across many scenes, get updated by those scenes.
 """
 # Ingredient objects
 var IngredientItem = preload("res://src/Main/Pages/SuppliesScenes/IngredientItemClass.gd")
@@ -40,6 +33,15 @@ onready var process_sugar = IngredientItem.IngredientItem.new("sugar", "processe
 onready var cane_sugar = IngredientItem.IngredientItem.new("sugar", "cane sugar", 1, 0)
 onready var stevia = IngredientItem.IngredientItem.new("sugar", "stevia", 1, 0)
 onready var sugar_list = [process_sugar, cane_sugar, stevia]
+
+# Record player stats here in a dictionary
+# 
+onready var player_stats = {
+	"Money" : 0,
+	"Gallons": 0,
+	"Customers": 0,
+	"Choices": {}
+}
 
 ###########
 ## Money ##
