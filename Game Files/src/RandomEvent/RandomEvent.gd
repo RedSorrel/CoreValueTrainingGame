@@ -93,6 +93,7 @@ onready var be_friend_prompts = {
 		"res://assets/images/random_event_placeholder.jpg"],
 	2 : [
 		"Your younger cousin is struggling in a subject that you’re knowledgeable about.",
+		"Tutor them",
 		"It’s a struggle. You try to teach them the way you know how to solve the problem but it’s not clicking. So you try different ways of explaining the problem, acting it out, drawing it, and others. Finally, their eyes widen with understanding and they scribble down the answer. You double check it and cheer because the answer is right.  After a few more tutoring sessions, your cousin’s grade begins to rise. You treat them to ice cream when they get an A on their test.",
 		"Offer to do their homework for them.",
 		"Your cousin’s grade raises! But they get in trouble for slacking off in class because they feel they don’t need to pay attention since you’re doing the work anyway. They struggle in future classes because they didn’t learn the basics.",

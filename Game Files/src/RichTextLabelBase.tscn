@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/font/PTMono-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/font/Montserrat-Bold.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 1 )
+
+[node name="RichTextLabel" type="RichTextLabel"]
+margin_left = 495.0
+margin_right = 1366.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+custom_fonts/mono_font = SubResource( 2 )
+custom_fonts/bold_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 4 )
+scroll_active = false

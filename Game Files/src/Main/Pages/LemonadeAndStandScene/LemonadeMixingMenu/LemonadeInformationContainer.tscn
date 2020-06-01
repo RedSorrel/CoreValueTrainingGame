@@ -77,7 +77,7 @@ align = 1
 [node name="LemonadeIngredients" type="VBoxContainer" parent="SettingsContainer"]
 margin_top = 18.0
 margin_right = 681.0
-margin_bottom = 378.0
+margin_bottom = 433.0
 size_flags_horizontal = 3
 
 [node name="IngredientRatiosContainer" type="HBoxContainer" parent="SettingsContainer/LemonadeIngredients"]
@@ -181,18 +181,10 @@ text = "You don't have the required amount of ingredients!
 Change recipe, number of gallons, or ingredient"
 align = 1
 
-[node name="ButtonMixLemonade" type="Button" parent="SettingsContainer/LemonadeIngredients"]
-margin_left = 287.0
-margin_top = 312.0
-margin_right = 393.0
-margin_bottom = 332.0
-size_flags_horizontal = 4
-text = "Mix Lemonade"
-
 [node name="PriceAdjustContainer" type="HBoxContainer" parent="SettingsContainer/LemonadeIngredients"]
-margin_top = 336.0
+margin_top = 312.0
 margin_right = 681.0
-margin_bottom = 360.0
+margin_bottom = 336.0
 
 [node name="CurrentPriceLabel" type="Label" parent="SettingsContainer/LemonadeIngredients/PriceAdjustContainer"]
 margin_top = 5.0
@@ -212,7 +204,16 @@ margin_left = 329.0
 margin_right = 397.0
 margin_bottom = 24.0
 text = "Set price"
+
+[node name="ButtonMixLemonade" type="Button" parent="SettingsContainer/LemonadeIngredients"]
+margin_left = 240.0
+margin_top = 359.0
+margin_right = 440.0
+margin_bottom = 415.0
+rect_min_size = Vector2( 200, 75 )
+size_flags_horizontal = 4
+text = "Mix Lemonade"
 [connection signal="value_changed" from="SettingsContainer/LemonadeIngredients/HBoxContainer/Gallons" to="." method="_on_Gallons_value_changed"]
+[connection signal="pressed" from="SettingsContainer/LemonadeIngredients/PriceAdjustContainer/SetPriceButton" to="." method="_on_SetPriceButton_pressed"]
 [connection signal="pressed" from="SettingsContainer/LemonadeIngredients/ButtonMixLemonade" to="." method="_on_ButtonMixLemonade_pressed"]
 [connection signal="toggled" from="SettingsContainer/LemonadeIngredients/ButtonMixLemonade" to="." method="_on_ButtonMixLemonade_toggled"]
-[connection signal="pressed" from="SettingsContainer/LemonadeIngredients/PriceAdjustContainer/SetPriceButton" to="." method="_on_SetPriceButton_pressed"]

@@ -155,8 +155,12 @@ func run_sim() -> void:
 	#set_random_event_type("excellent")
 	emit_signal("get_location", "location 1")
 	set_day(week[day_counter])
-	if day_counter < 4:
+	## CHANGE THIS BACK TO 4
+	if day_counter < 2:
 		var num_customers = calculate_customers()
+		# Add this number to the total of customers served
+		# Displayed at the end of the game
+		Global.player_stats["Customers"] += num_customers
 		#revenue = num_customers * lemonade_price
 		set_revenue(num_customers * lemonade_price)
 		var cups = num_customers
@@ -164,7 +168,7 @@ func run_sim() -> void:
 		
 		# Add revenue to the wallet!
 		Global.money.set_money(Global.money.get_money() + get_revenue())
-	
+		Global.player_stats["Money"] += get_revenue()
 	
 		#End of sim
 		#Pop up of end of Day Overview

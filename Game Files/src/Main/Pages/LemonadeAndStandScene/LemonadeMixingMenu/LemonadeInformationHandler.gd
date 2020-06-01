@@ -145,7 +145,9 @@ func _on_ButtonMixLemonade_pressed():
 		i.update_quantity_text()
 		
 	subtract_items(Global.cup_list[0], gallon_node.value)
-		
+	
+	# Add Gallons to player stats
+	Global.player_stats["Gallons"] = gallon_node.value
 
 	# Lock the ability to change the recipe
 	# Player can make more lemonade, but is restricted to this recipe only

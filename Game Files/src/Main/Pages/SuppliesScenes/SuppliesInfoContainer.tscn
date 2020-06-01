@@ -51,7 +51,7 @@ margin_bottom = 260.0
 margin_top = 320.0
 margin_right = 1366.0
 margin_bottom = 334.0
-text = "The total cost of these items is: $999.00"
+text = "The total cost of these items is: $0.00"
 
 [node name="Button" type="Button" parent="."]
 margin_left = 633.0
