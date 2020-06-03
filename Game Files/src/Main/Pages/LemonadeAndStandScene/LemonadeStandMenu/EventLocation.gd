@@ -32,8 +32,6 @@ func _on_LocationDropdown_item_selected(id):
 	
 func _is_location_the_same(event_location: String) -> bool:
 	if location_current == event_location:
-		print("location is the same!")
 		return true
 	else:
-		print("Location is not the same")
 		return false

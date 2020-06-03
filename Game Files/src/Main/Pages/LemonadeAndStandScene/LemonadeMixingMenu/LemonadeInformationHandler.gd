@@ -18,8 +18,8 @@ onready var ratios = [ratio_water, ratio_lemon, ratio_sugar]
 onready var item_water = get_node("SettingsContainer/LemonadeIngredients/IngredientSource/SourceWater")
 onready var item_lemon = get_node("SettingsContainer/LemonadeIngredients/IngredientSource/SourceLemon")
 onready var item_sugar = get_node("SettingsContainer/LemonadeIngredients/IngredientSource/SourceSugar")
-onready var items = [item_water, item_lemon, item_sugar]
 
+onready var items = [item_water, item_lemon, item_sugar]
 onready var gallon_node = get_node("SettingsContainer/LemonadeIngredients/HBoxContainer/Gallons")
 onready var lemonade_price = 1.00 setget set_price, get_price
 onready var current_price_label = get_node("SettingsContainer/LemonadeIngredients/PriceAdjustContainer/CurrentPriceLabel")
@@ -140,14 +140,11 @@ func _on_ButtonMixLemonade_pressed():
 	# Deduct (multiplier) many items from the quantity from each item
 	# and update the string to display the changes immediately
 	for i in items:
-		print(i.source_options.get_selected_id())
 		subtract_items(i.product_list[i.source_options.get_selected_id()], i.get_multiplier())
 		i.update_quantity_text()
-		
-	subtract_items(Global.cup_list[0], gallon_node.value)
 	
 	# Add Gallons to player stats
-	Global.player_stats["Gallons"] = gallon_node.value
+	Global.player_stats["Gallons"] += gallon_node.value
 
 	# Lock the ability to change the recipe
 	# Player can make more lemonade, but is restricted to this recipe only
@@ -163,8 +160,7 @@ func _on_ButtonMixLemonade_pressed():
 	
 
 
-func subtract_items(item, multiplier) -> void :
-	print("item subtracted")
+func subtract_items(item, multiplier) -> void:
 	item.set_quantity(item.get_quantity() - multiplier)
 	
 func alert_player_cup_limit() -> void:
@@ -178,7 +174,6 @@ func alert_player_cup_limit() -> void:
 	var sum_cups = 0
 	
 	sum_cups = Global.cup_list[0].get_quantity()
-	print(sum_cups)
 	
 	#GALLONS TO CUPS 16 cups to a gallon, a comparison
 	var gallons_to_cups = (gallon_node.value + gallons_of_lemonade)* 16

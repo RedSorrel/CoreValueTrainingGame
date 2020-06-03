@@ -1,7 +1,6 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/Main/ConnectorHandler.gd" type="Script" id=1]
-[ext_resource path="res://src/Stats.gd" type="Script" id=2]
 [ext_resource path="res://src/Main/Tabs/TabSwitcher.gd" type="Script" id=3]
 [ext_resource path="res://src/Main/Pages/LemonadeAndStandScene/LemonadeAndStandContainer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Main/Pages/Overview/OverviewContainer.tscn" type="PackedScene" id=5]
@@ -10,6 +9,16 @@
 [ext_resource path="res://src/DailyOverview/DailyOverview.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/Main/MoneyLabel.gd" type="Script" id=9]
 [ext_resource path="res://src/EndScreen/EndScreen.tscn" type="PackedScene" id=10]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node
+
+\"\"\"
+This node will collect each day's stats
+and send them to the end of day screen
+and Overview Tab
+\"\"\"
+"
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -156,7 +165,7 @@ toggle_mode = true
 text = "Start Serving"
 
 [node name="Stats" type="Node" parent="."]
-script = ExtResource( 2 )
+script = SubResource( 1 )
 [connection signal="pressed" from="TabsOnSide/Body/Mid/TabButtonContainer/Lemonade" to="TabsOnSide/Body/Mid" method="_on_Lemonade_pressed"]
 [connection signal="pressed" from="TabsOnSide/Body/Mid/TabButtonContainer/Supplies" to="TabsOnSide/Body/Mid" method="_on_Supplies_pressed"]
 [connection signal="pressed" from="TabsOnSide/Body/Mid/TabButtonContainer/Overview" to="TabsOnSide/Body/Mid" method="_on_Overview_pressed"]

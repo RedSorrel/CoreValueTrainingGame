@@ -42,4 +42,7 @@ func _ready():
 	
 	# When the simulation runs, reset the gallons displayed in the lemonade stand scene (where it shows total gallons made for that day)
 	simulation_node.connect("simulation_resets_gallons", lemonade_container, "_on_Simulation_resets_gallons")
+	
+	#When the simulation runs, use up the cups and update the "currently have" string in the store
+	simulation_node.connect("simulation_uses_cups", supplies_container, "_on_Cups_used")
 	pass

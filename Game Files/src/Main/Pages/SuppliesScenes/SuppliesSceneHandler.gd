@@ -38,10 +38,6 @@ func _ready() -> void:
 	get_node("GridContainer/LemonProductContainer").connect("quantity_changed", get_node("."), "update_total_string")
 	get_node("GridContainer/WaterProductContainer").connect("quantity_changed", get_node("."), "update_total_string")
 	get_node("GridContainer/SugarProductContainer").connect("quantity_changed", get_node("."), "update_total_string")
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
-
 
 func _on_Button_pressed() -> void:
 	purchase_items()
@@ -104,7 +100,6 @@ func purchase_items() -> void:
 				
 	# Deduct money from wallet
 	Global.money.set_money(Global.money.get_money() - calculate_total())
-	print(Global.money.get_money())
 	
 
 func calculate_total() -> int:
@@ -119,7 +114,6 @@ func update_total_string() -> void:
 	# disable the button and turn the color red if cost is greater
 	# otherwise enable the purchase button
 	if total > Global.money.get_money():
-		print("costs too much")
 		purchase_btn.disabled = true
 		cost_label.add_color_override("font_color", Color(1, 0, 0, 1))
 	else:

@@ -80,7 +80,6 @@ func _ready() -> void:
 func get_bonus_recipe_rand() -> void:
 	# Randomly generate a recipe
 	# Get bonus customers if you have it
-	print(Global.recipe)
 	var rng = RandomNumberGenerator.new()
 		
 	for i in recipe_descriptors.size():
@@ -146,8 +145,9 @@ func calculate_customers() -> int:
 	# multiply by 10? and get that many customers
 	base_num += (10 * good_bad_points[0]) - (10 * good_bad_points[1])
 	
-	# Add a few based on
-	return base_num + event + weather
+	# Limit to how many cups the player has, can't serve if we don't have cups!
+	var total = int(min(base_num + event + weather, Global.cup_list[0].get_quantity()))
+	return total
 	
 
 func run_sim() -> void:
@@ -156,6 +156,7 @@ func run_sim() -> void:
 	emit_signal("get_location", "location 1")
 	set_day(week[day_counter])
 	emit_signal("simulation_resets_gallons")
+
 	## CHANGE THIS BACK TO 4
 	if day_counter < 4:
 		var num_customers = calculate_customers()
@@ -164,13 +165,13 @@ func run_sim() -> void:
 		Global.player_stats["Customers"] += num_customers
 		#revenue = num_customers * lemonade_price
 		set_revenue(num_customers * lemonade_price)
-		var cups = num_customers
-		
 		
 		# Add revenue to the wallet!
 		Global.money.set_money(Global.money.get_money() + get_revenue())
 		Global.player_stats["Money"] += get_revenue()
-	
+		
+		# Reset cup quantity to 0 or cups - num_customers if there are more cups than people
+		Global.cup_list[0].set_quantity((Global.cup_list[0] - num_customers) if Global.cup_list[0].get_quantity() > num_customers else 0)
 		#End of sim
 		#Pop up of end of Day Overview
 		#	How much money was made, customers served

@@ -50,7 +50,6 @@ func option_toggle(multiplier) -> void:
 	# player shouldn't be able to use items that they don't have enough of
 	# multiplier will be based on number of gallons selected and the ratio
 	# of each item (Watery = 3x water choice * num gallons)
-	print("DD")
 	for i in range(0, product_list.size()):
 		if product_list[i].get_quantity() < multiplier:
 			source_options.set_item_disabled(i, true)

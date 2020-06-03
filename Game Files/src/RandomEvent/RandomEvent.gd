@@ -130,7 +130,6 @@ onready var rng = RandomNumberGenerator.new()
 onready var rand 
 
 func _ready():
-	print("randoready")
 	pass # Replace with function body.
 
 
@@ -247,4 +246,4 @@ func record_player_choice(prompt, choice, result) -> void:
 	var index = Global.player_stats["Choices"].size()
 	Global.player_stats["Choices"]["Day_" + str(index)] = [prompt, choice.text, result]
 
-	print(Global.player_stats.Choices)
+	
