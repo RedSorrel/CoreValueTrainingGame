@@ -1,0 +1,118 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/font/PTMono-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/font/Montserrat-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/font/Comfortaa-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/images/pitcher.jpg" type="Texture" id=4]
+[ext_resource path="res://src/StartScreen/Buttons/NewGameButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/StartScreen/Buttons/OptionsButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/RichTextLabelBase.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/StartScreen/Buttons/NewGame.gd" type="Script" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 100
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+font_data = ExtResource( 3 )
+
+[node name="start_screen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.176471, 0.176471, 0.176471, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menu" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="logo" type="ColorRect" parent="menu"]
+visible = false
+margin_right = 1126.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 1126, 100 )
+
+[node name="RichTextLabel" parent="menu" instance=ExtResource( 7 )]
+margin_left = 0.0
+margin_bottom = 301.0
+size_flags_horizontal = 5
+size_flags_vertical = 3
+custom_fonts/mono_font = SubResource( 1 )
+custom_fonts/bold_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+bbcode_text = "[center][b]Core Value Game[/b][/center]"
+text = "Core Value Game"
+
+[node name="center_row" type="HBoxContainer" parent="menu"]
+margin_top = 305.0
+margin_right = 1366.0
+margin_bottom = 705.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="buttons" type="VBoxContainer" parent="menu/center_row"]
+margin_right = 681.0
+margin_bottom = 400.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 61
+alignment = 1
+
+[node name="New Game Button" parent="menu/center_row/buttons" instance=ExtResource( 5 )]
+margin_top = 175.0
+margin_right = 681.0
+margin_bottom = 225.0
+custom_colors/font_color_hover = Color( 0.878431, 0.878431, 0.878431, 1 )
+script = ExtResource( 8 )
+
+[node name="Options Button" parent="menu/center_row/buttons" instance=ExtResource( 6 )]
+visible = false
+margin_top = 251.0
+margin_right = 561.0
+margin_bottom = 301.0
+
+[node name="CenterContainer" type="CenterContainer" parent="menu/center_row"]
+margin_left = 685.0
+margin_right = 1366.0
+margin_bottom = 400.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Image" type="TextureRect" parent="menu/center_row/CenterContainer"]
+margin_left = 140.0
+margin_right = 540.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 400, 400 )
+texture = ExtResource( 4 )
+expand = true
+
+[node name="version_label" type="Label" parent="menu"]
+margin_top = 709.0
+margin_right = 1366.0
+margin_bottom = 768.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+custom_fonts/font = SubResource( 4 )
+text = "Version 0.0
+Awesome Inc"
+[connection signal="pressed" from="menu/center_row/buttons/New Game Button" to="menu/center_row/buttons/New Game Button" method="_on_New_Game_Button_pressed"]

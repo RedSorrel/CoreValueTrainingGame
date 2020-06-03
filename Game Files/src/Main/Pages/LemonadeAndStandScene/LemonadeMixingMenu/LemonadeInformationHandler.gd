@@ -192,3 +192,15 @@ func alert_player_cup_limit() -> void:
 		# show the alert 
 		exeeds_cup_label.add_color_override("font_color", Color(1, .5, .5))
 		exeeds_cup_label.visible = true
+		
+func _on_Simulation_resets_gallons() -> void:
+	# Reset the current number of gallons made when simulation runs
+	# Update the string that details how many gallons are currently made
+	gallons_of_lemonade = 0
+	alert_label.set_text("")
+	alert_label.append_bbcode("You currently have " + str(gallons_of_lemonade)+ " gallons of lemonade made.\n To make this amount:\n[b]" + str(ratio_water.get_ratio_multiplier() * gallon_node.value) + " water(s) \n" + str(ratio_lemon.get_ratio_multiplier() * gallon_node.value) + " lemon(s)\n" + str(ratio_sugar.get_ratio_multiplier() * gallon_node.value) + " sugar(s)[/b]\n will be used.")
+
+	
+	
+func _on_LemonadeContainer_visibility_changed():
+	pass # Replace with function body.

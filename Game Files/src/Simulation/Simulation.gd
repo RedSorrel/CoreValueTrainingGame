@@ -4,7 +4,7 @@ signal money_changed(value)
 signal week_ends
 signal random_event_set(value)
 signal beats
-
+signal simulation_resets_gallons
 # Location Signal
 signal get_location(value)
 """
@@ -155,8 +155,9 @@ func run_sim() -> void:
 	#set_random_event_type("excellent")
 	emit_signal("get_location", "location 1")
 	set_day(week[day_counter])
+	emit_signal("simulation_resets_gallons")
 	## CHANGE THIS BACK TO 4
-	if day_counter < 2:
+	if day_counter < 4:
 		var num_customers = calculate_customers()
 		# Add this number to the total of customers served
 		# Displayed at the end of the game
@@ -174,8 +175,11 @@ func run_sim() -> void:
 		#Pop up of end of Day Overview
 		#	How much money was made, customers served
 		
+		#reset gallons in lemonade mix to 0
+		
 		#pop up menu for random event
 		#print("Counter = %d"  % day_counter)
+		
 	else:
 		# Run end of game
 		# Display End game screen
