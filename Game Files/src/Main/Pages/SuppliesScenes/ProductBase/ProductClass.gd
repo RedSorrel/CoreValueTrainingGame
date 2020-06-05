@@ -12,17 +12,14 @@ onready var subtotal = 0 setget , get_subtotal
 onready var sub_price = 0
 onready var image: TextureRect = get_node("TextureRect")
 onready var img_array = ["res://assets/images/random_event_wallet.jpg"]
-# Called when the node enters the scene tree for the first time.
 onready var dummyIng = Global.IngredientItem.IngredientItem.new("dummy", "dummy", 0, 0)
 
 func _ready() -> void:
-	#var supply_info_cont = get_node("res://scenes/First Day/SuppliesScenes/SuppliesSceneHandler.gd")
-	#supply_info_cont.connect("my_signal", self, "calculate_subtotal")
+	
 	if not product_list == null:
 		Global.populate_option_box(product_list, option_box)
 	
 func populate_option_box() -> void:
-	# option_box.additem("Item Name")
 	for product in product_list:
 		option_box.add_item(product.get_subtype().capitalize())
 	current_quantity.text = "Currently own %s" % product_list[0].get_quantity()
@@ -38,7 +35,9 @@ func _on_SourceOptions_item_selected(id: int) -> void:
 			price_label.text = "Cost $%s / unit" % sub_price
 			current_quantity.text = "Currently own %s" % product.get_quantity()
 	
+	# Show product image
 	display_image(img_array, id)
+	
 	# Update total price with price of newly selected item
 	# and current quantity
 	# Send it to supply info container to handle the total string

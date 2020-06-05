@@ -5,6 +5,7 @@ extends HBoxContainer
 # If the player sets up there, then they get more customers
 # otherwise they don't get a bonus
 
+# NOT IMPLEMENTED or at least not fully implemented
 
 onready var locations = ["location 1", "location 2", "location 3"]
 onready var location_dropdown = get_node("SettingsContainer/HBoxContainer/LocationDropdown")

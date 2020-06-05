@@ -27,7 +27,7 @@ onready var ratio_multiplier setget set_ratio_multiplier, get_ratio_multiplier
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#Fill the option boxes with their descriptions
+	# Fill the option boxes with their descriptions
 	populate_ratio_boxes()
 	
 	#Set the recipe_string to the first description of everything at the start
@@ -52,7 +52,7 @@ func _on_RatioDescription_item_selected(id):
 	# When a different item is selected
 	# update the recipe string
 	Global.recipe[label_text] = ratio_desc.get_item_text(id)
-	#call a func here to update the description string in lemonade view
+	# call a func here to update the description string in lemonade view
 	set_ratio_multiplier(id)
 	emit_signal("selected")
 	

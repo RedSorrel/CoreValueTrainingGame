@@ -2,7 +2,6 @@ extends HBoxContainer
 
 signal price_changed(value)
 
-onready var MAX_GALLONS = 5
 onready var recipe_string
 onready var lemonade_desc = get_node("VBoxContainer/Panel/LemonadeDesc")
 onready var alert_label = get_node("SettingsContainer/LemonadeIngredients/AlertLabel")
@@ -38,8 +37,6 @@ func _ready():
 	ratio_lemon.connect("selected", item_lemon, "call_option_toggle")
 	ratio_sugar.connect("selected", item_sugar, "call_option_toggle")
 	
-
-	#ratio_water.connect("change_consume_multiplier", get_node("."), "update_consume_multiplier")
 	update_general()
 	set_multipliers(gallon_node.value)
 
@@ -84,8 +81,6 @@ func update_general() -> void:
 			not_enough_label.visible = false
 	
 func update_alert_label() -> void:
-	#alert_label.text = "You currently have " + str(gallons_of_lemonade)+ " gallons of lemonade made.\n To make this amount\n" + str(ratio_water.get_ratio_multiplier() * gallon_node.value) + " water(s) \n" + str(ratio_lemon.get_ratio_multiplier() * gallon_node.value) + " lemon(s)\n" + str(ratio_sugar.get_ratio_multiplier() * gallon_node.value) + " sugar(s)\n will be used."
-	#alert_label.set_text("You currently have " + str(gallons_of_lemonade)+ " gallons of lemonade made.\n To make this amount\n" + str(ratio_water.get_ratio_multiplier() * gallon_node.value) + " water(s) \n" + str(ratio_lemon.get_ratio_multiplier() * gallon_node.value) + " lemon(s)\n" + str(ratio_sugar.get_ratio_multiplier() * gallon_node.value) + " sugar(s)\n will be used.")
 	
 	# clear the text, it's a richtext label and in order to use BBCode
 	# we need to use .append_bbcode so it can parse bbcode (other methods won't do this or will give errors)
@@ -94,6 +89,8 @@ func update_alert_label() -> void:
 	# see RichTextLabel documentation for more info
 	alert_label.text = "" 
 	alert_label.append_bbcode("You currently have " + str(gallons_of_lemonade)+ " gallons of lemonade made.\n To make this amount:\n[b]" + str(ratio_water.get_ratio_multiplier() * gallon_node.value) + " water(s) \n" + str(ratio_lemon.get_ratio_multiplier() * gallon_node.value) + " lemon(s)\n" + str(ratio_sugar.get_ratio_multiplier() * gallon_node.value) + " sugar(s)[/b]\n will be used.")
+	
+	
 func set_multipliers(gallons) -> void:
 	# update the multipliers in case anything has changed
 	for i in range(0, ratios.size()):
@@ -135,7 +132,7 @@ func _on_ButtonMixLemonade_pressed():
 	# I.e. they have enough resources to make this lemonade
 	# Save the amount of lemonade made to a variable
 	# print(item_water.product_list[0].get_quantity())
-	# item_water.product_list[0].set_quantity(item_water.prduct_list[0].get_quantity() - item_water.get_multiplier())
+	# item_water.product_list[0].set_quantity(item_water.product_list[0].get_quantity() - item_water.get_multiplier())
 	
 	# Deduct (multiplier) many items from the quantity from each item
 	# and update the string to display the changes immediately
@@ -187,6 +184,7 @@ func alert_player_cup_limit() -> void:
 		# show the alert 
 		exeeds_cup_label.add_color_override("font_color", Color(1, .5, .5))
 		exeeds_cup_label.visible = true
+		
 		
 func _on_Simulation_resets_gallons() -> void:
 	# Reset the current number of gallons made when simulation runs

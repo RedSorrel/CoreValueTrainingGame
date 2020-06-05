@@ -5,7 +5,7 @@ onready var product_list setget set_list, get_list
 onready var label = get_node("Label")
 onready var source_options = get_node("SourceOptions")
 onready var quantity = get_node("CurrentQuantity")
-onready var buffs = get_node("Buffs")
+#onready var buffs = get_node("Buffs")
 onready var multiplier = 1
 # Goal: To extend the source item class to run most everything
 # and the children classes pass an array value to it
@@ -60,7 +60,6 @@ func child_ready(product_list) -> void:
 	# consolidate functions that will be called in children scripts
 	# into one and just pass the product_list argument down
 	set_source_components(product_list)
-	#option_toggle(Global.get_multiplier())
 	option_toggle(self.multiplier)
 
 
